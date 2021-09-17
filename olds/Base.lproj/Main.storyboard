@@ -14,12 +14,12 @@
         <!--Álbuns-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AlbumGridViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6hT-Ju-Jln">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6hT-Ju-Jln">
                                 <rect key="frame" x="32" y="118" width="756" height="32"/>
                                 <segments>
                                     <segment title="Todos"/>
@@ -28,6 +28,7 @@
                                     <segment title="Eventos"/>
                                     <segment title="Outros"/>
                                 </segments>
+                                <color key="tintColor" name="ActionColorButton"/>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-pI-1ts">
                                 <rect key="frame" x="20" y="165" width="780" height="950"/>
@@ -46,11 +47,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="248" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nOC-cy-q4I">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blueAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="nOC-cy-q4I">
                                                     <rect key="frame" x="7" y="3" width="233" height="294"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFb-AM-ab1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome do Álbum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFb-AM-ab1">
                                                     <rect key="frame" x="8" y="305" width="232" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -76,25 +77,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Álbuns" id="1hS-S3-OHH">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="xb7-P2-i1p">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pLW-MD-yNL">
-                                <rect key="frame" x="20" y="10" width="182" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="Editar Álbuns">
-                                    <color key="titleColor" systemColor="systemBlueColor"/>
-                                </state>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Editar Álbum" style="plain" id="xb7-P2-i1p">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="fEZ-PI-TQx">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="6bB-UI-yvN">
-                                <rect key="frame" x="618" y="10" width="182" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="Adicionar Álbum"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Novo Álbum" style="plain" id="fEZ-PI-TQx">
+                            <color key="tintColor" name="ActionColorButton"/>
                             <connections>
-                                <segue destination="Ry4-HM-bip" kind="show" id="UR8-eB-Gre"/>
+                                <segue destination="Ry4-HM-bip" kind="show" id="htE-kr-EOp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -106,7 +95,7 @@
         <!--Novo Álbum-->
         <scene sceneID="4Ga-BX-dhN">
             <objects>
-                <viewController id="Ry4-HM-bip" sceneMemberID="viewController">
+                <viewController id="Ry4-HM-bip" customClass="NewAlbumViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="81Y-a3-hQ3">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,42 +115,47 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upr-Ga-fMi">
                                         <rect key="frame" x="28" y="28" width="223" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" backgroundImage="blueAlbum"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fca-YG-eUa">
                                         <rect key="frame" x="286" y="28" width="223" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" backgroundImage="brownAlbum"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxN-lU-Oih">
                                         <rect key="frame" x="28" y="358" width="223" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" backgroundImage="greenAlbum"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlh-kU-VAi">
                                         <rect key="frame" x="286" y="358" width="223" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" backgroundImage="redAlbum"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvL-qg-U7b">
-                                        <rect key="frame" x="116" y="320" width="46" height="30"/>
+                                        <rect key="frame" x="111" y="320" width="57" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Pessoas">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbR-Kf-rD2">
-                                        <rect key="frame" x="374" y="320" width="46" height="30"/>
+                                        <rect key="frame" x="371" y="320" width="52" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Viagem"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wG-kO-jHI">
-                                        <rect key="frame" x="116" y="647" width="46" height="30"/>
+                                        <rect key="frame" x="112" y="647" width="55" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Eventos"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDs-kI-4AY">
-                                        <rect key="frame" x="374" y="647" width="46" height="30"/>
+                                        <rect key="frame" x="374" y="647" width="47" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Outros"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -179,22 +173,293 @@
                             <constraint firstItem="Mci-45-dWs" firstAttribute="trailing" secondItem="hIb-sq-0C7" secondAttribute="trailing" constant="140" id="PJu-BD-rSD"/>
                             <constraint firstItem="hIb-sq-0C7" firstAttribute="leading" secondItem="Mci-45-dWs" secondAttribute="leading" constant="140" id="dba-Dg-0TJ"/>
                             <constraint firstItem="sP7-iD-6Ko" firstAttribute="top" secondItem="hIb-sq-0C7" secondAttribute="bottom" constant="32" id="fsK-3y-ocU"/>
+                            <constraint firstItem="sP7-iD-6Ko" firstAttribute="centerX" secondItem="Mci-45-dWs" secondAttribute="centerX" id="gNw-Tc-1DE"/>
                             <constraint firstItem="hIb-sq-0C7" firstAttribute="top" secondItem="Mci-45-dWs" secondAttribute="top" constant="32" id="kir-bp-ndH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Novo Álbum" id="OOK-bt-1He">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="OQr-Sk-wH8">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="SbU-IX-HXh">
-                                <rect key="frame" x="618" y="10" width="182" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Criar Álbum"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Criar Álbum" style="plain" id="OQr-Sk-wH8">
+                            <color key="tintColor" name="ActionColorButton"/>
+                            <connections>
+                                <segue destination="LBC-EF-CYN" kind="show" id="Fjy-ID-eqk"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RfI-Rc-A2G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2327.560975609756" y="93.559322033898312"/>
+            <point key="canvasLocation" x="2295" y="94"/>
+        </scene>
+        <!--Nome Álbum-->
+        <scene sceneID="LSQ-GJ-58N">
+            <objects>
+                <viewController id="LBC-EF-CYN" customClass="AlbumViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eoF-sy-hTJ">
+                        <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-XS-jH4">
+                                <rect key="frame" x="139.5" y="190" width="541" height="685.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="541" id="84e-oE-IBE"/>
+                                    <constraint firstAttribute="height" constant="685.5" id="9pI-RN-bcM"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-1c-OrD">
+                                <rect key="frame" x="340" y="963.5" width="140" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="tintColor" name="ActionColorButton"/>
+                                <state key="normal" title=" Nova Página">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large" renderingMode="template"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0eS-qe-iFi" kind="show" id="qc0-WR-kBH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfD-i4-KTr">
+                                <rect key="frame" x="730.5" y="553" width="39.5" height="24"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <color key="tintColor" name="ActionColorButton"/>
+                                <state key="normal">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <imageReference key="image" image="arrow.right.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próxima Página" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-ST-dSt">
+                                <rect key="frame" x="712.5" y="585" width="76.5" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="qid-PE-M4p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ekH-Fu-oRx"/>
+                        <color key="backgroundColor" name="BackgroundColorPaper"/>
+                        <constraints>
+                            <constraint firstItem="ekH-Fu-oRx" firstAttribute="trailing" secondItem="qfD-i4-KTr" secondAttribute="trailing" constant="50" id="5JL-id-fgB"/>
+                            <constraint firstItem="ekH-Fu-oRx" firstAttribute="trailing" secondItem="Hpf-ST-dSt" secondAttribute="trailing" constant="31" id="NHM-aW-R1W"/>
+                            <constraint firstItem="Lf8-1c-OrD" firstAttribute="leading" secondItem="ekH-Fu-oRx" secondAttribute="leading" constant="340" id="Ou6-Pf-3Zp"/>
+                            <constraint firstItem="qfD-i4-KTr" firstAttribute="centerY" secondItem="ekH-Fu-oRx" secondAttribute="centerY" constant="-43.5" id="Stg-Q6-qhS"/>
+                            <constraint firstItem="Lf8-1c-OrD" firstAttribute="top" secondItem="nlH-XS-jH4" secondAttribute="bottom" constant="88" id="TDW-lC-1NG"/>
+                            <constraint firstItem="Hpf-ST-dSt" firstAttribute="leading" secondItem="nlH-XS-jH4" secondAttribute="trailing" constant="32" id="ari-7S-WDg"/>
+                            <constraint firstItem="nlH-XS-jH4" firstAttribute="centerX" secondItem="ekH-Fu-oRx" secondAttribute="centerX" id="bwV-5f-yvf"/>
+                            <constraint firstItem="nlH-XS-jH4" firstAttribute="top" secondItem="ekH-Fu-oRx" secondAttribute="top" constant="88" id="gpp-sc-RJ1"/>
+                            <constraint firstItem="Hpf-ST-dSt" firstAttribute="top" secondItem="qfD-i4-KTr" secondAttribute="bottom" constant="8" id="pFX-0U-R0Z"/>
+                            <constraint firstItem="qfD-i4-KTr" firstAttribute="leading" secondItem="nlH-XS-jH4" secondAttribute="trailing" constant="50" id="pkZ-7G-0Hs"/>
+                            <constraint firstItem="ekH-Fu-oRx" firstAttribute="trailing" secondItem="Lf8-1c-OrD" secondAttribute="trailing" constant="340" id="pyW-Mf-pEu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nome Álbum" id="GYZ-yG-30A">
+                        <barButtonItem key="leftBarButtonItem" title="Álbuns" style="plain" id="K59-VE-lyO">
+                            <color key="tintColor" name="ActionColorButton"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Compartilhar" style="plain" id="Zjr-Of-Dly">
+                            <color key="tintColor" name="ActionColorButton"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5M-7k-d7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3085.6097560975609" y="93.559322033898312"/>
+        </scene>
+        <!--Nova Página-->
+        <scene sceneID="ZdE-ew-IfK">
+            <objects>
+                <viewController title="Nova Página" id="0eS-qe-iFi" customClass="NewPageViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZS6-Gf-dQv">
+                        <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-43-W0s">
+                                <rect key="frame" x="150" y="278" width="520" height="720"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="720" id="Tfs-EX-r1a"/>
+                                    <constraint firstAttribute="width" constant="520" id="jjv-wY-hnx"/>
+                                </constraints>
+                            </imageView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-pL-5TP">
+                                <rect key="frame" x="154" y="158" width="512" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="512" id="6AF-je-A9z"/>
+                                    <constraint firstAttribute="height" constant="88" id="cDn-y2-Lfx"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="pt_BR"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira a data da foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwY-en-o5y">
+                                <rect key="frame" x="320" y="118" width="180" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="YXv-ij-rqs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-aE-WCz">
+                                <rect key="frame" x="341" y="1030" width="138" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="tintColor" name="ActionColorButton"/>
+                                <state key="normal" title=" Gravar Áudio">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <imageReference key="image" image="mic.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-yp-mhh">
+                                <rect key="frame" x="186.5" y="924" width="447" height="35"/>
+                                <color key="backgroundColor" name="transparent"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="447" id="Pr3-DO-3hY"/>
+                                    <constraint firstAttribute="height" constant="35" id="mRQ-z9-8qI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="tintColor" name="ActionColorButton"/>
+                                <state key="normal" title=" Adicionar Foto" image="plus.circle" catalog="system">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h9d-fs-4En"/>
+                        <color key="backgroundColor" name="BackgroundColorPaper"/>
+                        <constraints>
+                            <constraint firstItem="yeA-43-W0s" firstAttribute="leading" secondItem="h9d-fs-4En" secondAttribute="leading" constant="150" id="ASM-vU-Opv"/>
+                            <constraint firstItem="AwY-en-o5y" firstAttribute="top" secondItem="h9d-fs-4En" secondAttribute="top" constant="16" id="IqC-be-OvY"/>
+                            <constraint firstItem="yeA-43-W0s" firstAttribute="top" secondItem="fKz-pL-5TP" secondAttribute="bottom" constant="32" id="JJe-XE-ofS"/>
+                            <constraint firstItem="h9d-fs-4En" firstAttribute="trailing" secondItem="AwY-en-o5y" secondAttribute="trailing" constant="320" id="Rpk-kf-IKb"/>
+                            <constraint firstItem="ehx-aE-WCz" firstAttribute="top" secondItem="gEf-yp-mhh" secondAttribute="bottom" constant="71" id="dsU-Il-wxC"/>
+                            <constraint firstItem="AwY-en-o5y" firstAttribute="leading" secondItem="h9d-fs-4En" secondAttribute="leading" constant="320" id="hxD-ZS-NEB"/>
+                            <constraint firstItem="yeA-43-W0s" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="k2T-mx-mXC"/>
+                            <constraint firstItem="h9d-fs-4En" firstAttribute="trailing" secondItem="yeA-43-W0s" secondAttribute="trailing" constant="150" id="kbT-1J-ydh"/>
+                            <constraint firstItem="ehx-aE-WCz" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="nE0-Hf-8aK"/>
+                            <constraint firstItem="ehx-aE-WCz" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="32" id="ogz-0c-GXh"/>
+                            <constraint firstItem="gEf-yp-mhh" firstAttribute="centerX" secondItem="ehx-aE-WCz" secondAttribute="centerX" id="plU-17-K0R"/>
+                            <constraint firstItem="fKz-pL-5TP" firstAttribute="top" secondItem="AwY-en-o5y" secondAttribute="bottom" constant="16" id="tHx-5g-a0b"/>
+                            <constraint firstItem="fKz-pL-5TP" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="xEV-s5-BYt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nova Página" id="tTw-Mf-ciM">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" style="plain" id="461-lb-nNl">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" style="plain" id="7fg-7b-5ls">
+                            <color key="tintColor" name="ActionColorButton"/>
+                            <connections>
+                                <segue destination="wDx-Zd-ydE" kind="show" id="UcJ-FO-ca1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="INs-eC-CpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3850.9756097560976" y="93.559322033898312"/>
+        </scene>
+        <!--Data Página-->
+        <scene sceneID="qiQ-LF-RJh">
+            <objects>
+                <viewController id="wDx-Zd-ydE" customClass="PageViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nLT-jZ-idF">
+                        <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8c1-hY-3gA">
+                                <rect key="frame" x="728" y="596" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="UL9-k9-Fv1"/>
+                                    <constraint firstAttribute="height" constant="25" id="nNY-mi-Hul"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <color key="tintColor" name="ActionColorButton"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="arrow.right.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próxima Página" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feN-zQ-CoA">
+                                <rect key="frame" x="702.5" y="629" width="76" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ev5-ca-x4c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfn-LA-DDl">
+                                <rect key="frame" x="61" y="596" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="0w9-Je-oGu"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="eTb-Et-xkC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="sR5-qW-mCd"/>
+                                    <constraint firstAttribute="width" constant="25" id="unR-ub-Hxl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <color key="tintColor" name="ActionColorButton"/>
+                                <state key="normal">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <imageReference key="image" image="arrow.left.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Página Anterior" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AI-dc-ff2">
+                                <rect key="frame" x="31" y="629" width="92" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Hvl-Wd-FSw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-va-2qh">
+                                <rect key="frame" x="310" y="1036" width="200" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="tintColor" name="ActionColorButton"/>
+                                <state key="normal" title=" Reproduzir Áudio">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <imageReference key="image" image="play.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-pe-8WP">
+                                <rect key="frame" x="150" y="248.5" width="520" height="720"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="720" id="LCE-Dh-Vvu"/>
+                                    <constraint firstAttribute="width" constant="520" id="OlA-to-ZgI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RES-Ky-Akn"/>
+                        <color key="backgroundColor" name="BackgroundColorPaper"/>
+                        <constraints>
+                            <constraint firstItem="8c1-hY-3gA" firstAttribute="top" secondItem="RES-Ky-Akn" secondAttribute="top" constant="494" id="0dz-ey-RAk"/>
+                            <constraint firstItem="2AI-dc-ff2" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" constant="31" id="3Ap-Et-7eE"/>
+                            <constraint firstItem="IKb-pe-8WP" firstAttribute="leading" secondItem="2AI-dc-ff2" secondAttribute="trailing" constant="27" id="3Zs-eP-e7S"/>
+                            <constraint firstItem="IKb-pe-8WP" firstAttribute="leading" secondItem="Tfn-LA-DDl" secondAttribute="trailing" constant="64" id="62H-eN-t92"/>
+                            <constraint firstItem="IKb-pe-8WP" firstAttribute="centerY" secondItem="RES-Ky-Akn" secondAttribute="centerY" id="6sV-fQ-icq"/>
+                            <constraint firstItem="Tfn-LA-DDl" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" constant="61" id="MPg-OH-9EQ"/>
+                            <constraint firstItem="RES-Ky-Akn" firstAttribute="trailing" secondItem="8c1-hY-3gA" secondAttribute="trailing" constant="67" id="TiK-ou-wIf"/>
+                            <constraint firstItem="feN-zQ-CoA" firstAttribute="leading" secondItem="IKb-pe-8WP" secondAttribute="trailing" constant="32.5" id="URX-gn-QAO"/>
+                            <constraint firstItem="hqp-va-2qh" firstAttribute="centerX" secondItem="RES-Ky-Akn" secondAttribute="centerX" id="enc-xE-ZE0"/>
+                            <constraint firstItem="RES-Ky-Akn" firstAttribute="trailing" secondItem="feN-zQ-CoA" secondAttribute="trailing" constant="41.5" id="epn-JW-OSY"/>
+                            <constraint firstItem="hqp-va-2qh" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" constant="310" id="gZK-nf-Nmi"/>
+                            <constraint firstItem="Tfn-LA-DDl" firstAttribute="top" secondItem="RES-Ky-Akn" secondAttribute="top" constant="494" id="l0X-t3-gdE"/>
+                            <constraint firstItem="Tfn-LA-DDl" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" constant="61" id="otv-VI-gBm"/>
+                            <constraint firstItem="2AI-dc-ff2" firstAttribute="top" secondItem="Tfn-LA-DDl" secondAttribute="bottom" constant="8" symbolic="YES" id="q5u-Go-J4z"/>
+                            <constraint firstItem="feN-zQ-CoA" firstAttribute="top" secondItem="8c1-hY-3gA" secondAttribute="bottom" constant="8" symbolic="YES" id="szA-sk-K7A"/>
+                            <constraint firstItem="RES-Ky-Akn" firstAttribute="bottom" secondItem="hqp-va-2qh" secondAttribute="bottom" constant="55" id="wJy-Qq-81t"/>
+                            <constraint firstItem="IKb-pe-8WP" firstAttribute="centerX" secondItem="RES-Ky-Akn" secondAttribute="centerX" id="x0z-S1-l1M"/>
+                            <constraint firstItem="8c1-hY-3gA" firstAttribute="leading" secondItem="IKb-pe-8WP" secondAttribute="trailing" constant="58" id="yYD-uh-e8b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Data Página" id="Lo7-OG-hUA">
+                        <barButtonItem key="leftBarButtonItem" title="Álbuns" style="plain" id="lUK-1M-ny9">
+                            <color key="tintColor" name="ActionColorButton"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Apagar" style="plain" id="mJJ-Hj-abK">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNr-Y9-crA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4601.707317073171" y="93.559322033898312"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="htN-eN-OF0">
@@ -203,8 +468,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0Z0-kV-4Uk"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B5T-o1-gU2">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="ActionColorButton"/>
+                        <color key="selectedImageTintColor" name="ActionColorButton"/>
                     </tabBar>
                     <connections>
                         <segue destination="dJA-e3-WCR" kind="relationship" relationship="viewControllers" id="yWZ-Hx-Qfv"/>
@@ -219,7 +487,9 @@
         <scene sceneID="6Xw-p5-8s5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dJA-e3-WCR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Álbuns" image="book.closed" catalog="system" id="VFZ-QN-aSg">
+                    <tabBarItem key="tabBarItem" title="Álbuns" id="VFZ-QN-aSg">
+                        <imageReference key="image" image="book.closed" catalog="system" symbolScale="large"/>
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <imageReference key="selectedImage" image="book" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -239,9 +509,10 @@
         <!--Linha do Tempo-->
         <scene sceneID="ObU-gD-1Sg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RAP-mb-oWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="ibb-dI-DWW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Linha do Tempo" image="clock" catalog="system" id="ELT-kz-YNa">
+                    <tabBarItem key="tabBarItem" title="Linha do Tempo" id="ELT-kz-YNa">
+                        <imageReference key="image" image="clock" catalog="system" symbolScale="large"/>
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <imageReference key="selectedImage" image="clock.arrow.circlepath" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="tng-Fr-Zsv">
@@ -252,13 +523,14 @@
                         <segue destination="h4E-9L-dGT" kind="relationship" relationship="rootViewController" id="DSa-64-sY8"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RAP-mb-oWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776" y="847"/>
         </scene>
         <!--Linha do Tempo-->
         <scene sceneID="Nkt-bm-amO">
             <objects>
-                <viewController id="h4E-9L-dGT" sceneMemberID="viewController">
+                <viewController id="h4E-9L-dGT" customClass="TimelineViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0K7-uR-GE7">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,12 +598,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Linha do Tempo" id="6e2-Y3-Aw0">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="NJ6-l2-Q2v">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AvK-NF-GqK">
-                                <rect key="frame" x="597" y="10" width="203" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Compartilhar Linha do Tempo"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Compartilhar Linha do Tempo" style="plain" id="NJ6-l2-Q2v">
+                            <color key="tintColor" name="ActionColorButton"/>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -341,21 +609,34 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
+        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
+        <image name="blueAlbum" width="1445" height="1829"/>
+        <image name="bluePhoto" width="1048" height="1448"/>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
+        <image name="brownAlbum" width="1445" height="1830"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
+        <image name="greenAlbum" width="1446" height="1829"/>
+        <image name="mic.circle" catalog="system" width="128" height="121"/>
+        <image name="play.circle" catalog="system" width="128" height="121"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="redAlbum" width="1446" height="1830"/>
+        <namedColor name="ActionColorButton">
+            <color red="0.39215686274509803" green="0.0" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BackgroundColorPaper">
             <color red="0.98431372549019602" green="0.97254901960784312" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="transparent">
+            <color red="1" green="1" blue="1" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
