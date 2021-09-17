@@ -19,6 +19,10 @@
 		B05B207E26F3BC4800E46467 /* NewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B207D26F3BC4800E46467 /* NewPageViewController.swift */; };
 		B05B208026F3BC6000E46467 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B207F26F3BC6000E46467 /* PageViewController.swift */; };
 		B05B208226F3BCDA00E46467 /* AlbumGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B208126F3BCDA00E46467 /* AlbumGridViewController.swift */; };
+		B05B208726F5371C00E46467 /* Album+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B208326F5371C00E46467 /* Album+CoreDataClass.swift */; };
+		B05B208826F5371C00E46467 /* Album+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B208426F5371C00E46467 /* Album+CoreDataProperties.swift */; };
+		B05B208926F5371C00E46467 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B208526F5371C00E46467 /* Page+CoreDataClass.swift */; };
+		B05B208A26F5371C00E46467 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B208626F5371C00E46467 /* Page+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		B05B207D26F3BC4800E46467 /* NewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPageViewController.swift; sourceTree = "<group>"; };
 		B05B207F26F3BC6000E46467 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B05B208126F3BCDA00E46467 /* AlbumGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumGridViewController.swift; sourceTree = "<group>"; };
+		B05B208326F5371C00E46467 /* Album+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B05B208426F5371C00E46467 /* Album+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B05B208526F5371C00E46467 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B05B208626F5371C00E46467 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,8 @@
 		B02F9B7A26F25CEC0088608E = {
 			isa = PBXGroup;
 			children = (
+				B05B208C26F5374200E46467 /* AlbumCoreData */,
+				B05B208B26F5373400E46467 /* PageCoreData */,
 				B02F9B8526F25CEC0088608E /* olds */,
 				B02F9B8426F25CEC0088608E /* Products */,
 			);
@@ -99,6 +109,24 @@
 				B05B207F26F3BC6000E46467 /* PageViewController.swift */,
 			);
 			path = Album;
+			sourceTree = "<group>";
+		};
+		B05B208B26F5373400E46467 /* PageCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B05B208526F5371C00E46467 /* Page+CoreDataClass.swift */,
+				B05B208626F5371C00E46467 /* Page+CoreDataProperties.swift */,
+			);
+			path = PageCoreData;
+			sourceTree = "<group>";
+		};
+		B05B208C26F5374200E46467 /* AlbumCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B05B208326F5371C00E46467 /* Album+CoreDataClass.swift */,
+				B05B208426F5371C00E46467 /* Album+CoreDataProperties.swift */,
+			);
+			path = AlbumCoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +202,10 @@
 				B05B208226F3BCDA00E46467 /* AlbumGridViewController.swift in Sources */,
 				B02F9B8B26F25CEC0088608E /* AlbumViewController.swift in Sources */,
 				B02F9B8726F25CEC0088608E /* AppDelegate.swift in Sources */,
+				B05B208A26F5371C00E46467 /* Page+CoreDataProperties.swift in Sources */,
+				B05B208826F5371C00E46467 /* Album+CoreDataProperties.swift in Sources */,
+				B05B208926F5371C00E46467 /* Page+CoreDataClass.swift in Sources */,
+				B05B208726F5371C00E46467 /* Album+CoreDataClass.swift in Sources */,
 				B05B207426F3AB3000E46467 /* NewAlbumViewController.swift in Sources */,
 				B05B207E26F3BC4800E46467 /* NewPageViewController.swift in Sources */,
 				B05B207B26F3BB8000E46467 /* TimelineViewController.swift in Sources */,
