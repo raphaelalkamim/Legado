@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Pagina" representedClassName="Pagina" syncable="YES" codeGenerationType="class"/>
+    <entity name="Album" representedClassName="Album" syncable="YES" codeGenerationType="class">
+        <attribute name="albumTittle" attributeType="String"/>
+        <attribute name="albumType" attributeType="String"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Page" inverseName="album" inverseEntity="Page"/>
+    </entity>
+    <entity name="Page" representedClassName="Page" syncable="YES" codeGenerationType="class">
+        <attribute name="pageAudio" attributeType="String"/>
+        <attribute name="pageDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="pagePhoto" attributeType="String"/>
+        <relationship name="album" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="pages" inverseEntity="Album"/>
+    </entity>
     <elements>
-        <element name="Pagina" positionX="-63" positionY="-18" width="128" height="29"/>
+        <element name="Page" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Album" positionX="-54" positionY="18" width="128" height="74"/>
     </elements>
 </model>
