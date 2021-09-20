@@ -11,7 +11,6 @@
 		B02F9B8926F25CEC0088608E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8826F25CEC0088608E /* SceneDelegate.swift */; };
 		B02F9B8B26F25CEC0088608E /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8A26F25CEC0088608E /* AlbumViewController.swift */; };
 		B02F9B8E26F25CEC0088608E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02F9B8C26F25CEC0088608E /* Main.storyboard */; };
-		B02F9B9126F25CEC0088608E /* olds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8F26F25CEC0088608E /* olds.xcdatamodeld */; };
 		B02F9B9326F25CEE0088608E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02F9B9226F25CEE0088608E /* Assets.xcassets */; };
 		B02F9B9626F25CEE0088608E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02F9B9426F25CEE0088608E /* LaunchScreen.storyboard */; };
 		B05B207426F3AB3000E46467 /* NewAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B207326F3AB3000E46467 /* NewAlbumViewController.swift */; };
@@ -211,7 +210,6 @@
 				B05B207B26F3BB8000E46467 /* TimelineViewController.swift in Sources */,
 				B05B208026F3BC6000E46467 /* PageViewController.swift in Sources */,
 				B02F9B8926F25CEC0088608E /* SceneDelegate.swift in Sources */,
-				B02F9B9126F25CEC0088608E /* olds.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
