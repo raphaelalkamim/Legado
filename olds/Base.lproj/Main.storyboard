@@ -191,10 +191,19 @@
                         <barButtonItem key="rightBarButtonItem" title="Criar Álbum" style="plain" id="OQr-Sk-wH8">
                             <color key="tintColor" name="ActionColorButton"/>
                             <connections>
+                                <action selector="createAlbum:" destination="Ry4-HM-bip" id="9Oa-G3-Esu"/>
                                 <segue destination="LBC-EF-CYN" kind="show" id="Fjy-ID-eqk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="createButton" destination="OQr-Sk-wH8" id="NEj-S3-YrA"/>
+                        <outlet property="eventImageButton" destination="SxN-lU-Oih" id="TES-J8-VfN"/>
+                        <outlet property="otherImageButton" destination="rlh-kU-VAi" id="LhM-cz-GCA"/>
+                        <outlet property="personImageButton" destination="upr-Ga-fMi" id="Jnv-pg-yqp"/>
+                        <outlet property="titleTextField" destination="hIb-sq-0C7" id="M9p-W5-nLH"/>
+                        <outlet property="travelImageButton" destination="Fca-YG-eUa" id="JRr-Nz-vVB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RfI-Rc-A2G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,7 +212,7 @@
         <!--Nome Álbum-->
         <scene sceneID="LSQ-GJ-58N">
             <objects>
-                <viewController id="LBC-EF-CYN" customClass="AlbumViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoverView" id="LBC-EF-CYN" customClass="AlbumViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eoF-sy-hTJ">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

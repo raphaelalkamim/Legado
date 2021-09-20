@@ -33,8 +33,26 @@ class AlbumGridViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let albumData: AlbumCollectionViewCell
+        let albumDataCell: AlbumCollectionViewCell = albumCollection?.dequeueReusableCell(withReuseIdentifier: "albumDataCell", for: indexPath as IndexPath) as! AlbumCollectionViewCell
+        var albumData = try! CoreDataAlbum.getAlbum()
+        albumData.reverse()
         
+        albumDataCell.albumTitle.text = albumData[indexPath.row].albumTittle
+        
+        // FALTA COLOCAR A IMAGEM DE CAPA
+        return albumDataCell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(identifier: "CoverView") as? AlbumViewController {
+            var albumData = try! CoreDataAlbum.getAlbum()
+            albumData.reverse()
+            vc.album = albumData[indexPath.item]
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        self.albumCollection?.reloadData()
     }
     
 
