@@ -7,23 +7,36 @@
 
 import UIKit
 
-class AlbumGridViewController: UIViewController {
+class AlbumGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
 
+    @IBOutlet weak var segmented: UISegmentedControl!
+    @IBOutlet weak var editAlbumButton: UIBarButtonItem!
+    @IBOutlet weak var createAlbumButton: UIBarButtonItem!
+    @IBOutlet weak var albumCollection: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        albumCollection.dataSource = self
+        albumCollection.delegate = self
+        
+        
 
-        // Do any additional setup after loading the view.
+     
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let albumData = try! CoreDataAlbum.getAlbum()
+        return albumData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let albumData: AlbumCollectionViewCell
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

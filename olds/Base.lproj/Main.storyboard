@@ -40,7 +40,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zCg-dm-w5L">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zCg-dm-w5L" customClass="AlbumCollectionViewCell" customModule="olds" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="248" height="350"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="djw-MW-quD">
@@ -60,6 +60,10 @@
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="albumCover" destination="nOC-cy-q4I" id="bg2-5q-SWV"/>
+                                            <outlet property="albumTitle" destination="nFb-AM-ab1" id="201-a9-1Os"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -87,6 +91,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="albumCollection" destination="hpv-pI-1ts" id="g4X-7s-dIu"/>
+                        <outlet property="createAlbumButton" destination="fEZ-PI-TQx" id="YvQ-89-7gi"/>
+                        <outlet property="editAlbumButton" destination="xb7-P2-i1p" id="gKZ-mI-oqx"/>
+                        <outlet property="segmented" destination="6hT-Ju-Jln" id="RRu-Ge-Py1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,9 +264,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Nome Álbum" id="GYZ-yG-30A">
                         <barButtonItem key="leftBarButtonItem" title="Álbuns" style="plain" id="K59-VE-lyO">
-                            <color key="tintColor" name="ActionColorButton"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Compartilhar" style="plain" id="Zjr-Of-Dly">
                             <color key="tintColor" name="ActionColorButton"/>
                         </barButtonItem>
                     </navigationItem>
@@ -597,11 +604,7 @@
                             <constraint firstItem="hYT-3k-a6O" firstAttribute="top" secondItem="obu-Ju-9YZ" secondAttribute="bottom" constant="16" id="pYy-Tb-mgF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Linha do Tempo" id="6e2-Y3-Aw0">
-                        <barButtonItem key="rightBarButtonItem" title="Compartilhar Linha do Tempo" style="plain" id="NJ6-l2-Q2v">
-                            <color key="tintColor" name="ActionColorButton"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Linha do Tempo" id="6e2-Y3-Aw0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFG-iK-Cco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
