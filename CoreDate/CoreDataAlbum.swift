@@ -34,7 +34,7 @@ class CoreDataAlbum {
     // criar Album
     static func createAlbum(title: String, type: String) throws -> Album {
         guard let album = NSEntityDescription.insertNewObject(forEntityName: "Album", into: context) as? Album else { preconditionFailure() }
-        album.albumTittle = title
+        album.albumTitle = title
         album.albumType = type
         
         try saveContext()

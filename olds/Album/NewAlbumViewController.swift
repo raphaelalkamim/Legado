@@ -82,7 +82,7 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
         else{
             album = try? CoreDataAlbum.createAlbum(title: "", type: "")
         }
-        album?.albumTittle = titleTextField.text!
+        album?.albumTitle = titleTextField.text!
         
         
         album?.albumType = typeName!

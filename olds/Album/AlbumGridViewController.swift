@@ -37,7 +37,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDataSource, UIC
         var albumData = try! CoreDataAlbum.getAlbum()
         albumData.reverse()
         
-        albumDataCell.albumTitle.text = albumData[indexPath.row].albumTittle
+        albumDataCell.albumTitle.text = albumData[indexPath.row].albumTitle
         
         // FALTA COLOCAR A IMAGEM DE CAPA
         return albumDataCell

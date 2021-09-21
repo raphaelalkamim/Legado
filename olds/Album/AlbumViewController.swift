@@ -24,7 +24,7 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
         
         
-        title = album?.albumTittle //settando titulo do album
+        title = album?.albumTitle //settando titulo do album
         albumCover.contentMode = .scaleAspectFit
         
         
