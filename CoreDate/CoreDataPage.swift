@@ -10,7 +10,7 @@ import CoreData
 
 class CoreDataPage {
     static var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "model")
+        let container = NSPersistentContainer(name: "olds")
         container.loadPersistentStores{ _, error in
             if let erro = error {
                 preconditionFailure(erro.localizedDescription)

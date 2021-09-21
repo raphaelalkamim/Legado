@@ -26,6 +26,7 @@
 		C871CFA426FA5677009D9038 /* Album+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CFA026FA5677009D9038 /* Album+CoreDataProperties.swift */; };
 		C871CFA526FA5677009D9038 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CFA126FA5677009D9038 /* Page+CoreDataClass.swift */; };
 		C871CFA626FA5677009D9038 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CFA226FA5677009D9038 /* Page+CoreDataProperties.swift */; };
+		C871CFA726FA65AF009D9038 /* olds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8F26F25CEC0088608E /* olds.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -232,6 +233,7 @@
 				C871CFA426FA5677009D9038 /* Album+CoreDataProperties.swift in Sources */,
 				C871CFA526FA5677009D9038 /* Page+CoreDataClass.swift in Sources */,
 				B02F9B8726F25CEC0088608E /* AppDelegate.swift in Sources */,
+				C871CFA726FA65AF009D9038 /* olds.xcdatamodeld in Sources */,
 				C871CFA326FA5677009D9038 /* Album+CoreDataClass.swift in Sources */,
 				B05B207426F3AB3000E46467 /* NewAlbumViewController.swift in Sources */,
 				B05B207E26F3BC4800E46467 /* NewPageViewController.swift in Sources */,

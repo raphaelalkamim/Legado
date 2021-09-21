@@ -22,7 +22,14 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
         albumCollection.dataSource = self
         albumCollection.delegate = self
         
+        
      
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        didRegister()
     }
     
     
@@ -33,19 +40,22 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
 extension AlbumGridViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let albumData = try! CoreDataAlbum.getAlbum()
+        return albumData.count
 
-        var qtd: Int = 0
-        if let albumData = try? CoreDataAlbum.getAlbum() {
-            if albumData == nil {
-                qtd = 0
-        
-            }
-            else {
-                qtd = albumData.count
-            }
-            
-        }
-        return qtd
+//        var qtd: Int = 0
+//        if let albumData = try? CoreDataAlbum.getAlbum() {
+//            if albumData == nil {
+//                qtd = 0
+//
+//            }
+//            else {
+//                qtd = albumData.count
+//            }
+//
+//        }
+//        print(qtd)
+//        return qtd
         
     }
     
@@ -55,11 +65,25 @@ extension AlbumGridViewController: UICollectionViewDataSource {
         albumData.reverse()
         
         albumDataCell.albumTitle.text = albumData[indexPath.row].albumTitle
+        let coverImage: String? = String?((albumData[indexPath.row].albumType)!)
+        if coverImage == "person" {
+            albumDataCell.albumCover.image = UIImage(named: "blueAlbum")
+        }
+        else if coverImage == "travel"{
+            albumDataCell.albumCover.image = UIImage(named: "brownAlbum")
+        }
+        else if coverImage == "event"{
+            albumDataCell.albumCover.image = UIImage(named: "greenAlbum")
+        }
+        else {
+            albumDataCell.albumCover.image = UIImage(named: "redAlbum")
+        }
         
-        // FALTA COLOCAR A IMAGEM DE CAPA
         return albumDataCell
-        
     }
+    
+  
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier: "CoverView") as? AlbumViewController {
             var albumData = try! CoreDataAlbum.getAlbum()
@@ -77,6 +101,8 @@ extension AlbumGridViewController: NewAlbumViewControllerDelegate {
     func didRegister() {
         albumCollection.reloadData() // atualiza informações
     }
+    
+    
     
     
 }

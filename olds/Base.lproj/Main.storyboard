@@ -105,7 +105,7 @@
         <!--Novo Álbum-->
         <scene sceneID="4Ga-BX-dhN">
             <objects>
-                <viewController id="Ry4-HM-bip" customClass="NewAlbumViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditView" id="Ry4-HM-bip" customClass="NewAlbumViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="81Y-a3-hQ3">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,16 +203,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Novo Álbum" id="OOK-bt-1He">
-                        <barButtonItem key="rightBarButtonItem" title="Criar Álbum" style="plain" id="OQr-Sk-wH8">
+                        <barButtonItem key="rightBarButtonItem" title="Criar Álbum" style="plain" id="ufH-5E-L6N">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pto-h0-ZdH">
+                                <rect key="frame" x="754" y="10" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="teste:" destination="Ry4-HM-bip" eventType="touchUpInside" id="yPB-IW-cKF"/>
+                                </connections>
+                            </button>
                             <color key="tintColor" name="ActionColorButton"/>
-                            <connections>
-                                <action selector="createAlbum:" destination="Ry4-HM-bip" id="9Oa-G3-Esu"/>
-                                <segue destination="LBC-EF-CYN" kind="show" id="Fjy-ID-eqk"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="createButton" destination="OQr-Sk-wH8" id="NEj-S3-YrA"/>
                         <outlet property="eventImageButton" destination="SxN-lU-Oih" id="TES-J8-VfN"/>
                         <outlet property="otherImageButton" destination="rlh-kU-VAi" id="LhM-cz-GCA"/>
                         <outlet property="personImageButton" destination="upr-Ga-fMi" id="Jnv-pg-yqp"/>
@@ -233,14 +236,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-XS-jH4">
-                                <rect key="frame" x="139.5" y="190" width="541" height="685.5"/>
+                                <rect key="frame" x="139.5" y="138" width="541" height="685.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="541" id="84e-oE-IBE"/>
                                     <constraint firstAttribute="height" constant="685.5" id="9pI-RN-bcM"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-1c-OrD">
-                                <rect key="frame" x="340" y="963.5" width="140" height="24"/>
+                                <rect key="frame" x="340" y="911.5" width="140" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal" title=" Nova Página">
@@ -252,7 +255,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfD-i4-KTr">
-                                <rect key="frame" x="730.5" y="553" width="39.5" height="24"/>
+                                <rect key="frame" x="730.5" y="549.5" width="39.5" height="24"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal">
@@ -261,7 +264,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próxima Página" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-ST-dSt">
-                                <rect key="frame" x="712.5" y="585" width="76.5" height="59"/>
+                                <rect key="frame" x="712.5" y="581.5" width="76.5" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="qid-PE-M4p"/>
                                 </constraints>
@@ -286,18 +289,26 @@
                             <constraint firstItem="ekH-Fu-oRx" firstAttribute="trailing" secondItem="Lf8-1c-OrD" secondAttribute="trailing" constant="340" id="pyW-Mf-pEu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Nome Álbum" id="GYZ-yG-30A">
+                    <navigationItem key="navigationItem" title="Nome Álbum" largeTitleDisplayMode="always" id="GYZ-yG-30A">
                         <barButtonItem key="leftBarButtonItem" title="Álbuns" style="plain" id="K59-VE-lyO">
                             <color key="tintColor" name="ActionColorButton"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Editar" style="plain" id="4cS-JU-deb">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="x3N-GA-Gc1">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="6o5-hB-3Wt">
+                                <rect key="frame" x="754" y="10" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="edit:" destination="LBC-EF-CYN" eventType="touchUpInside" id="ZFc-3C-Bq7"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="albumCover" destination="nlH-XS-jH4" id="M9d-i0-47J"/>
                         <outlet property="albunsButton" destination="K59-VE-lyO" id="Lye-ZG-FGp"/>
-                        <outlet property="editButton" destination="4cS-JU-deb" id="z95-RD-nWF"/>
+                        <outlet property="editButton" destination="6o5-hB-3Wt" id="yk5-Uy-cgj"/>
                         <outlet property="newPageButton" destination="Lf8-1c-OrD" id="wj4-e3-BKG"/>
                         <outlet property="nextPageButton" destination="Hpf-ST-dSt" id="Nt3-VU-aHG"/>
                     </connections>
@@ -315,14 +326,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-43-W0s">
-                                <rect key="frame" x="150" y="278" width="520" height="720"/>
+                                <rect key="frame" x="150" y="226" width="520" height="720"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="720" id="Tfs-EX-r1a"/>
                                     <constraint firstAttribute="width" constant="520" id="jjv-wY-hnx"/>
                                 </constraints>
                             </imageView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-pL-5TP">
-                                <rect key="frame" x="154" y="158" width="512" height="88"/>
+                                <rect key="frame" x="154" y="106" width="512" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="512" id="6AF-je-A9z"/>
                                     <constraint firstAttribute="height" constant="88" id="cDn-y2-Lfx"/>
@@ -330,7 +341,7 @@
                                 <locale key="locale" localeIdentifier="pt_BR"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira a data da foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwY-en-o5y">
-                                <rect key="frame" x="320" y="118" width="180" height="24"/>
+                                <rect key="frame" x="320" y="66" width="180" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="YXv-ij-rqs"/>
                                 </constraints>
@@ -339,7 +350,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-aE-WCz">
-                                <rect key="frame" x="341" y="1030" width="138" height="24"/>
+                                <rect key="frame" x="341" y="978" width="138" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal" title=" Gravar Áudio">
@@ -348,7 +359,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-yp-mhh">
-                                <rect key="frame" x="186.5" y="924" width="447" height="35"/>
+                                <rect key="frame" x="186.5" y="872" width="447" height="35"/>
                                 <color key="backgroundColor" name="transparent"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="447" id="Pr3-DO-3hY"/>
@@ -405,7 +416,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8c1-hY-3gA">
-                                <rect key="frame" x="728" y="596" width="25" height="25"/>
+                                <rect key="frame" x="728" y="544" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="UL9-k9-Fv1"/>
                                     <constraint firstAttribute="height" constant="25" id="nNY-mi-Hul"/>
@@ -417,7 +428,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próxima Página" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feN-zQ-CoA">
-                                <rect key="frame" x="702.5" y="629" width="76" height="48"/>
+                                <rect key="frame" x="702.5" y="577" width="76" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="ev5-ca-x4c"/>
                                 </constraints>
@@ -426,7 +437,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfn-LA-DDl">
-                                <rect key="frame" x="61" y="596" width="25" height="25"/>
+                                <rect key="frame" x="61" y="544" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="0w9-Je-oGu"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="eTb-Et-xkC"/>
@@ -441,7 +452,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Página Anterior" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AI-dc-ff2">
-                                <rect key="frame" x="31" y="629" width="92" height="48"/>
+                                <rect key="frame" x="31" y="577" width="92" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Hvl-Wd-FSw"/>
                                 </constraints>
@@ -450,7 +461,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-va-2qh">
-                                <rect key="frame" x="310" y="1036" width="200" height="24"/>
+                                <rect key="frame" x="310" y="1081" width="200" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal" title=" Reproduzir Áudio">
@@ -459,7 +470,7 @@
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-pe-8WP">
-                                <rect key="frame" x="150" y="248.5" width="520" height="720"/>
+                                <rect key="frame" x="150" y="245" width="520" height="720"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="720" id="LCE-Dh-Vvu"/>
                                     <constraint firstAttribute="width" constant="520" id="OlA-to-ZgI"/>

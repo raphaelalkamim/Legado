@@ -41,7 +41,7 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didSelectEvent(_ sender: Any) {
-        typeName = "even"
+        typeName = "event"
         personImageButton.isSelected = false
         travelImageButton.isSelected = false
         eventImageButton.isSelected = true
@@ -63,19 +63,57 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         titleTextField.delegate = self
-        
+        typeName = "person"
         personImageButton.setImage(UIImage(named: "blueAlbumNotSel"), for: .normal)
         eventImageButton.setImage(UIImage(named: "greenAlbumNotSel"), for: .normal)
         travelImageButton.setImage(UIImage(named: "brownAlbumNotSel"), for: .normal)
         otherImageButton.setImage(UIImage(named: "redAlbumNotSel"), for: .normal)
         
         personImageButton.isSelected = true
+        titleTextField.delegate = self
         
         
     }
     
-
-    @IBAction func createAlbum(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        if let album = self.album{
+            title = album.albumTitle
+            let button: String? = album.albumType
+            if button == "person"{
+                personImageButton.isSelected = true
+                travelImageButton.isSelected = false
+                eventImageButton.isSelected = false
+                otherImageButton.isSelected = false
+                
+            }
+            else if button == "travel"{
+                personImageButton.isSelected = false
+                travelImageButton.isSelected = true
+                eventImageButton.isSelected = false
+                otherImageButton.isSelected = false
+                
+            }
+            else if button == "event"{
+                personImageButton.isSelected = false
+                travelImageButton.isSelected = false
+                eventImageButton.isSelected = true
+                otherImageButton.isSelected = false
+                
+            }
+            else{
+                personImageButton.isSelected = false
+                travelImageButton.isSelected = false
+                eventImageButton.isSelected = false
+                otherImageButton.isSelected = true
+                
+            }
+        }
+        
+        
+    }
+    
+    // criar album
+    @IBAction func teste(_ sender: Any) {
         if let album = self.album {
             _ = album
         }
@@ -83,24 +121,25 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
             album = try? CoreDataAlbum.createAlbum(title: "", type: "")
         }
         album?.albumTitle = titleTextField.text!
-        
-        
         album?.albumType = typeName!
+        print(album)
         
         try? CoreDataAlbum.saveContext()
         delegate?.didRegister()
+        
+        
+        
+        if let vc = storyboard?.instantiateViewController(identifier: "CoverView") as? AlbumViewController{
+            vc.changeAlbum(album: album)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     
     
-    enum coverType: String {
-    
-        case person = "blueAlbum"
-        case travel = "brownAlbum"
-        case event = "greenAlbum"
-        case other = "redAlbum"
-        
-        
+    func changeAlbum(album: Album?) {
+        self.album = album
     }
     
 
