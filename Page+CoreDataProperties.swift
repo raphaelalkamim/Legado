@@ -2,7 +2,7 @@
 //  Page+CoreDataProperties.swift
 //  olds
 //
-//  Created by Raphael Alkamim on 17/09/21.
+//  Created by Caroline Taus on 21/09/21.
 //
 //
 
@@ -16,9 +16,9 @@ extension Page {
         return NSFetchRequest<Page>(entityName: "Page")
     }
 
+    @NSManaged public var pageAudio: String?
     @NSManaged public var pageDate: Date?
     @NSManaged public var pagePhoto: String?
-    @NSManaged public var pageAudio: String?
     @NSManaged public var album: Album?
 
 }

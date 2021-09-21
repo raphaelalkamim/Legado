@@ -12,4 +12,5 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var albumTitle: UILabel!
     @IBOutlet weak var albumCover: UIImageView!
     
+    
 }

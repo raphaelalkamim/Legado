@@ -2,7 +2,7 @@
 //  Album+CoreDataProperties.swift
 //  olds
 //
-//  Created by Raphael Alkamim on 17/09/21.
+//  Created by Caroline Taus on 21/09/21.
 //
 //
 
@@ -16,7 +16,7 @@ extension Album {
         return NSFetchRequest<Album>(entityName: "Album")
     }
 
-    @NSManaged public var albumTittle: String?
+    @NSManaged public var albumTitle: String?
     @NSManaged public var albumType: String?
     @NSManaged public var pages: NSSet?
 
