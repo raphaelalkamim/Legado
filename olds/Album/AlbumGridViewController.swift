@@ -58,3 +58,11 @@ class AlbumGridViewController: UIViewController, UICollectionViewDataSource, UIC
 
 
 }
+
+extension AlbumGridViewController: NewAlbumViewControllerDelegate {
+    func didRegister() {
+        albumCollection.reloadData() // atualiza informações
+    }
+    
+    
+}
