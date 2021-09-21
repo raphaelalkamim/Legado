@@ -137,6 +137,21 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    @IBAction func cancelButton(_ sender: Any) {
+        
+        let refreshAlert = UIAlertController(title: "Cancelar Álbum", message: "Todas suas mudanças serão perdidas.\nTem certeza que deseja cancelar?", preferredStyle: .alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
+            navigationController?.popViewController(animated: true)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+ 
+    
     
     func changeAlbum(album: Album?) {
         self.album = album

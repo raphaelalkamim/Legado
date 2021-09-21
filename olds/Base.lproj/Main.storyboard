@@ -203,6 +203,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Novo Álbum" id="OOK-bt-1He">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="28P-dM-W4R">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zEU-Ak-xUI">
+                                <rect key="frame" x="20" y="10" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="Ry4-HM-bip" eventType="touchUpInside" id="AFL-Va-IAE"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Criar Álbum" style="plain" id="ufH-5E-L6N">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pto-h0-ZdH">
                                 <rect key="frame" x="754" y="10" width="46" height="30"/>
