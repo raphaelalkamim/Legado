@@ -126,7 +126,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upr-Ga-fMi">
                                         <rect key="frame" x="28" y="28" width="223" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="blueAlbum"/>
+                                        <state key="normal" backgroundImage="blueAlbumNotSel"/>
+                                        <state key="selected" backgroundImage="blueAlbum"/>
                                         <connections>
                                             <action selector="didSelectPerson:" destination="Ry4-HM-bip" eventType="touchUpInside" id="RNt-Xg-KZO"/>
                                         </connections>
@@ -134,7 +135,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fca-YG-eUa">
                                         <rect key="frame" x="286" y="28" width="223" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="brownAlbum"/>
+                                        <state key="normal" backgroundImage="brownAlbumNotSel"/>
+                                        <state key="selected" backgroundImage="brownAlbum"/>
                                         <connections>
                                             <action selector="didSelectTravel:" destination="Ry4-HM-bip" eventType="touchUpInside" id="ZTK-aN-UO9"/>
                                         </connections>
@@ -142,7 +144,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxN-lU-Oih">
                                         <rect key="frame" x="28" y="358" width="223" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="greenAlbum"/>
+                                        <state key="normal" backgroundImage="greenAlbumNotSel"/>
+                                        <state key="selected" backgroundImage="greenAlbum"/>
                                         <connections>
                                             <action selector="didSelectEvent:" destination="Ry4-HM-bip" eventType="touchUpInside" id="Yq8-K6-3XM"/>
                                         </connections>
@@ -150,7 +153,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlh-kU-VAi">
                                         <rect key="frame" x="286" y="358" width="223" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="redAlbum"/>
+                                        <state key="normal" backgroundImage="redAlbumNotSel"/>
+                                        <state key="selected" backgroundImage="redAlbum"/>
                                         <connections>
                                             <action selector="didSelectOther:" destination="Ry4-HM-bip" eventType="touchUpInside" id="HIp-KF-zsS"/>
                                         </connections>
@@ -185,6 +189,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="704" id="Kkl-ne-U8w"/>
                                     <constraint firstAttribute="width" constant="540" id="pJ4-u3-oT1"/>
@@ -204,13 +209,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Novo Álbum" id="OOK-bt-1He">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="28P-dM-W4R">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zEU-Ak-xUI">
-                                <rect key="frame" x="20" y="10" width="46" height="30"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="O9x-gk-JUa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ppX-rE-Nub">
+                                <rect key="frame" x="20" y="8.5" width="68" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="Ry4-HM-bip" eventType="touchUpInside" id="AFL-Va-IAE"/>
+                                    <action selector="cancelCreation:" destination="Ry4-HM-bip" eventType="touchUpInside" id="CAy-5N-I2i"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -218,7 +226,10 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pto-h0-ZdH">
                                 <rect key="frame" x="754" y="10" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Criar Álbum">
+                                    <color key="titleColor" name="ActionColorButton"/>
+                                </state>
                                 <connections>
                                     <action selector="teste:" destination="Ry4-HM-bip" eventType="touchUpInside" id="yPB-IW-cKF"/>
                                 </connections>
@@ -241,6 +252,7 @@
         <!--Nome Álbum-->
         <scene sceneID="LSQ-GJ-58N">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5M-7k-d7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CoverView" id="LBC-EF-CYN" customClass="AlbumViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eoF-sy-hTJ">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
@@ -303,11 +315,15 @@
                     <navigationItem key="navigationItem" title="Nome Álbum" largeTitleDisplayMode="always" id="GYZ-yG-30A">
                         <barButtonItem key="leftBarButtonItem" title="Álbuns" style="plain" id="K59-VE-lyO">
                             <color key="tintColor" name="ActionColorButton"/>
+                            <connections>
+                                <action selector="goBackToAlbums:" destination="LBC-EF-CYN" id="5h8-2z-6fm"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="x3N-GA-Gc1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="6o5-hB-3Wt">
-                                <rect key="frame" x="754" y="10" width="46" height="30"/>
+                                <rect key="frame" x="749" y="8.5" width="51" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="edit:" destination="LBC-EF-CYN" eventType="touchUpInside" id="ZFc-3C-Bq7"/>
@@ -319,12 +335,12 @@
                     <connections>
                         <outlet property="albumCover" destination="nlH-XS-jH4" id="M9d-i0-47J"/>
                         <outlet property="albunsButton" destination="K59-VE-lyO" id="Lye-ZG-FGp"/>
+                        <outlet property="backToAlbumsButton" destination="K59-VE-lyO" id="saG-0m-OfJ"/>
                         <outlet property="editButton" destination="6o5-hB-3Wt" id="yk5-Uy-cgj"/>
                         <outlet property="newPageButton" destination="Lf8-1c-OrD" id="wj4-e3-BKG"/>
                         <outlet property="nextPageButton" destination="Hpf-ST-dSt" id="Nt3-VU-aHG"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t5M-7k-d7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3085.6097560975609" y="93.559322033898312"/>
         </scene>
@@ -671,17 +687,21 @@
         <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="blueAlbum" width="1445" height="1829"/>
+        <image name="blueAlbumNotSel" width="363" height="459"/>
         <image name="bluePhoto" width="1048" height="1448"/>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="brownAlbum" width="1445" height="1830"/>
+        <image name="brownAlbumNotSel" width="362" height="460"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="greenAlbum" width="1446" height="1829"/>
+        <image name="greenAlbumNotSel" width="363" height="460"/>
         <image name="mic.circle" catalog="system" width="128" height="121"/>
         <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="redAlbum" width="1446" height="1830"/>
+        <image name="redAlbumNotSel" width="362" height="459"/>
         <namedColor name="ActionColorButton">
             <color red="0.39215686274509803" green="0.0" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

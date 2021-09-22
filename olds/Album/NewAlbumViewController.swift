@@ -20,7 +20,8 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var otherImageButton: UIButton!
     @IBOutlet weak var eventImageButton: UIButton!
     @IBOutlet weak var travelImageButton: UIButton!
-    @IBOutlet weak var createButton: UIBarButtonItem!
+
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     var typeName: String?
     
     
@@ -58,7 +59,7 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        titleTextField.becomeFirstResponder() // 
+        titleTextField.becomeFirstResponder() //
     }
     
     
@@ -140,8 +141,7 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     }
     
     // alerta de cancelar
-    @IBAction func cancelButton(_ sender: Any) {
-        
+    @IBAction func cancelCreation(_ sender: Any) {
         let refreshAlert = UIAlertController(title: "Cancelar Álbum", message: "Todas suas mudanças serão perdidas.\nTem certeza que deseja cancelar?", preferredStyle: .alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
@@ -151,7 +151,10 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
         refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
         
         present(refreshAlert, animated: true, completion: nil)
+        
     }
+    
+    
     
  
     
