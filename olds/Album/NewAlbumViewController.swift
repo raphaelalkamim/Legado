@@ -56,7 +56,10 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
         otherImageButton.isSelected = true
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        titleTextField.becomeFirstResponder() // 
+    }
     
     
     override func viewDidLoad() {
@@ -136,7 +139,7 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
+    // alerta de cancelar
     @IBAction func cancelButton(_ sender: Any) {
         
         let refreshAlert = UIAlertController(title: "Cancelar Álbum", message: "Todas suas mudanças serão perdidas.\nTem certeza que deseja cancelar?", preferredStyle: .alert)
