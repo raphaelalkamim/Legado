@@ -25,17 +25,10 @@ class AlbumViewController: UIViewController {
  
     
     @IBAction func goBackToAlbums(_ sender: UIBarButtonItem) {
-        print("funciona???")
-        
-        if let count = self.navigationController?.viewControllers.count, count > 2 {
-            self.navigationController?.viewControllers.remove(at: count - 2)
-        }
-        self.navigationController?.popViewController(animated: true)
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()

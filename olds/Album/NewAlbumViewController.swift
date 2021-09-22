@@ -23,7 +23,7 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var eventImageButton: UIButton!
     @IBOutlet weak var travelImageButton: UIButton!
 
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     var typeName: String?
     
     
