@@ -21,11 +21,26 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var newPageButton: UIButton!
     @IBOutlet weak var nextPageButton: UILabel!
     
+    @IBOutlet weak var backToAlbumsButton: UIBarButtonItem!
+ 
     
+    @IBAction func goBackToAlbums(_ sender: UIBarButtonItem) {
+        print("funciona???")
+        
+        if let count = self.navigationController?.viewControllers.count, count > 2 {
+            self.navigationController?.viewControllers.remove(at: count - 2)
+        }
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        editButton.setTitle("Editar Álbum", for: .normal)
+        editButton.setTitleColor(.darkGray, for: .normal)
         
         title = album?.albumTitle //settando titulo do album
         albumCover.contentMode = .scaleAspectFit
@@ -34,7 +49,7 @@ class AlbumViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = album?.albumTitle 
+        title = album?.albumTitle
         albumCover.contentMode = .scaleAspectFit
         changeCover()
     }
