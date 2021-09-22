@@ -15,6 +15,8 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     private var album: Album?
     weak var delegate: NewAlbumViewControllerDelegate?
     
+
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var personImageButton: UIButton!
     @IBOutlet weak var otherImageButton: UIButton!
