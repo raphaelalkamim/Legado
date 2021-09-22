@@ -76,7 +76,7 @@ class AlbumViewController: UIViewController {
     }
     
     @IBAction func edit(_ sender: Any) {
-        if let vc = storyboard?.instantiateViewController(identifier: "EditView") as? NewAlbumViewController{
+        if let vc = storyboard?.instantiateViewController(identifier: "EditView") as? NewAlbumViewController {
             vc.changeAlbum(album: album)
             navigationController?.pushViewController(vc, animated: true)
         

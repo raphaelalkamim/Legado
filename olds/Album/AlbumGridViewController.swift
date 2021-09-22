@@ -10,20 +10,43 @@ import UIKit
 class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
     
 
-    @IBOutlet weak var segmented: UISegmentedControl!
+ 
     @IBOutlet weak var editAlbumButton: UIBarButtonItem!
     @IBOutlet weak var createAlbumButton: UIBarButtonItem!
     @IBOutlet weak var albumCollection: UICollectionView!
+    @IBOutlet weak var segmented: UISegmentedControl!
     
+    @IBAction func segmented(_ sender: Any) {
+        let index = self.segmented.selectedSegmentIndex
+
+        if index == 0 {
+
+        print("item 0")
+
+        }
+
+        else if index == 1{
+
+        print("item 1")
+
+        }
+
+        else{
+
+        print("ffffffffff")
+
+        }
+
+        self.albumCollection?.reloadData()
+    }
+    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         albumCollection.dataSource = self
         albumCollection.delegate = self
-        
-        
-     
     }
     
     
@@ -95,14 +118,34 @@ extension AlbumGridViewController: UICollectionViewDataSource {
         self.albumCollection?.reloadData()
     }
     
+    // context
+    func configureContextMenu(index: Int) -> UIContextMenuConfiguration{
+            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
+                
+                let edit = UIAction(title: "Edit", image: UIImage(systemName: "square.and.pencil"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                    print("edit button clicked")
+                }
+                let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
+                    print("delete button clicked")
+                }
+                
+                return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [edit,delete])
+                
+            }
+            return context
+        }
+    
 }
 
 extension AlbumGridViewController: NewAlbumViewControllerDelegate {
     func didRegister() {
         albumCollection.reloadData() // atualiza informações
     }
-    
-    
-    
-    
+}
+
+// context menu
+extension AlbumGridViewController{
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        configureContextMenu(index: indexPath.row)
+    }
 }

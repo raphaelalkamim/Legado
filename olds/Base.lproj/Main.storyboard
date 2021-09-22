@@ -29,6 +29,9 @@
                                     <segment title="Outros"/>
                                 </segments>
                                 <color key="tintColor" name="ActionColorButton"/>
+                                <connections>
+                                    <action selector="segmented:" destination="BYZ-38-t0r" eventType="valueChanged" id="MWu-fM-3ZT"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-pI-1ts">
                                 <rect key="frame" x="20" y="165" width="780" height="950"/>
@@ -96,7 +99,7 @@
                         <outlet property="albumCollection" destination="hpv-pI-1ts" id="g4X-7s-dIu"/>
                         <outlet property="createAlbumButton" destination="fEZ-PI-TQx" id="YvQ-89-7gi"/>
                         <outlet property="editAlbumButton" destination="xb7-P2-i1p" id="gKZ-mI-oqx"/>
-                        <outlet property="segmented" destination="6hT-Ju-Jln" id="RRu-Ge-Py1"/>
+                        <outlet property="segmented" destination="6hT-Ju-Jln" id="o2v-dm-GLZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -224,7 +227,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Criar Álbum" style="plain" id="ufH-5E-L6N">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pto-h0-ZdH">
-                                <rect key="frame" x="754" y="10" width="46" height="30"/>
+                                <rect key="frame" x="710" y="8.5" width="90" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Criar Álbum">
