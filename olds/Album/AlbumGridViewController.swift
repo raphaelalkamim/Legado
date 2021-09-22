@@ -63,6 +63,34 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
         self.albumCollection?.reloadData()
     }
     
+//    @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
+//
+//            if sender.state == .began {
+//                let touchPoint = sender.location(in: albumCollection)
+//                if let indexPath = albumCollection.indexPathForItem(at: touchPoint) {
+//                    let ac = UIAlertController(title: "Do you really wanna delete this day?", message: nil, preferredStyle: .actionSheet)
+//                    ac.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: {
+//                        [weak self] action in
+//
+//                        var albumData = try! CoreDataAlbum.getAlbum()
+//                        albumData.reverse()
+//
+//                        try! CoreDataAlbum.deleteAlbum(album: album[indexPath.row])
+//
+//                        self?.albumCollection.reloadData()
+//
+//
+//
+//                    }))
+//                    ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+//                    present(ac, animated: true)
+//
+//
+//                }
+//
+//            }
+//
+//        }
     
     
     override func viewDidLoad() {
@@ -72,8 +100,10 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
         albumCollection.delegate = self
         
         albumData = try! CoreDataAlbum.getAlbum()
+        
         albumsToDisplay = albumData
         albumsToDisplay!.reverse()
+        
     }
     
     
@@ -160,6 +190,21 @@ extension AlbumGridViewController: UICollectionViewDataSource {
                 } }
             let delete = UIAction(title: "Apagar Álbum", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
                 print("delete button clicked")
+                let ac = UIAlertController(title: "Deletar Álbum", message: "Tem certeza que deseja deletar esse álbum?", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
+                    var albumData = try! CoreDataAlbum.getAlbum()
+                    albumData.reverse()
+                    print(albumData[index])
+                    try! CoreDataAlbum.deleteAlbum(album: albumData[index])
+                    self.albumCollection?.reloadData()
+                }))
+                
+                ac.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
+                
+                self.present(ac, animated: true, completion: nil)
+                
+                
+                
             }
             
             return UIMenu(title: "Opções", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [edit,delete])
@@ -177,7 +222,7 @@ extension AlbumGridViewController: NewAlbumViewControllerDelegate {
 }
 
 // context menu
-extension AlbumGridViewController{
+extension AlbumGridViewController {
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         configureContextMenu(index: indexPath.row)
     }
