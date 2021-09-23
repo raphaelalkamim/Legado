@@ -255,7 +255,6 @@
         <!--Nome Álbum-->
         <scene sceneID="LSQ-GJ-58N">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t5M-7k-d7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CoverView" id="LBC-EF-CYN" customClass="AlbumViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eoF-sy-hTJ">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
@@ -277,7 +276,7 @@
                                     <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large" renderingMode="template"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0eS-qe-iFi" kind="show" id="qc0-WR-kBH"/>
+                                    <segue destination="0eS-qe-iFi" kind="show" identifier="newPageSegue" id="qc0-WR-kBH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfD-i4-KTr">
@@ -344,6 +343,7 @@
                         <outlet property="nextPageButton" destination="Hpf-ST-dSt" id="Nt3-VU-aHG"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5M-7k-d7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3085.6097560975609" y="93.559322033898312"/>
         </scene>

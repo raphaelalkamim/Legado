@@ -10,23 +10,24 @@ import UIKit
 class NewPageViewController: UIViewController {
     
     private var page: Page?
-    
+    var album: Album!
     
     
     
     @IBAction func savePage(_ sender: Any) {
-        if let page = self.page{
+        if let newPage = self.page{
             print("to aqui")
-            _ = page
+           // _ = page
         }
         else {
             print("entrei no else ")
-            page = try? CoreDataPage.createPage(date: Date(), photo: "frerf", audio: "gggg")
+            
+            page = try? CoreDataPage.createPage(album: album, date: Date(), photo: "", audio: "")
             
         }
-//        page?.pageDate = date
-//        page?.pagePhoto = "fotoooo"
-//        page?.pageAudio = "audio"
+        page?.pageDate = date
+        page?.pagePhoto = "fotoooo"
+        page?.pageAudio = "audio"
         
         
         try? CoreDataPage.saveContext()
