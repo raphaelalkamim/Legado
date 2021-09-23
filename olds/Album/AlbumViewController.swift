@@ -21,13 +21,27 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var newPageButton: UIButton!
     @IBOutlet weak var nextPageButton: UILabel!
     
+    func changeAlbum(album: Album?) {
+        self.album = album
+    }
+    
+    @IBAction func actNextPage(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
+            vc.changeAlbum(album: album)
+            vc.page = album?.pages?.allObjects[0] as? Page
+            vc.pageIndex = 0
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
+    }
+    
+    
     @IBOutlet weak var backToAlbumsButton: UIBarButtonItem!
     
     
     @IBAction func goBackToAlbums(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
     
     
     override func viewDidLoad() {
@@ -64,9 +78,7 @@ class AlbumViewController: UIViewController {
         }
     }
     
-    func changeAlbum(album: Album?) {
-        self.album = album
-    }
+   
     
     @IBAction func edit(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "EditView") as? NewAlbumViewController {
