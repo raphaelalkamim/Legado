@@ -22,16 +22,16 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
         
         if index == 0 {
             
-            albumsToDisplay = albumData
-            albumsToDisplay!.reverse()
+            albumsToDisplay = albumData?.reversed()
+            //albumsToDisplay!.reverse()
             
         }
         
         else if index == 1{
             albumsToDisplay = albumData?.filter({
                 $0.albumType == "person"
-            })
-            albumsToDisplay!.reverse()
+            }).reversed()
+            //albumsToDisplay!.reverse()
             
         }
         
@@ -39,24 +39,24 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
             
             albumsToDisplay = albumData?.filter({
                 $0.albumType == "travel"
-            })
-            albumsToDisplay!.reverse()
+            }).reversed()
+            //albumsToDisplay!.reverse()
             
         }
         
         else if index == 3 {
             albumsToDisplay = albumData?.filter({
                 $0.albumType == "event"
-            })
-            albumsToDisplay!.reverse()
+            }).reversed()
+            //albumsToDisplay!.reverse()
             
         }
         
         else {
             albumsToDisplay = albumData?.filter({
                 $0.albumType == "other"
-            })
-            albumsToDisplay!.reverse()
+            }).reversed()
+            //albumsToDisplay!.reverse()
             
         }
         
@@ -145,18 +145,21 @@ extension AlbumGridViewController: UICollectionViewDataSource {
         //albumsToDisplay!.reverse()
         
         albumDataCell.albumTitle.text = albumsToDisplay![indexPath.row].albumTitle
-        let coverImage: String? = String?((albumsToDisplay![indexPath.row].albumType)!)
-        if coverImage == "person" {
-            albumDataCell.albumCover.image = UIImage(named: "blueAlbum")
-        }
-        else if coverImage == "travel"{
-            albumDataCell.albumCover.image = UIImage(named: "brownAlbum")
-        }
-        else if coverImage == "event"{
-            albumDataCell.albumCover.image = UIImage(named: "greenAlbum")
-        }
-        else {
-            albumDataCell.albumCover.image = UIImage(named: "redAlbum")
+        if let img = albumsToDisplay?[indexPath.row].albumType {
+            let coverImage: String =  String(img)
+            
+            if coverImage == "person" {
+                albumDataCell.albumCover.image = UIImage(named: "blueAlbum")
+            }
+            else if coverImage == "travel"{
+                albumDataCell.albumCover.image = UIImage(named: "brownAlbum")
+            }
+            else if coverImage == "event"{
+                albumDataCell.albumCover.image = UIImage(named: "greenAlbum")
+            }
+            else {
+                albumDataCell.albumCover.image = UIImage(named: "redAlbum")
+            }
         }
         
         return albumDataCell
@@ -192,11 +195,15 @@ extension AlbumGridViewController: UICollectionViewDataSource {
                 print("delete button clicked")
                 let ac = UIAlertController(title: "Deletar Álbum", message: "Tem certeza que deseja deletar esse álbum?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
-                    var albumData = try! CoreDataAlbum.getAlbum()
-                    albumData.reverse()
-                    print(albumData[index])
-                    try! CoreDataAlbum.deleteAlbum(album: albumData[index])
-                    self.albumCollection?.reloadData()
+                    var coreDataAlbums = try? CoreDataAlbum.getAlbum()
+                    coreDataAlbums?.reverse()
+                    
+                    if let albums = coreDataAlbums?[index] {
+                        try? CoreDataAlbum.deleteAlbum(album: albums)
+                    }
+                    
+                    didRegister()
+                   
                 }))
                 
                 ac.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
@@ -217,6 +224,11 @@ extension AlbumGridViewController: UICollectionViewDataSource {
 
 extension AlbumGridViewController: NewAlbumViewControllerDelegate {
     func didRegister() {
+        albumData = try! CoreDataAlbum.getAlbum()
+        
+        albumsToDisplay = albumData
+        albumsToDisplay!.reverse()
+        
         albumCollection.reloadData() // atualiza informações
     }
 }
