@@ -369,6 +369,9 @@
                                     <constraint firstAttribute="height" constant="88" id="cDn-y2-Lfx"/>
                                 </constraints>
                                 <locale key="locale" localeIdentifier="pt_BR"/>
+                                <connections>
+                                    <action selector="datePickerChanged:" destination="0eS-qe-iFi" eventType="valueChanged" id="g38-Qu-2Hg"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira a data da foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwY-en-o5y">
                                 <rect key="frame" x="320" y="66" width="180" height="24"/>
@@ -387,6 +390,9 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <imageReference key="image" image="mic.circle" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="newAudio:" destination="0eS-qe-iFi" eventType="touchUpInside" id="iT2-1Q-N2g"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-yp-mhh">
                                 <rect key="frame" x="186.5" y="872" width="447" height="35"/>
@@ -401,6 +407,20 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="newPhoto:" destination="0eS-qe-iFi" eventType="touchUpInside" id="mZ2-rS-Mvn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcw-f9-J8F">
+                                <rect key="frame" x="707" y="163" width="103" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Salvar Página">
+                                    <color key="titleColor" name="ActionColorButton"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePage:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Ayl-tB-Ule"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h9d-fs-4En"/>
@@ -424,14 +444,24 @@
                     <navigationItem key="navigationItem" title="Nova Página" id="tTw-Mf-ciM">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" style="plain" id="461-lb-nNl">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancel:" destination="0eS-qe-iFi" id="Kor-K4-ksB"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" style="plain" id="7fg-7b-5ls">
                             <color key="tintColor" name="ActionColorButton"/>
                             <connections>
+                                <action selector="salvar:" destination="0eS-qe-iFi" id="pOg-W4-iLu"/>
                                 <segue destination="wDx-Zd-ydE" kind="show" id="UcJ-FO-ca1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="fKz-pL-5TP" id="FAQ-dV-Gj6"/>
+                        <outlet property="imgPhoto" destination="yeA-43-W0s" id="sz3-de-EkC"/>
+                        <outlet property="newPhotoButton" destination="gEf-yp-mhh" id="BuE-Ni-uPr"/>
+                        <outlet property="recordAudioButton" destination="ehx-aE-WCz" id="1LS-Jp-niS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INs-eC-CpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
