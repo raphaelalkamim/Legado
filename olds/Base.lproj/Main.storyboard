@@ -287,6 +287,9 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <imageReference key="image" image="arrow.right.circle" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="actNextPage:" destination="LBC-EF-CYN" eventType="touchUpInside" id="1Iu-Kb-1cE"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próxima Página" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-ST-dSt">
                                 <rect key="frame" x="712.5" y="581.5" width="76.5" height="59"/>
@@ -470,7 +473,7 @@
         <!--Data Página-->
         <scene sceneID="qiQ-LF-RJh">
             <objects>
-                <viewController id="wDx-Zd-ydE" customClass="PageViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pageView" id="wDx-Zd-ydE" customClass="PageViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nLT-jZ-idF">
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
