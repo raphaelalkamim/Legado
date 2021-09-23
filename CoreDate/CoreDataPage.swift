@@ -19,10 +19,11 @@ class CoreDataPage {
         }
         return container
     }()
-    
-    static var context: NSManagedObjectContext {
-        return persistentContainer.viewContext
-    }
+    static var context: NSManagedObjectContext = CoreDataAlbum.context
+//    static var context: NSManagedObjectContext {
+//        return persistentContainer.viewContext
+//
+//    }
     
     // salvar
     static func saveContext() throws{
