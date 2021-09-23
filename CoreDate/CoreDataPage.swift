@@ -32,8 +32,9 @@ class CoreDataPage {
     }
     
     // criar Página
-    static func createPage(date: Date, photo: String, audio: String) throws -> Page {
+    static func createPage(album: Album, date: Date, photo: String, audio: String) throws -> Page {
         guard let page = NSEntityDescription.insertNewObject(forEntityName: "Page", into: context) as? Page else { preconditionFailure() }
+        page.album = album
         page.pageAudio = audio
         page.pageDate = date
         page.pagePhoto = photo
