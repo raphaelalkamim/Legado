@@ -35,7 +35,16 @@ class NewPageViewController: UIViewController {
         print(page?.pagePhoto)
         print(page?.pageAudio)
         print(page)
-        //navigationController?.popViewController(animated: true)
+        
+        if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
+            vc.changeAlbum(album: album)
+            let index = album.pages?.allObjects.last
+            vc.page = index as? Page
+            //vc.pageIndex = pageIndex!+1
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
+
     }
     
     func convertDate(date: Date) -> String {
@@ -81,6 +90,19 @@ class NewPageViewController: UIViewController {
 
         
     }
+    @IBAction func cancelCreation(_ sender: UIBarButtonItem) {
+        let refreshAlert = UIAlertController(title: "Cancelar Página", message: "Todas suas mudanças serão perdidas.\nTem certeza que deseja cancelar?", preferredStyle: .alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
+            navigationController?.popViewController(animated: true)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+   
     
 
     

@@ -17,6 +17,10 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     
 
     
+    @IBOutlet weak var otherLabel: UILabel!
+    @IBOutlet weak var eventLabel: UILabel!
+    @IBOutlet weak var travelLabel: UILabel!
+    @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var personImageButton: UIButton!
     @IBOutlet weak var otherImageButton: UIButton!
