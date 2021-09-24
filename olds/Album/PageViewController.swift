@@ -12,6 +12,8 @@ class PageViewController: UIViewController {
     var date: Date?
     var album: Album?
     var pageIndex: Int?
+    var pages: [Page]?
+    var pagesOfAlbum: [Page]?
 
     
     @IBOutlet weak var previousButton: UIButton!
@@ -24,6 +26,7 @@ class PageViewController: UIViewController {
             vc.changeAlbum(album: album)
             let index = pageIndex!+1
             vc.page = album?.pages?.allObjects[index] as? Page
+//            vc.page = pages![index] as? Page
             vc.pageIndex = pageIndex!+1
             navigationController?.pushViewController(vc, animated: true)
             
