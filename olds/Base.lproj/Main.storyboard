@@ -721,6 +721,11 @@
                                     <segment title="Outros"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMK-Le-kJi">
+                                <rect key="frame" x="323" y="699" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ygh-eq-giE"/>
                         <color key="backgroundColor" name="BackgroundColorPaper"/>
@@ -738,7 +743,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFG-iK-Cco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532.9268292682927" y="846.61016949152543"/>
+            <point key="canvasLocation" x="1699" y="847"/>
         </scene>
     </scenes>
     <resources>
