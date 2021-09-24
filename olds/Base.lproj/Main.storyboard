@@ -54,6 +54,9 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blueAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="nOC-cy-q4I">
                                                     <rect key="frame" x="7" y="3" width="233" height="294"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome do Álbum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFb-AM-ab1">
                                                     <rect key="frame" x="8" y="305" width="232" height="37"/>
@@ -262,6 +265,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-XS-jH4">
                                 <rect key="frame" x="139.5" y="138" width="541" height="685.5"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="541" id="84e-oE-IBE"/>
                                     <constraint firstAttribute="height" constant="685.5" id="9pI-RN-bcM"/>
@@ -360,6 +366,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-43-W0s">
                                 <rect key="frame" x="150" y="226" width="520" height="720"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="720" id="Tfs-EX-r1a"/>
                                     <constraint firstAttribute="width" constant="520" id="jjv-wY-hnx"/>
@@ -385,13 +394,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-aE-WCz">
-                                <rect key="frame" x="341" y="978" width="138" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-aE-WCz">
+                                <rect key="frame" x="385" y="962" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LZG-vz-e2p"/>
+                                    <constraint firstAttribute="width" constant="50" id="XXb-Po-6gP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="tintColor" name="ActionColorButton"/>
-                                <state key="normal" title=" Gravar Áudio">
+                                <state key="normal">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <imageReference key="image" image="mic.circle" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="newAudio:" destination="0eS-qe-iFi" eventType="touchUpInside" id="iT2-1Q-N2g"/>
@@ -425,22 +439,30 @@
                                     <action selector="savePage:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Ayl-tB-Ule"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gravar Áudio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-qv-L3w">
+                                <rect key="frame" x="360.5" y="1020" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h9d-fs-4En"/>
                         <color key="backgroundColor" name="BackgroundColorPaper"/>
                         <constraints>
+                            <constraint firstItem="Wdt-qv-L3w" firstAttribute="top" secondItem="ehx-aE-WCz" secondAttribute="bottom" constant="8" id="117-7h-rHO"/>
+                            <constraint firstItem="Wdt-qv-L3w" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="2d4-nN-JF4"/>
+                            <constraint firstItem="ehx-aE-WCz" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="16" id="7HB-ct-EcD"/>
                             <constraint firstItem="yeA-43-W0s" firstAttribute="leading" secondItem="h9d-fs-4En" secondAttribute="leading" constant="150" id="ASM-vU-Opv"/>
                             <constraint firstItem="AwY-en-o5y" firstAttribute="top" secondItem="h9d-fs-4En" secondAttribute="top" constant="16" id="IqC-be-OvY"/>
                             <constraint firstItem="yeA-43-W0s" firstAttribute="top" secondItem="fKz-pL-5TP" secondAttribute="bottom" constant="32" id="JJe-XE-ofS"/>
                             <constraint firstItem="h9d-fs-4En" firstAttribute="trailing" secondItem="AwY-en-o5y" secondAttribute="trailing" constant="320" id="Rpk-kf-IKb"/>
-                            <constraint firstItem="ehx-aE-WCz" firstAttribute="top" secondItem="gEf-yp-mhh" secondAttribute="bottom" constant="71" id="dsU-Il-wxC"/>
                             <constraint firstItem="AwY-en-o5y" firstAttribute="leading" secondItem="h9d-fs-4En" secondAttribute="leading" constant="320" id="hxD-ZS-NEB"/>
                             <constraint firstItem="yeA-43-W0s" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="k2T-mx-mXC"/>
                             <constraint firstItem="h9d-fs-4En" firstAttribute="trailing" secondItem="yeA-43-W0s" secondAttribute="trailing" constant="150" id="kbT-1J-ydh"/>
-                            <constraint firstItem="ehx-aE-WCz" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="nE0-Hf-8aK"/>
-                            <constraint firstItem="ehx-aE-WCz" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="32" id="ogz-0c-GXh"/>
-                            <constraint firstItem="gEf-yp-mhh" firstAttribute="centerX" secondItem="ehx-aE-WCz" secondAttribute="centerX" id="plU-17-K0R"/>
+                            <constraint firstItem="ehx-aE-WCz" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="nKz-hw-Wju"/>
+                            <constraint firstItem="gEf-yp-mhh" firstAttribute="centerX" secondItem="yeA-43-W0s" secondAttribute="centerX" id="nau-wB-h5F"/>
                             <constraint firstItem="fKz-pL-5TP" firstAttribute="top" secondItem="AwY-en-o5y" secondAttribute="bottom" constant="16" id="tHx-5g-a0b"/>
+                            <constraint firstItem="gEf-yp-mhh" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="-74" id="tMs-Ks-uz4"/>
                             <constraint firstItem="fKz-pL-5TP" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="xEV-s5-BYt"/>
                         </constraints>
                     </view>
