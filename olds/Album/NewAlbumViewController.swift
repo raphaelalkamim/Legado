@@ -26,7 +26,7 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var otherImageButton: UIButton!
     @IBOutlet weak var eventImageButton: UIButton!
     @IBOutlet weak var travelImageButton: UIButton!
-    var debs: Int = 90
+    var elements = [UIAccessibilityElement]()
 
     
     var typeName: String?
@@ -83,7 +83,33 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
         personImageButton.isSelected = true
         titleTextField.delegate = self
         
+        //atribuindo os elementos como de acessibilidade
+        titleTextField.isAccessibilityElement = true
+        personImageButton.isAccessibilityElement = true
+        otherImageButton.isAccessibilityElement = true
+        eventImageButton.isAccessibilityElement = true
+        travelImageButton.isAccessibilityElement = true
         
+        //dicas
+        titleTextField.accessibilityHint = ""
+//        personImageButton.accessibilityHint = "Você selecionou o tipo de álbum pessoas"
+//        otherImageButton.accessibilityHint = "Você selecionou o tipo de álbum outros"
+//        eventImageButton.accessibilityHint = "Você selecionou o tipo de álbum eventos"
+//        travelImageButton.accessibilityHint = "Você selecionou o tipo de álbum viagens"
+        
+        //o que o voice over fala
+        personImageButton.accessibilityLabel = "álbum"
+        otherImageButton.accessibilityLabel = "álbum"
+        eventImageButton.accessibilityLabel = "álbum"
+        travelImageButton.accessibilityLabel = "álbum"
+        
+        //a segunda coisa q o voice over fala
+        personImageButton.accessibilityValue = "Pessoas"
+        otherImageButton.accessibilityValue = "Outros"
+        eventImageButton.accessibilityValue = "Eventos"
+        travelImageButton.accessibilityValue = "Viagens"
+        
+                
     }
     
     override func viewWillAppear(_ animated: Bool) {
