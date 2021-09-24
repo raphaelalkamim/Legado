@@ -13,6 +13,7 @@ protocol AlbumViewControllerDelegate: AnyObject { // protocolo para atualizar a 
 
 class AlbumViewController: UIViewController {
     var album: Album?
+    var page: Page?
     weak var delegate: NewAlbumViewControllerDelegate?
     @IBOutlet weak var albunsButton: UIBarButtonItem!
     

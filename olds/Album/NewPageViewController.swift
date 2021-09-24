@@ -15,9 +15,9 @@ class NewPageViewController: UIViewController {
     
     
     @IBAction func savePage(_ sender: Any) {
-        if let newPage = self.page{
+        if let page = self.page{
             print("to aqui")
-           // _ = page
+            _ = page
         }
         else {
             print("entrei no else ")
@@ -28,7 +28,7 @@ class NewPageViewController: UIViewController {
         page?.pageDate = date
         page?.pagePhoto = "fotoooo"
         page?.pageAudio = "audio"
-        
+        print("EU TO AQUIIIIIIIIIIII")
         
         try? CoreDataPage.saveContext()
         print(page?.pageDate)
