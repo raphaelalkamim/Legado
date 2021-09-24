@@ -109,6 +109,12 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
         eventImageButton.accessibilityValue = "Eventos"
         travelImageButton.accessibilityValue = "Viagens"
         
+        //para fazeer o voice over ler na direção certa
+        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+        groupedElement.accessibilityLabel = "\(personLabel.text!), \(personImageButton.self!)"
+        groupedElement.accessibilityFrameInContainerSpace = personLabel.frame.union(personImageButton.frame)
+        elements.append(groupedElement)
+        
                 
     }
     
