@@ -22,6 +22,7 @@ class NewAlbumViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var otherImageButton: UIButton!
     @IBOutlet weak var eventImageButton: UIButton!
     @IBOutlet weak var travelImageButton: UIButton!
+    var debs: Int = 90
 
     
     var typeName: String?
