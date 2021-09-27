@@ -7,37 +7,28 @@
 
 import UIKit
 
-class PageViewController: UIViewController {
+class PageViewController: UIViewController, UICollectionViewDelegate {
     var page: Page?
     var date: Date?
     var album: Album?
     var pageIndex: Int?
-    var pages: [Page]?
-    var pagesOfAlbum: [Page]?
+
+    var pageData: [Page]?
+
+    @IBOutlet weak var pageCollection: UICollectionView!
 
     
-    @IBOutlet weak var previousButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
-   
-    
-    @IBAction func goNext(_ sender: Any) {
-        print("fui pra next")
-        if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
-            vc.changeAlbum(album: album)
-            let index = pageIndex!+1
-            vc.page = album?.pages?.allObjects[index] as? Page
-//            vc.page = pages![index] as? Page
-            vc.pageIndex = pageIndex!+1
-            navigationController?.pushViewController(vc, animated: true)
-            
-        }
+    @IBAction func newPage(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let destVC = storyboard.instantiateViewController(withIdentifier: "ModalNewPage")
+        
+        destVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        destVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        changeAlbum(album: album)
+
+        self.present(destVC, animated: true, completion: nil)
+        
     }
-    
-    @IBAction func goPrevious(_ sender: Any) {
-        print("previ")
-    }
-    
-    
     
     func convertDate(date: Date) -> String {
         self.date = date
@@ -49,24 +40,24 @@ class PageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pageData = try! CoreDataPage.getPage()
+        
         date = page?.pageDate
         
-        title = convertDate(date: (page?.pageDate)!)
-        print("title: ",title)
-        print("AAAAA PAGINA", page)
-        
-        let numberOfPages = album?.pages?.count
-        print("NUMPAGES",numberOfPages)
-        print("PAGESINDEX",pageIndex)
-        print(album)
-        print(album?.pages)
-        if pageIndex == (numberOfPages! - 1) {
-            nextButton.isHidden = true
-
-        }
-        
+        pageCollection.delegate = self
+        pageCollection.dataSource = self
+       
+    
         
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        didRegister()
+    }
+    
+    
+
     func changeAlbum(album: Album?) {
         self.album = album
     }
@@ -75,7 +66,73 @@ class PageViewController: UIViewController {
     @IBAction func goBackToAlbums(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-
     
-
+    func didRegister() {
+        pageData = try! CoreDataPage.getPage()
+        pageData!.reverse()
+        pageCollection.reloadData()
+    }
 }
+    
+    
+    extension PageViewController: UICollectionViewDataSource {
+        
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            
+            return pageData!.count
+            
+            
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let pageDataCell: PageViewCollectionViewCell = pageCollection?.dequeueReusableCell(withReuseIdentifier: "PageCell", for: indexPath as IndexPath) as! PageViewCollectionViewCell
+            
+            didRegister()
+            
+            pageDataCell.titleCell.text = convertDate(date: (pageData?[indexPath.row].pageDate)!)
+            
+            
+            return pageDataCell
+        }
+        
+        
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        }
+        
+        
+        
+        // context
+        func configureContextMenu(index: Int) -> UIContextMenuConfiguration{
+            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
+                
+                let delete = UIAction(title: "Apagar Página", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
+                    let ac = UIAlertController(title: "Deletar Página", message: "Tem certeza que deseja deletar essa Página?", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
+                        didRegister()
+                        
+                        
+                        if let page = pageData?[index] {
+                            try? CoreDataPage.deletePage(page: page)
+                        }
+                        
+                        didRegister()
+                       
+                    }))
+                    
+                    ac.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
+                    
+                    self.present(ac, animated: true, completion: nil)
+                    
+                    
+                    
+                }
+                
+                return UIMenu(title: "Opções", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [delete])
+                
+            }
+            return context
+        }
+        
+    }
+

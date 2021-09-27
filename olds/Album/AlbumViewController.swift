@@ -27,13 +27,7 @@ class AlbumViewController: UIViewController {
     }
     
     @IBAction func actNextPage(_ sender: Any) {
-        if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
-            vc.changeAlbum(album: album)
-            vc.page = album?.pages?.allObjects[0] as? Page
-            vc.pageIndex = 0
-            navigationController?.pushViewController(vc, animated: true)
-            
-        }
+
     }
     
     

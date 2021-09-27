@@ -11,16 +11,30 @@ class NewPageViewController: UIViewController {
     
     private var page: Page?
     var album: Album!
+    var dateInput: String = ""
+    var date: Date?
     
     
+    @IBOutlet weak var datePicker: UIDatePicker?
+    @IBOutlet weak var imgPhoto: UIImageView!
+    @IBOutlet weak var newPhotoButton: UIButton!
+    @IBOutlet weak var recordAudioButton: UIButton!
     
-    @IBAction func savePage(_ sender: Any) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+       
+
+        
+    }
+    
+    @IBAction func pageSave(_ sender: Any) {
         if let page = self.page{
-            print("to aqui")
+
             _ = page
         }
         else {
-            print("entrei no else ")
+
             
             page = try? CoreDataPage.createPage(album: album, date: Date(), photo: "", audio: "")
             
@@ -28,24 +42,20 @@ class NewPageViewController: UIViewController {
         page?.pageDate = date
         page?.pagePhoto = "fotoooo"
         page?.pageAudio = "audio"
-        print("EU TO AQUIIIIIIIIIIII")
-        
+
         try? CoreDataPage.saveContext()
-        print(page?.pageDate)
-        print(page?.pagePhoto)
-        print(page?.pageAudio)
-        print(page)
+
         
         if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
             vc.changeAlbum(album: album)
-            let index = album.pages?.allObjects.last
-            vc.page = index as? Page
-            //vc.pageIndex = pageIndex!+1
-            navigationController?.pushViewController(vc, animated: true)
+            self.dismiss(animated: true, completion: nil)
+            
             
         }
-
     }
+    
+
+
     
     func convertDate(date: Date) -> String {
         self.date = date
@@ -55,12 +65,8 @@ class NewPageViewController: UIViewController {
         return stringDate
     }
     
-    @IBAction func cancel(_ sender: Any) {
-    }
-    @IBOutlet weak var datePicker: UIDatePicker?
-    @IBOutlet weak var imgPhoto: UIImageView!
-    @IBOutlet weak var newPhotoButton: UIButton!
-    @IBOutlet weak var recordAudioButton: UIButton!
+
+   
     
     @IBAction func newPhoto(_ sender: Any) {
     }
@@ -80,31 +86,19 @@ class NewPageViewController: UIViewController {
         print(dateInput)
     }
     
-    var dateInput: String = ""
-    var date: Date?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-       
-
-        
-    }
-    @IBAction func cancelCreation(_ sender: UIBarButtonItem) {
+    @IBAction func creationCancel(_ sender: Any) {
         let refreshAlert = UIAlertController(title: "Cancelar Página", message: "Todas suas mudanças serão perdidas.\nTem certeza que deseja cancelar?", preferredStyle: .alert)
-        
+
         refreshAlert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
-            navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }))
-        
+
         refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
-        
+
         present(refreshAlert, animated: true, completion: nil)
+
     }
-    
-   
-    
-
-    
-
+  
 }
+    

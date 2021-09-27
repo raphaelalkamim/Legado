@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fdD-tr-Eb6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fdD-tr-Eb6">
     <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6hT-Ju-Jln">
-                                <rect key="frame" x="32" y="118" width="756" height="32"/>
+                                <rect key="frame" x="32" y="142" width="756" height="32"/>
                                 <segments>
                                     <segment title="Todos"/>
                                     <segment title="Pessoas"/>
@@ -34,7 +35,7 @@
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-pI-1ts">
-                                <rect key="frame" x="20" y="165" width="780" height="950"/>
+                                <rect key="frame" x="20" y="189" width="780" height="926"/>
                                 <color key="backgroundColor" name="BackgroundColorPaper"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="SUm-Ly-gCN">
                                     <size key="itemSize" width="248" height="350"/>
@@ -118,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira o título do álbum" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-sq-0C7">
-                                <rect key="frame" x="140" y="134" width="540" height="50"/>
+                                <rect key="frame" x="140" y="158" width="540" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="540" id="LRB-Y2-uNb"/>
                                     <constraint firstAttribute="height" constant="50" id="UFS-5v-9DG"/>
@@ -127,7 +128,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sP7-iD-6Ko">
-                                <rect key="frame" x="140" y="216" width="540" height="704"/>
+                                <rect key="frame" x="140" y="240" width="540" height="704"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upr-Ga-fMi">
                                         <rect key="frame" x="28" y="28" width="223" height="284"/>
@@ -296,7 +297,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-XS-jH4">
-                                <rect key="frame" x="139.5" y="138" width="541" height="685.5"/>
+                                <rect key="frame" x="139.5" y="162" width="541" height="685.5"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -306,7 +307,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-1c-OrD">
-                                <rect key="frame" x="340" y="911.5" width="140" height="24"/>
+                                <rect key="frame" x="340" y="935.5" width="140" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal" title=" Nova Página">
@@ -314,11 +315,11 @@
                                     <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large" renderingMode="template"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0eS-qe-iFi" kind="show" identifier="newPageSegue" id="qc0-WR-kBH"/>
+                                    <segue destination="0eS-qe-iFi" kind="presentation" id="gAo-3t-y2t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfD-i4-KTr">
-                                <rect key="frame" x="730.5" y="549.5" width="39.5" height="24"/>
+                                <rect key="frame" x="730.5" y="561.5" width="39.5" height="24"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal">
@@ -327,10 +328,11 @@
                                 </state>
                                 <connections>
                                     <action selector="actNextPage:" destination="LBC-EF-CYN" eventType="touchUpInside" id="1Iu-Kb-1cE"/>
+                                    <segue destination="wDx-Zd-ydE" kind="show" id="2gn-my-LBE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próxima Página" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-ST-dSt">
-                                <rect key="frame" x="712.5" y="581.5" width="76.5" height="59"/>
+                                <rect key="frame" x="712.5" y="593.5" width="76.5" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="qid-PE-M4p"/>
                                 </constraints>
@@ -391,47 +393,29 @@
         <!--Nova Página-->
         <scene sceneID="ZdE-ew-IfK">
             <objects>
-                <viewController title="Nova Página" id="0eS-qe-iFi" customClass="NewPageViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ModalNewPage" title="Nova Página" id="0eS-qe-iFi" customClass="NewPageViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZS6-Gf-dQv">
-                        <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-43-W0s">
-                                <rect key="frame" x="150" y="226" width="520" height="720"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-43-W0s">
+                                <rect key="frame" x="116" y="184" width="472" height="720"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="720" id="Tfs-EX-r1a"/>
-                                    <constraint firstAttribute="width" constant="520" id="jjv-wY-hnx"/>
-                                </constraints>
                             </imageView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-pL-5TP">
-                                <rect key="frame" x="154" y="106" width="512" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="512" id="6AF-je-A9z"/>
-                                    <constraint firstAttribute="height" constant="88" id="cDn-y2-Lfx"/>
-                                </constraints>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-pL-5TP">
+                                <rect key="frame" x="96" y="108" width="512" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <locale key="locale" localeIdentifier="pt_BR"/>
                                 <connections>
                                     <action selector="datePickerChanged:" destination="0eS-qe-iFi" eventType="valueChanged" id="g38-Qu-2Hg"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira a data da foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwY-en-o5y">
-                                <rect key="frame" x="320" y="66" width="180" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="YXv-ij-rqs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-aE-WCz">
-                                <rect key="frame" x="385" y="962" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="LZG-vz-e2p"/>
-                                    <constraint firstAttribute="width" constant="50" id="XXb-Po-6gP"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-aE-WCz">
+                                <rect key="frame" x="328" y="896" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal">
@@ -443,13 +427,10 @@
                                     <action selector="newAudio:" destination="0eS-qe-iFi" eventType="touchUpInside" id="iT2-1Q-N2g"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-yp-mhh">
-                                <rect key="frame" x="186.5" y="872" width="447" height="35"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-yp-mhh">
+                                <rect key="frame" x="129" y="797" width="447" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="transparent"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="447" id="Pr3-DO-3hY"/>
-                                    <constraint firstAttribute="height" constant="35" id="mRQ-z9-8qI"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal" title=" Adicionar Foto" image="plus.circle" catalog="system">
@@ -467,50 +448,49 @@
                                 <state key="normal" title="Salvar Página">
                                     <color key="titleColor" name="ActionColorButton"/>
                                 </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gravar Áudio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-qv-L3w">
+                                <rect key="frame" x="303" y="954" width="99" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qx5-P0-ONE">
+                                <rect key="frame" x="36" y="41" width="82" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancelar"/>
                                 <connections>
-                                    <action selector="savePage:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Ayl-tB-Ule"/>
+                                    <action selector="creationCancel:" destination="0eS-qe-iFi" eventType="touchUpInside" id="LGq-H7-b4S"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gravar Áudio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-qv-L3w">
-                                <rect key="frame" x="360.5" y="1020" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFD-Q1-YCd">
+                                <rect key="frame" x="590" y="41" width="82" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Salvar"/>
+                                <connections>
+                                    <action selector="pageSave:" destination="0eS-qe-iFi" eventType="touchUpInside" id="atc-BU-Sz5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insira a data da foto" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwY-en-o5y">
+                                <rect key="frame" x="137" y="76" width="431" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h9d-fs-4En"/>
                         <color key="backgroundColor" name="BackgroundColorPaper"/>
-                        <constraints>
-                            <constraint firstItem="Wdt-qv-L3w" firstAttribute="top" secondItem="ehx-aE-WCz" secondAttribute="bottom" constant="8" id="117-7h-rHO"/>
-                            <constraint firstItem="Wdt-qv-L3w" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="2d4-nN-JF4"/>
-                            <constraint firstItem="ehx-aE-WCz" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="16" id="7HB-ct-EcD"/>
-                            <constraint firstItem="yeA-43-W0s" firstAttribute="leading" secondItem="h9d-fs-4En" secondAttribute="leading" constant="150" id="ASM-vU-Opv"/>
-                            <constraint firstItem="AwY-en-o5y" firstAttribute="top" secondItem="h9d-fs-4En" secondAttribute="top" constant="16" id="IqC-be-OvY"/>
-                            <constraint firstItem="yeA-43-W0s" firstAttribute="top" secondItem="fKz-pL-5TP" secondAttribute="bottom" constant="32" id="JJe-XE-ofS"/>
-                            <constraint firstItem="h9d-fs-4En" firstAttribute="trailing" secondItem="AwY-en-o5y" secondAttribute="trailing" constant="320" id="Rpk-kf-IKb"/>
-                            <constraint firstItem="AwY-en-o5y" firstAttribute="leading" secondItem="h9d-fs-4En" secondAttribute="leading" constant="320" id="hxD-ZS-NEB"/>
-                            <constraint firstItem="yeA-43-W0s" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="k2T-mx-mXC"/>
-                            <constraint firstItem="h9d-fs-4En" firstAttribute="trailing" secondItem="yeA-43-W0s" secondAttribute="trailing" constant="150" id="kbT-1J-ydh"/>
-                            <constraint firstItem="ehx-aE-WCz" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="nKz-hw-Wju"/>
-                            <constraint firstItem="gEf-yp-mhh" firstAttribute="centerX" secondItem="yeA-43-W0s" secondAttribute="centerX" id="nau-wB-h5F"/>
-                            <constraint firstItem="fKz-pL-5TP" firstAttribute="top" secondItem="AwY-en-o5y" secondAttribute="bottom" constant="16" id="tHx-5g-a0b"/>
-                            <constraint firstItem="gEf-yp-mhh" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="-74" id="tMs-Ks-uz4"/>
-                            <constraint firstItem="fKz-pL-5TP" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="xEV-s5-BYt"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nova Página" id="tTw-Mf-ciM">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" style="plain" id="461-lb-nNl">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="cancelCreation:" destination="0eS-qe-iFi" id="0TZ-a9-1FL"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" style="plain" id="7fg-7b-5ls">
                             <color key="tintColor" name="ActionColorButton"/>
-                            <connections>
-                                <action selector="salvar:" destination="0eS-qe-iFi" id="pOg-W4-iLu"/>
-                                <segue destination="wDx-Zd-ydE" kind="show" id="UcJ-FO-ca1"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -522,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INs-eC-CpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3850.9756097560976" y="93.559322033898312"/>
+            <point key="canvasLocation" x="3825.3658536585367" y="535.93220338983053"/>
         </scene>
         <!--Data Página-->
         <scene sceneID="qiQ-LF-RJh">
@@ -532,108 +512,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8c1-hY-3gA">
-                                <rect key="frame" x="728" y="544" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="UL9-k9-Fv1"/>
-                                    <constraint firstAttribute="height" constant="25" id="nNY-mi-Hul"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                <color key="tintColor" name="ActionColorButton"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="arrow.right.circle" catalog="system" symbolScale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="goNext:" destination="wDx-Zd-ydE" eventType="touchUpInside" id="dfF-eS-afd"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próxima Página" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feN-zQ-CoA">
-                                <rect key="frame" x="702.5" y="577" width="76" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="ev5-ca-x4c"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfn-LA-DDl">
-                                <rect key="frame" x="61" y="544" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="0w9-Je-oGu"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="eTb-Et-xkC"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="sR5-qW-mCd"/>
-                                    <constraint firstAttribute="width" constant="25" id="unR-ub-Hxl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                <color key="tintColor" name="ActionColorButton"/>
-                                <state key="normal">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                    <imageReference key="image" image="arrow.left.circle" catalog="system" symbolScale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="goPrevious:" destination="wDx-Zd-ydE" eventType="touchUpInside" id="pI5-1l-U7L"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Página Anterior" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AI-dc-ff2">
-                                <rect key="frame" x="31" y="577" width="92" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Hvl-Wd-FSw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-va-2qh">
-                                <rect key="frame" x="310" y="1081" width="200" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <color key="tintColor" name="ActionColorButton"/>
-                                <state key="normal" title=" Reproduzir Áudio">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                    <imageReference key="image" image="play.circle" catalog="system" symbolScale="large"/>
-                                </state>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-pe-8WP">
-                                <rect key="frame" x="150" y="245" width="520" height="720"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="720" id="LCE-Dh-Vvu"/>
-                                    <constraint firstAttribute="width" constant="520" id="OlA-to-ZgI"/>
-                                </constraints>
-                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RlJ-ni-QfN">
+                                <rect key="frame" x="0.0" y="168" width="820" height="942"/>
+                                <color key="backgroundColor" name="BackgroundColorPaper"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zpK-LA-GAf">
+                                    <size key="itemSize" width="812" height="896"/>
+                                    <size key="estimatedItemSize" width="818" height="1042"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PageCell" id="Msn-fw-vr8" customClass="PageViewCollectionViewCell" customModule="olds" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="21" width="800" height="900"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="36t-KV-cNn">
+                                            <rect key="frame" x="0.0" y="0.0" width="800" height="900"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-pe-8WP">
+                                                    <rect key="frame" x="141" y="90" width="520" height="720"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Título" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ag-nJ-VZD">
+                                                    <rect key="frame" x="140" y="32" width="520" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-va-2qh">
+                                                    <rect key="frame" x="301" y="837" width="200" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="tintColor" name="ActionColorButton"/>
+                                                    <state key="normal" title=" Reproduzir Áudio">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                        <imageReference key="image" image="play.circle" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="playButtonCellAction:" destination="Msn-fw-vr8" eventType="touchUpInside" id="PJt-EG-VFm"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="800" height="900"/>
+                                        <connections>
+                                            <outlet property="imgCell" destination="IKb-pe-8WP" id="PSI-dm-bpn"/>
+                                            <outlet property="playButtonCell" destination="hqp-va-2qh" id="erL-t2-OL7"/>
+                                            <outlet property="titleCell" destination="5ag-nJ-VZD" id="IIW-9s-NVm"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RES-Ky-Akn"/>
                         <color key="backgroundColor" name="BackgroundColorPaper"/>
                         <constraints>
-                            <constraint firstItem="8c1-hY-3gA" firstAttribute="top" secondItem="RES-Ky-Akn" secondAttribute="top" constant="494" id="0dz-ey-RAk"/>
-                            <constraint firstItem="2AI-dc-ff2" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" constant="31" id="3Ap-Et-7eE"/>
-                            <constraint firstItem="IKb-pe-8WP" firstAttribute="leading" secondItem="2AI-dc-ff2" secondAttribute="trailing" constant="27" id="3Zs-eP-e7S"/>
-                            <constraint firstItem="IKb-pe-8WP" firstAttribute="leading" secondItem="Tfn-LA-DDl" secondAttribute="trailing" constant="64" id="62H-eN-t92"/>
-                            <constraint firstItem="IKb-pe-8WP" firstAttribute="centerY" secondItem="RES-Ky-Akn" secondAttribute="centerY" id="6sV-fQ-icq"/>
-                            <constraint firstItem="Tfn-LA-DDl" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" constant="61" id="MPg-OH-9EQ"/>
-                            <constraint firstItem="RES-Ky-Akn" firstAttribute="trailing" secondItem="8c1-hY-3gA" secondAttribute="trailing" constant="67" id="TiK-ou-wIf"/>
-                            <constraint firstItem="feN-zQ-CoA" firstAttribute="leading" secondItem="IKb-pe-8WP" secondAttribute="trailing" constant="32.5" id="URX-gn-QAO"/>
-                            <constraint firstItem="hqp-va-2qh" firstAttribute="centerX" secondItem="RES-Ky-Akn" secondAttribute="centerX" id="enc-xE-ZE0"/>
-                            <constraint firstItem="RES-Ky-Akn" firstAttribute="trailing" secondItem="feN-zQ-CoA" secondAttribute="trailing" constant="41.5" id="epn-JW-OSY"/>
-                            <constraint firstItem="hqp-va-2qh" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" constant="310" id="gZK-nf-Nmi"/>
-                            <constraint firstItem="Tfn-LA-DDl" firstAttribute="top" secondItem="RES-Ky-Akn" secondAttribute="top" constant="494" id="l0X-t3-gdE"/>
-                            <constraint firstItem="Tfn-LA-DDl" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" constant="61" id="otv-VI-gBm"/>
-                            <constraint firstItem="2AI-dc-ff2" firstAttribute="top" secondItem="Tfn-LA-DDl" secondAttribute="bottom" constant="8" symbolic="YES" id="q5u-Go-J4z"/>
-                            <constraint firstItem="feN-zQ-CoA" firstAttribute="top" secondItem="8c1-hY-3gA" secondAttribute="bottom" constant="8" symbolic="YES" id="szA-sk-K7A"/>
-                            <constraint firstItem="RES-Ky-Akn" firstAttribute="bottom" secondItem="hqp-va-2qh" secondAttribute="bottom" constant="55" id="wJy-Qq-81t"/>
-                            <constraint firstItem="IKb-pe-8WP" firstAttribute="centerX" secondItem="RES-Ky-Akn" secondAttribute="centerX" id="x0z-S1-l1M"/>
-                            <constraint firstItem="8c1-hY-3gA" firstAttribute="leading" secondItem="IKb-pe-8WP" secondAttribute="trailing" constant="58" id="yYD-uh-e8b"/>
+                            <constraint firstItem="RlJ-ni-QfN" firstAttribute="centerY" secondItem="RES-Ky-Akn" secondAttribute="centerY" constant="22" id="Q7K-B8-6mu"/>
+                            <constraint firstItem="RlJ-ni-QfN" firstAttribute="top" secondItem="RES-Ky-Akn" secondAttribute="top" constant="94" id="Qxs-1W-27C"/>
+                            <constraint firstItem="RlJ-ni-QfN" firstAttribute="trailing" secondItem="RES-Ky-Akn" secondAttribute="trailing" id="VsS-eU-gew"/>
+                            <constraint firstItem="RlJ-ni-QfN" firstAttribute="centerX" secondItem="RES-Ky-Akn" secondAttribute="centerX" id="a76-p7-Bw7"/>
+                            <constraint firstItem="RES-Ky-Akn" firstAttribute="bottom" secondItem="RlJ-ni-QfN" secondAttribute="bottom" constant="50" id="bF1-UJ-ie4"/>
+                            <constraint firstItem="RlJ-ni-QfN" firstAttribute="leading" secondItem="RES-Ky-Akn" secondAttribute="leading" id="rHM-6e-3OH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Data Página" id="Lo7-OG-hUA">
                         <barButtonItem key="leftBarButtonItem" title="Álbuns" style="plain" id="lUK-1M-ny9">
                             <color key="tintColor" name="ActionColorButton"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Apagar" style="plain" id="mJJ-Hj-abK">
+                        <barButtonItem key="rightBarButtonItem" title="Apagar" style="plain" systemItem="add" id="mJJ-Hj-abK">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="newPage:" destination="wDx-Zd-ydE" id="Acb-2E-EjU"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="nextButton" destination="8c1-hY-3gA" id="5yk-la-iDv"/>
-                        <outlet property="previousButton" destination="Tfn-LA-DDl" id="Rwi-vS-dUw"/>
+                        <outlet property="pageCollection" destination="RlJ-ni-QfN" id="me9-Qx-jUu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNr-Y9-crA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -673,7 +630,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wVc-yj-s73">
-                        <rect key="frame" x="0.0" y="0.0" width="820" height="102"/>
+                        <rect key="frame" x="0.0" y="24" width="820" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -695,7 +652,7 @@
                         <imageReference key="selectedImage" image="clock.arrow.circlepath" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="tng-Fr-Zsv">
-                        <rect key="frame" x="0.0" y="0.0" width="820" height="102"/>
+                        <rect key="frame" x="0.0" y="24" width="820" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -715,7 +672,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hYT-3k-a6O">
-                                <rect key="frame" x="20" y="113" width="780" height="1002"/>
+                                <rect key="frame" x="20" y="137" width="780" height="978"/>
                                 <color key="backgroundColor" name="BackgroundColorPaper"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bOu-8a-shZ">
                                     <size key="itemSize" width="700" height="411"/>
@@ -754,7 +711,7 @@
                                 </cells>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="obu-Ju-9YZ">
-                                <rect key="frame" x="32" y="66" width="756" height="32"/>
+                                <rect key="frame" x="32" y="90" width="756" height="32"/>
                                 <segments>
                                     <segment title="Todos"/>
                                     <segment title="Pessoas"/>
@@ -789,12 +746,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="blueAlbum" width="1445" height="1829"/>
         <image name="blueAlbumNotSel" width="363" height="459"/>
         <image name="bluePhoto" width="1048" height="1448"/>
-        <image name="book" catalog="system" width="128" height="102"/>
+        <image name="book" catalog="system" width="128" height="99"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="brownAlbum" width="1445" height="1830"/>
         <image name="brownAlbumNotSel" width="362" height="460"/>

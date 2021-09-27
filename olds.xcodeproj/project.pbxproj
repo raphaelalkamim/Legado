@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B004DB2527022E1400989EF0 /* PageViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B004DB2427022E1400989EF0 /* PageViewCollectionViewCell.swift */; };
 		B02F9B8726F25CEC0088608E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8626F25CEC0088608E /* AppDelegate.swift */; };
 		B02F9B8926F25CEC0088608E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8826F25CEC0088608E /* SceneDelegate.swift */; };
 		B02F9B8B26F25CEC0088608E /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8A26F25CEC0088608E /* AlbumViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B004DB2427022E1400989EF0 /* PageViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B02F9B8326F25CEC0088608E /* olds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = olds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02F9B8626F25CEC0088608E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B02F9B8826F25CEC0088608E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				B05B207D26F3BC4800E46467 /* NewPageViewController.swift */,
 				B05B207F26F3BC6000E46467 /* PageViewController.swift */,
 				C871CF8C26F907F0009D9038 /* AlbumCollectionViewCell.swift */,
+				B004DB2427022E1400989EF0 /* PageViewCollectionViewCell.swift */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				B05B208026F3BC6000E46467 /* PageViewController.swift in Sources */,
 				B02F9B8926F25CEC0088608E /* SceneDelegate.swift in Sources */,
 				C871CF8826F90232009D9038 /* CoreDataPage.swift in Sources */,
+				B004DB2527022E1400989EF0 /* PageViewCollectionViewCell.swift in Sources */,
 				C871CF8B26F903AF009D9038 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
