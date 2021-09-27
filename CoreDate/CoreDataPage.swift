@@ -22,7 +22,6 @@ class CoreDataPage {
     static var context: NSManagedObjectContext = CoreDataAlbum.context
 //    static var context: NSManagedObjectContext {
 //        return persistentContainer.viewContext
-//
 //    }
     
     // salvar
@@ -34,20 +33,37 @@ class CoreDataPage {
     
     // criar Página
     static func createPage(album: Album, date: Date, photo: String, audio: String) throws -> Page {
-        guard let page = NSEntityDescription.insertNewObject(forEntityName: "Page", into: context) as? Page else { preconditionFailure() }
-        page.album = album
+//        guard let page = NSEntityDescription.insertNewObject(forEntityName: "Page", into: context) as? Page else { preconditionFailure() }
+        let page = Page(context: context)
+        
         page.pageAudio = audio
         page.pageDate = date
         page.pagePhoto = photo
-       
+        album.addToPages(page)
+    
         try saveContext()
         return page
     }
     
-    // pesquisar página
+    // pesquisar páginas (traz todas as páginas do CoreData)
     static func getPage() throws -> [Page] {
         return try context.fetch(Page.fetchRequest())
     }
+    
+    
+    static func getAlbumPages(album: Album) throws -> [Page] {
+        let allPages = try context.fetch(Page.fetchRequest()) as? [Page]
+        let albumPages = allPages?.filter({
+            $0.album == album
+        })
+        var pages: [Page] = []
+        if let safePages = albumPages {
+            pages = safePages
+        }
+        return pages
+    }
+    
+    
     
     // deletar página
     static func deletePage(page: Page) throws {

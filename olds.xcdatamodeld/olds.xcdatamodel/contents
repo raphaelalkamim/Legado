@@ -3,7 +3,7 @@
     <entity name="Album" representedClassName="Album" syncable="YES">
         <attribute name="albumTitle" attributeType="String"/>
         <attribute name="albumType" attributeType="String"/>
-        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Page" inverseName="album" inverseEntity="Page"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Page" inverseName="album" inverseEntity="Page"/>
     </entity>
     <entity name="Page" representedClassName="Page" syncable="YES">
         <attribute name="pageAudio" attributeType="String"/>
