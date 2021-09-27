@@ -9,10 +9,10 @@ import UIKit
 
 class NewPageViewController: UIViewController {
     
-    private var page: Page?
     var album: Album!
     var dateInput: String = ""
     var date: Date?
+    var pages: [Page] = []
     
     
     @IBOutlet weak var datePicker: UIDatePicker?
@@ -29,22 +29,13 @@ class NewPageViewController: UIViewController {
     }
     
     @IBAction func pageSave(_ sender: Any) {
-        if let page = self.page{
+        let page = try! CoreDataPage.createPage(album: album, date: Date(), photo: "", audio: "")
+        page.pageDate = date
 
-            _ = page
-        }
-        else {
-
-            
-            page = try? CoreDataPage.createPage(album: album, date: Date(), photo: "", audio: "")
-            
-        }
-        page?.pageDate = date
-        page?.pagePhoto = "fotoooo"
-        page?.pageAudio = "audio"
-
+        pages.append(page)
+        
         try? CoreDataPage.saveContext()
-
+        print(page)
         
         if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
             vc.changeAlbum(album: album)
@@ -53,6 +44,11 @@ class NewPageViewController: UIViewController {
             
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let cell = sender as! UICollectionViewCell
+//
+//    }
     
 
 

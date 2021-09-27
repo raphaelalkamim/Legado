@@ -20,15 +20,20 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var albumCover: UIImageView!
     @IBOutlet weak var newPageButton: UIButton!
-    @IBOutlet weak var nextPageButton: UILabel!
+    
+    
+    //    @IBAction func goToNextPage(_ sender: Any) {
+    //        if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
+    //            vc.album = album // manda o album pra outra pagina
+    //            navigationController?.pushViewController(vc, animated: true)
+    //    }
+    //    }
     
     func changeAlbum(album: Album?) {
         self.album = album
     }
     
-    @IBAction func actNextPage(_ sender: Any) {
-
-    }
+    
     
     
     @IBOutlet weak var backToAlbumsButton: UIBarButtonItem!
@@ -73,7 +78,7 @@ class AlbumViewController: UIViewController {
         }
     }
     
-   
+    
     
     @IBAction func edit(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "EditView") as? NewAlbumViewController {
@@ -88,6 +93,10 @@ class AlbumViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is NewPageViewController {
             let vc = segue.destination as? NewPageViewController
+            vc?.album = album
+        }
+        else if segue.destination is PageViewController {
+            let vc = segue.destination as? PageViewController
             vc?.album = album
         }
     }
