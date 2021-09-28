@@ -16,6 +16,7 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var segmented: UISegmentedControl!
     var albumData: [Album]?
     var albumsToDisplay: [Album]?
+    var elements = [UIAccessibilityElement]()
     
     @IBAction func segmented(_ sender: Any) {
         let index = self.segmented.selectedSegmentIndex
@@ -104,6 +105,10 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
         albumsToDisplay = albumData
         albumsToDisplay!.reverse()
         
+        //Determinando elementos como de acessibilidade
+        helperButton.isAccessibilityElement = true
+        createAlbumButton.isAccessibilityElement = true
+
     }
     
     
@@ -150,19 +155,33 @@ extension AlbumGridViewController: UICollectionViewDataSource {
             
             if coverImage == "person" {
                 albumDataCell.albumCover.image = UIImage(named: "blueAlbum")
+                albumDataCell.albumCover.accessibilityValue = "Pessoas"
+//                coverImage.accessibilityValue = "Pessoas"
             }
             else if coverImage == "travel"{
                 albumDataCell.albumCover.image = UIImage(named: "brownAlbum")
+                albumDataCell.albumCover.accessibilityValue = "Viagens"
+//                coverImage.accessibilityValue = "Viagens"
             }
             else if coverImage == "event"{
                 albumDataCell.albumCover.image = UIImage(named: "greenAlbum")
+                albumDataCell.albumCover.accessibilityValue = "Eventos"
+//                coverImage.accessibilityValue = "Eventos"
             }
             else {
                 albumDataCell.albumCover.image = UIImage(named: "redAlbum")
+                albumDataCell.albumCover.accessibilityValue = "Outros"
+//                coverImage.accessibilityValue = "Outros"
             }
         }
+        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+        groupedElement.accessibilityLabel = "\(albumDataCell.albumCover.image!), \(albumDataCell.albumTitle.text!)"
+        groupedElement.accessibilityFrameInContainerSpace = albumDataCell.albumCover.frame.union(albumDataCell.albumTitle.frame)
+        elements.append(groupedElement)
+
         
         return albumDataCell
+        
     }
     
     
