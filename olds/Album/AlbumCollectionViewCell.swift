@@ -11,6 +11,19 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var albumTitle: UILabel!
     @IBOutlet weak var albumCover: UIImageView!
+    var elements = [UIAccessibilityElement]()
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
     
-}
+    //Determinando elementos como de acessibilidade
+    albumTitle.isAccessibilityElement = true
+    albumCover.isAccessibilityElement = true
+        
+    //o que o voice over fala
+    albumCover.accessibilityLabel = "álbum"
+         
+        
+        }
+    }
+
