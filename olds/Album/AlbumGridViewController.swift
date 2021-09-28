@@ -10,7 +10,7 @@ import UIKit
 class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
     var album: Album?
     
-    @IBOutlet weak var editAlbumButton: UIBarButtonItem!
+    @IBOutlet weak var helperButton: UIBarButtonItem!
     @IBOutlet weak var createAlbumButton: UIBarButtonItem!
     @IBOutlet weak var albumCollection: UICollectionView!
     @IBOutlet weak var segmented: UISegmentedControl!
