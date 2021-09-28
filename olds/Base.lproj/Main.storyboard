@@ -397,7 +397,7 @@
             <objects>
                 <viewController storyboardIdentifier="ModalNewPage" title="Nova Página" id="0eS-qe-iFi" customClass="NewPageViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZS6-Gf-dQv">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-43-W0s">
@@ -427,6 +427,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newAudio:" destination="0eS-qe-iFi" eventType="touchUpInside" id="iT2-1Q-N2g"/>
+                                    <action selector="recordAction:" destination="0eS-qe-iFi" eventType="touchUpInside" id="5oc-Oj-e9q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-yp-mhh">
@@ -441,6 +442,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newPhoto:" destination="0eS-qe-iFi" eventType="touchUpInside" id="mZ2-rS-Mvn"/>
+                                    <action selector="showImagePicker:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Dgk-ng-udN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcw-f9-J8F">
@@ -481,6 +483,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHM-Nu-TIh">
+                                <rect key="frame" x="137" y="915" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                <connections>
+                                    <action selector="replayAction:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Hca-RQ-y2j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h9d-fs-4En"/>
                         <color key="backgroundColor" name="BackgroundColorPaper"/>
@@ -514,44 +525,65 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sf7-dw-rUn">
                                 <rect key="frame" x="0.0" y="74" width="820" height="1086"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColorPaper"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IXH-bG-mEN">
                                     <size key="itemSize" width="809" height="1038"/>
-                                    <size key="estimatedItemSize" width="585" height="529"/>
+                                    <size key="estimatedItemSize" width="800" height="1000"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pageCell" id="vJj-tR-QlP" customClass="PageViewCollectionViewCell" customModule="olds" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="809" height="1038"/>
+                                        <rect key="frame" x="0.0" y="43" width="800" height="1000"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NkO-BC-7hb">
-                                            <rect key="frame" x="0.0" y="0.0" width="809" height="1038"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="800" height="1000"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mak-3S-dWO">
-                                                    <rect key="frame" x="154" y="200" width="240" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Mak-3S-dWO">
+                                                    <rect key="frame" x="164" y="140" width="472" height="720"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="720" id="0S8-Qe-5wJ"/>
+                                                        <constraint firstAttribute="width" constant="472" id="6qv-5S-fxc"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0y-zG-qdq">
-                                                    <rect key="frame" x="253" y="102" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0y-zG-qdq">
+                                                    <rect key="frame" x="81" y="59" width="638" height="42"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghI-Jy-zx1">
-                                                    <rect key="frame" x="253" y="425" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghI-Jy-zx1">
+                                                    <rect key="frame" x="375" y="868" width="50" height="50"/>
+                                                    <color key="tintColor" name="ActionColorButton"/>
+                                                    <state key="normal" image="play.circle" catalog="system">
+                                                        <color key="titleColor" name="ActionColorButton"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="playButtonCellAction:" destination="vJj-tR-QlP" eventType="touchUpInside" id="iPw-PL-V4E"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reproduzir Áudio" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNW-Yy-42w">
+                                                    <rect key="frame" x="346" y="926" width="109" height="56"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="D0y-zG-qdq" firstAttribute="centerX" secondItem="NkO-BC-7hb" secondAttribute="centerX" id="12Y-Py-1qz"/>
+                                                <constraint firstItem="Mak-3S-dWO" firstAttribute="centerX" secondItem="NkO-BC-7hb" secondAttribute="centerX" id="2Yp-c9-n5R"/>
+                                                <constraint firstItem="mNW-Yy-42w" firstAttribute="top" secondItem="ghI-Jy-zx1" secondAttribute="bottom" constant="8" symbolic="YES" id="4Hc-Fb-GjK"/>
+                                                <constraint firstItem="mNW-Yy-42w" firstAttribute="centerX" secondItem="NkO-BC-7hb" secondAttribute="centerX" id="6Yr-hf-rBl"/>
+                                                <constraint firstItem="ghI-Jy-zx1" firstAttribute="top" secondItem="Mak-3S-dWO" secondAttribute="bottom" constant="8" symbolic="YES" id="8tI-Nm-FR5"/>
+                                                <constraint firstItem="ghI-Jy-zx1" firstAttribute="centerX" secondItem="NkO-BC-7hb" secondAttribute="centerX" id="9tv-K7-8Iq"/>
+                                                <constraint firstItem="D0y-zG-qdq" firstAttribute="top" secondItem="NkO-BC-7hb" secondAttribute="top" constant="59" id="Sau-ZV-IUN"/>
+                                                <constraint firstItem="Mak-3S-dWO" firstAttribute="top" secondItem="D0y-zG-qdq" secondAttribute="bottom" constant="39" id="mGj-Cw-bFo"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="809" height="1038"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="800" height="1000"/>
                                         <connections>
                                             <outlet property="imgCell" destination="Mak-3S-dWO" id="g5T-hS-88f"/>
                                             <outlet property="playButtonCell" destination="ghI-Jy-zx1" id="2ww-xV-CiM"/>
@@ -574,7 +606,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Apagar" style="plain" systemItem="add" id="mJJ-Hj-abK">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="newPage:" destination="wDx-Zd-ydE" id="Acb-2E-EjU"/>
+                                <segue destination="0eS-qe-iFi" kind="presentation" identifier="pageToCreatePage" id="NqB-Jm-hG0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -735,6 +767,9 @@
             <point key="canvasLocation" x="1699" y="847"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NqB-Jm-hG0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="blueAlbum" width="1445" height="1829"/>
@@ -749,6 +784,7 @@
         <image name="greenAlbum" width="1446" height="1829"/>
         <image name="greenAlbumNotSel" width="363" height="460"/>
         <image name="mic.circle" catalog="system" width="128" height="121"/>
+        <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="redAlbum" width="1446" height="1830"/>
         <image name="redAlbumNotSel" width="362" height="459"/>

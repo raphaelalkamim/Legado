@@ -59,5 +59,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Libere o acesso a sua galeria para poder registrar suas fotos em seus albuns.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Libere o acesso a sua camera para poder registrar suas fotos em seus albuns.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Libere o acesso ao seu microfone para poder registrar suas histórias.</string>
 </dict>
 </plist>

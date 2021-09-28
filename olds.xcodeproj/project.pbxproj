@@ -14,6 +14,7 @@
 		B02F9B8E26F25CEC0088608E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02F9B8C26F25CEC0088608E /* Main.storyboard */; };
 		B02F9B9326F25CEE0088608E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02F9B9226F25CEE0088608E /* Assets.xcassets */; };
 		B02F9B9626F25CEE0088608E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02F9B9426F25CEE0088608E /* LaunchScreen.storyboard */; };
+		B04B12332703A26E00E69836 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B12322703A26E00E69836 /* ImagePicker.swift */; };
 		B05B207426F3AB3000E46467 /* NewAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B207326F3AB3000E46467 /* NewAlbumViewController.swift */; };
 		B05B207B26F3BB8000E46467 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B207A26F3BB8000E46467 /* TimelineViewController.swift */; };
 		B05B207E26F3BC4800E46467 /* NewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B207D26F3BC4800E46467 /* NewPageViewController.swift */; };
@@ -41,6 +42,7 @@
 		B02F9B9226F25CEE0088608E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B02F9B9526F25CEE0088608E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B02F9B9726F25CEE0088608E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B04B12322703A26E00E69836 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B05B207326F3AB3000E46467 /* NewAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlbumViewController.swift; sourceTree = "<group>"; };
 		B05B207A26F3BB8000E46467 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		B05B207D26F3BC4800E46467 /* NewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPageViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				C871CF8A26F903AF009D9038 /* FileHelper.swift */,
+				B04B12322703A26E00E69836 /* ImagePicker.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				C871CFA526FA5677009D9038 /* Page+CoreDataClass.swift in Sources */,
 				B02F9B8726F25CEC0088608E /* AppDelegate.swift in Sources */,
 				C871CFA726FA65AF009D9038 /* olds.xcdatamodeld in Sources */,
+				B04B12332703A26E00E69836 /* ImagePicker.swift in Sources */,
 				C871CFA326FA5677009D9038 /* Album+CoreDataClass.swift in Sources */,
 				B05B207426F3AB3000E46467 /* NewAlbumViewController.swift in Sources */,
 				B05B207E26F3BC4800E46467 /* NewPageViewController.swift in Sources */,
