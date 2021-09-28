@@ -11,6 +11,8 @@ protocol AlbumViewControllerDelegate: AnyObject { // protocolo para atualizar a 
     func didRegister()
 }
 
+
+
 class AlbumViewController: UIViewController {
     var album: Album?
     var page: Page?
