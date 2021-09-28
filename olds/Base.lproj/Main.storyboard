@@ -427,6 +427,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newAudio:" destination="0eS-qe-iFi" eventType="touchUpInside" id="iT2-1Q-N2g"/>
+                                    <action selector="recordAction:" destination="0eS-qe-iFi" eventType="touchUpInside" id="5oc-Oj-e9q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-yp-mhh">
@@ -441,6 +442,7 @@
                                 </state>
                                 <connections>
                                     <action selector="newPhoto:" destination="0eS-qe-iFi" eventType="touchUpInside" id="mZ2-rS-Mvn"/>
+                                    <action selector="showImagePicker:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Dgk-ng-udN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcw-f9-J8F">
@@ -481,6 +483,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHM-Nu-TIh">
+                                <rect key="frame" x="137" y="915" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                <connections>
+                                    <action selector="replayAction:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Hca-RQ-y2j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h9d-fs-4En"/>
                         <color key="backgroundColor" name="BackgroundColorPaper"/>

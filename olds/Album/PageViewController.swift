@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PageViewController: UIViewController, UICollectionViewDelegate {
     var date: Date?
@@ -25,6 +26,7 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
         
         pageCollection.delegate = self
         pageCollection.dataSource = self
+        
         
         
         
@@ -81,6 +83,11 @@ extension PageViewController: UICollectionViewDataSource {
         
         pageDataCell.titleCell.text = convertDate(date: (pageData?[indexPath.row].pageDate)!)
         
+        if let path = pageData?[indexPath.row].pagePhoto, let image = UIImage(contentsOfFile: FileHelper.getFilePath(fileName: path)) {
+            pageDataCell.imgCell.image = image
+        }
+        
+        
         
         return pageDataCell
     }
@@ -95,8 +102,6 @@ extension PageViewController: UICollectionViewDataSource {
             let delete = UIAction(title: "Apagar Página", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
                 let ac = UIAlertController(title: "Deletar Página", message: "Tem certeza que deseja deletar essa Página?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
-                    didRegisterPage()
-                    
                     
                     if let page = pageData?[index] {
                         try? CoreDataPage.deletePage(page: page)
@@ -131,3 +136,14 @@ extension PageViewController: NewPageViewControllerDelegate {
     
  
 }
+
+extension PageViewController {
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        configureContextMenu(index: indexPath.row)
+    }
+}
+
+
+
+
+
