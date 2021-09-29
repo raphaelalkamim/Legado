@@ -6,14 +6,30 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PageViewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleCell: UILabel!
     @IBOutlet weak var imgCell: UIImageView!
     @IBOutlet weak var playButtonCell: UIButton!
+    var audio: AVAudioPlayer?
+    
     
     @IBAction func playButtonCellAction(_ sender: Any) {
+        
+        audio?.play()
+    }
+    
+    
+    func playAudio(url: URL) {
+        
+        do {
+            audio = try AVAudioPlayer(contentsOf: url)
+            
+        } catch {
+            
+        }
     }
     
 }
