@@ -14,9 +14,7 @@ protocol NewPageViewControllerDelegate: AnyObject {
 }
 
 class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
-    var recordingSession: AVAudioSession!
-    var audioRecorder: AVAudioRecorder!
-    var audioPlayer: AVAudioPlayer!
+    
     
     
     var album: Album!
@@ -28,17 +26,51 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     
     weak var delegate: NewPageViewControllerDelegate?
     
-    
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker?
     @IBOutlet weak var imgPhoto: UIImageView!
     @IBOutlet weak var newPhotoButton: UIButton!
     @IBOutlet weak var recordAudioButton: UIButton!
+    var audioRecorder: AVAudioRecorder?
+    var audioPlayer: AVAudioPlayer?
+    var audioURL: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-    
+        checkMicrophoneAccess() // chama permissão pra usar o mic
+        
+        //Set arquivo do audio para armazenar no coreData
+        
+//        let directoryURL = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in:
+//                                                        FileManager.SearchPathDomainMask.userDomainMask).first
+        let audioFileName = UUID().uuidString + ".m4a"
+        let audioFileURL = getDirectory().appendingPathComponent(audioFileName)
+        
+        //let audioFileURL = directoryURL!.appendingPathComponent(audioFileName)
+        audioURL = audioFileName
+        
+        
+        //sessão de audio
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playAndRecord)), mode: .default)
+        } catch _ {
+        }
+        
+        // Define the recorder setting
+        
+        let recorderSetting = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+        
+        audioRecorder = try? AVAudioRecorder(url: audioFileURL, settings: recorderSetting)
+        audioRecorder?.delegate = self
+        audioRecorder?.isMeteringEnabled = true
+        audioRecorder?.prepareToRecord()
+        
+        
+        
     }
     
     
@@ -56,6 +88,11 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         
         if imageURL !=  nil {
             page.pagePhoto = imageURL
+        }
+        
+        if audioURL != nil {
+            page.pageAudio = audioURL
+            //audioSettings()
         }
         
         pages.append(page)
@@ -80,9 +117,13 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         
         delegate?.didRegisterPage()
     }
-
     
     
+    func getDirectory() -> URL{
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let documentDirectory = paths[0]
+            return documentDirectory
+        }
     
     
     func convertDate(date: Date) -> String {
@@ -128,59 +169,144 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         
     }
     @IBAction func recordAction(_ sender: Any) {
-        if audioRecorder == nil {
-            let fileName = getDirectory().appendingPathComponent("audio\(UUID().uuidString).m4a")
-            
-            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
-            
-            //start audio recording
-            do {
-                audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
-                audioRecorder.delegate = self
-                audioRecorder.record()
-                
-                
-                recordAudioButton.setTitle("Parar de gravar", for: .normal)
-            } catch {
-                displayAlert(title: "Não funcionou", message: "Falha em gravar")
+        if let player = audioPlayer {
+            if player.isPlaying {
+                player.stop()
+                playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
+                playButton.isSelected = false
             }
         }
-        else {
-            // Stopping audio recordig
-            audioRecorder.stop()
-            audioRecorder = nil
-            
-            UserDefaults.standard.bool(forKey: "Save")
-            
-            recordAudioButton.setTitle("Comerçar a Gravar", for: .normal)
+        
+        if let recorder = audioRecorder {
+            if !recorder.isRecording {
+                let audioSession = AVAudioSession.sharedInstance()
+                
+                do {
+                    try audioSession.setActive(true)
+                } catch _ {
+                }
+                
+                // Começa a gravar
+                recorder.record()
+                print("To gravando")
+                recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State.selected)
+                stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
+                playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
+                
+                recordAudioButton.isSelected = true
+                stopButton.isEnabled = true
+                playButton.isEnabled = false
+                
+            } else {
+                // Pausando a gravação
+                
+                recorder.pause()
+                
+                
+                recordAudioButton.setImage(UIImage(systemName: "pause.circle"), for: UIControl.State())
+                playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
+                stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
+                
+                stopButton.isEnabled = false
+                playButton.isEnabled = false
+                recordAudioButton.isSelected = false
+                
+            }
         }
     }
     
     
-    // Function that gets path to directory
-    
-    func getDirectory() -> URL{
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = paths[0]
-        return documentDirectory
-    }
-    
-    //Function that displays an alert
-    
-    func displayAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    @IBAction func replayAction(_ sender: Any) {
-        let path = getDirectory().appendingPathComponent("audio\(UUID().uuidString).m4a")
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: path)
-            audioPlayer.play()
-        } catch {
-            displayAlert(title: "Não funcionou", message: "Falha em reproduzir")
+    @IBAction func stopAction(_ sender: Any) {
+        
+        recordAudioButton.setImage(UIImage(systemName: "mic.circle"), for: UIControl.State())
+        playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
+        stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
+        
+        recordAudioButton.isSelected = false
+        playButton.isSelected = false
+        
+                stopButton.isEnabled = false
+                playButton.isEnabled = true
+                recordAudioButton.isEnabled = true
+        
+        if let recorder = audioRecorder {
+            if recorder.isRecording {
+                audioRecorder?.stop()
+                let audioSession = AVAudioSession.sharedInstance()
+                do {
+                    try audioSession.setActive(false)
+                } catch _ {
+                }
+            }
         }
-
+        
+        // Parando de gravar
+        if let player = audioPlayer {
+            if player.isPlaying {
+                player.stop()
+            }
+        }
+         //salvando
+        //saveButoon.isEnabled = true
+    }
+    
+    
+    @IBAction func playReplayAction(_ sender: Any) {
+        if let recorder = audioRecorder {
+            if !recorder.isRecording {
+                audioPlayer = try? AVAudioPlayer(contentsOf: recorder.url)
+                audioPlayer?.delegate = self
+                audioPlayer?.play()
+                playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
+                playButton.isSelected = true
+                                stopButton.isEnabled = true
+                
+                
+                stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
+                recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State())
+                                recordAudioButton.isEnabled = false
+                
+            }
+        }
+    }
+    
+    
+   
+    
+    func checkMicrophoneAccess() {
+        switch AVAudioSession.sharedInstance().recordPermission {
+        case AVAudioSession.RecordPermission.granted:
+            print(#function, " Microphone Permission Granted")
+            break
+            
+        case AVAudioSession.RecordPermission.denied:
+            UIApplication.shared.sendAction(#selector(UIView.endEditing(_:)), to:nil, from:nil, for:nil)
+            
+            let alert = UIAlertController(title: "Error", message: "Code is Not Authorized to Access the Microphone!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
+            
+            
+            return
+            
+        case AVAudioSession.RecordPermission.undetermined:
+            UIApplication.shared.sendAction(#selector(UIView.endEditing(_:)), to:nil, from:nil, for:nil)
+            AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
+                if granted {
+                    print(#function, " Now Granted")
+                } else {
+                    print("Pemission Not Granted")
+                }
+            })
+        @unknown default:
+            print("ERROR! Unknown Default. Check!")
+        }
+        
+    }
+    
+ 
+    //MARK: HELPERS
+    fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+        return input.rawValue
     }
     
 }

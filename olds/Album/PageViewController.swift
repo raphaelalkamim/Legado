@@ -13,6 +13,7 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
     var album: Album?
     var pageIndex: Int?
     var pageData: [Page]?
+    var audio: AVAudioPlayer?
     
     @IBOutlet weak var pageCollection: UICollectionView!
     
@@ -87,11 +88,29 @@ extension PageViewController: UICollectionViewDataSource {
             pageDataCell.imgCell.image = image
         }
         
+        // MARK: save audio
+        
+        let audioPath = getDirectory().appendingPathComponent((pageData?[indexPath.row].pageAudio!)!)
+        
+        pageDataCell.playAudio(url: audioPath)
+        
+
+        
+        
+        //        let audioPath = getDocumentDirectory().appendingPathComponent(pageData?[indexPath.row].pageAudio)
+        //        audio = AVAudioPlayer(contentsOf: audioPath.relativePath)
+        
         
         
         return pageDataCell
+        
     }
     
+    func getDirectory() -> URL{
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let documentDirectory = paths[0]
+            return documentDirectory
+        }
     
     
     
@@ -134,7 +153,7 @@ extension PageViewController: NewPageViewControllerDelegate {
         pageCollection.reloadData()
     }
     
- 
+    
 }
 
 extension PageViewController {
