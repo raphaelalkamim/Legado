@@ -61,9 +61,7 @@ open class ImagePicker: NSObject {
         }
 
         self.presentationController?.present(alertController, animated: true)
-        
-      
-        
+  
     }
 
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {

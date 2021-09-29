@@ -396,7 +396,7 @@
             <objects>
                 <viewController storyboardIdentifier="ModalNewPage" title="Nova Página" id="0eS-qe-iFi" customClass="NewPageViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZS6-Gf-dQv">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bluePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-43-W0s">
@@ -453,7 +453,6 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                                 <connections>
-                                    <action selector="newPhoto:" destination="0eS-qe-iFi" eventType="touchUpInside" id="mZ2-rS-Mvn"/>
                                     <action selector="showImagePicker:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Dgk-ng-udN"/>
                                 </connections>
                             </button>

@@ -8,42 +8,40 @@
 import UIKit
 import AVFoundation
 
+
 class PageViewController: UIViewController, UICollectionViewDelegate {
     var date: Date?
     var album: Album?
     var pageIndex: Int?
     var pageData: [Page]?
     var audio: AVAudioPlayer?
-    
+   
     @IBOutlet weak var pageCollection: UICollectionView!
     
     
-    
+    // MARK: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tentar tirar o try e deixar só no viewWillAppear
-        //pageData = try! CoreDataPage.getPage()
-        
-        
         pageCollection.delegate = self
         pageCollection.dataSource = self
-        
-        
-        
-        
     }
     
+    // MARK: VIEW WILL APPEAR
+    override func viewWillAppear(_ animated: Bool) {
+        didRegisterPage()
+    }
+    
+    // MARK: SEGUE NEW PAGE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is NewPageViewController {
             let vc = segue.destination as? NewPageViewController
             vc?.album = album
-            //MARK: PRECISA CONECTAR!
+            //PRECISA CONECTAR!
             vc?.delegate = self
         }
-        
     }
     
-    
+    // MARK: CONVERT DATE TO STRING
     func convertDate(date: Date) -> String {
         self.date = date
         let formatter = DateFormatter()
@@ -53,68 +51,54 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
     }
     
     
-    
+    // MARK: CHANGE ALBUM
     func changeAlbum(album: Album) {
         self.album = album
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        didRegisterPage()
-    }
-    
-    
 }
 
-
+// MARK: EXTENSION VIEW CONTROLLER
 extension PageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //print(pageData!.count)
-        // fazer guard let pra se pagedata for NIL
-        
         return self.pageData!.count
-        
-        
     }
     
+    // MARK: CONSTRUTOR DAS CELULAS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let pageDataCell: PageViewCollectionViewCell = pageCollection?.dequeueReusableCell(withReuseIdentifier: "pageCell", for: indexPath as IndexPath) as! PageViewCollectionViewCell
         
-        
+        // põe a data na página
         pageDataCell.titleCell.text = convertDate(date: (pageData?[indexPath.row].pageDate)!)
         
+        // põe a imagem na página
         if let path = pageData?[indexPath.row].pagePhoto, let image = UIImage(contentsOfFile: FileHelper.getFilePath(fileName: path)) {
             pageDataCell.imgCell.image = image
         }
         
-        // MARK: save audio
         
+        // põe o audio na página
         let audioPath = getDirectory().appendingPathComponent((pageData?[indexPath.row].pageAudio!)!)
         
         pageDataCell.playAudio(url: audioPath)
-        
-
-        
-        
-        //        let audioPath = getDocumentDirectory().appendingPathComponent(pageData?[indexPath.row].pageAudio)
-        //        audio = AVAudioPlayer(contentsOf: audioPath.relativePath)
-        
         
         
         return pageDataCell
         
     }
     
+    // MARK: GET DIRECTORY
     func getDirectory() -> URL{
-            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let documentDirectory = paths[0]
-            return documentDirectory
-        }
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = paths[0]
+        return documentDirectory
+    }
     
     
     
-    // context
+    // MARK: CONTEXT MENU
     func configureContextMenu(index: Int) -> UIContextMenuConfiguration{
         let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
@@ -134,8 +118,6 @@ extension PageViewController: UICollectionViewDataSource {
                 
                 self.present(ac, animated: true, completion: nil)
                 
-                
-                
             }
             
             return UIMenu(title: "Opções", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [delete])
@@ -146,21 +128,21 @@ extension PageViewController: UICollectionViewDataSource {
     
 }
 
-extension PageViewController: NewPageViewControllerDelegate {
-    func didRegisterPage() {
-        pageData = try! CoreDataPage.getAlbumPages(album: album!)
-        //pageData!.reverse()
-        pageCollection.reloadData()
-    }
-    
-    
-}
 
 extension PageViewController {
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         configureContextMenu(index: indexPath.row)
     }
 }
+
+// MARK: DID REGISTER
+extension PageViewController: NewPageViewControllerDelegate {
+    func didRegisterPage() {
+        pageData = try! CoreDataPage.getAlbumPages(album: album!)
+        pageCollection.reloadData()
+    }
+}
+
 
 
 

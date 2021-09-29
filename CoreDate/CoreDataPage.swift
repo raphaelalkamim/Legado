@@ -70,8 +70,25 @@ class CoreDataPage {
         if page.pagePhoto != nil{
             let _ = FileHelper.deleteImage(path: page.pagePhoto!)
         }
+        if page.pageAudio != nil {
+            let audioPath = getDirectory().appendingPathComponent(page.pageAudio!)
+            if FileManager.default.fileExists(atPath: audioPath.relativePath){
+                try! FileManager.default.removeItem(at: audioPath)
+            }
+            
+               
+            
+        }
         context.delete(page)
         try saveContext()
+        
     }
     
+    
+    
+    static func getDirectory() -> URL{
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let documentDirectory = paths[0]
+            return documentDirectory
+        }
 }
