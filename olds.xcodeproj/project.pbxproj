@@ -74,13 +74,9 @@
 		B02F9B7A26F25CEC0088608E = {
 			isa = PBXGroup;
 			children = (
-				C871CFB02704DC27009D9038 /* Audio */,
 				B02F9B8F26F25CEC0088608E /* olds.xcdatamodeld */,
-				C871CF9F26FA5677009D9038 /* Album+CoreDataClass.swift */,
-				C871CFA026FA5677009D9038 /* Album+CoreDataProperties.swift */,
-				C871CFA126FA5677009D9038 /* Page+CoreDataClass.swift */,
-				C871CFA226FA5677009D9038 /* Page+CoreDataProperties.swift */,
 				C871CF8926F903A0009D9038 /* Image */,
+				C871CFB02704DC27009D9038 /* Audio */,
 				C871CF8426F8FD87009D9038 /* CoreDate */,
 				B05B208C26F5374200E46467 /* AlbumCoreData */,
 				B05B208B26F5373400E46467 /* PageCoreData */,
@@ -137,6 +133,8 @@
 		B05B208B26F5373400E46467 /* PageCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C871CFA226FA5677009D9038 /* Page+CoreDataProperties.swift */,
+				C871CFA126FA5677009D9038 /* Page+CoreDataClass.swift */,
 			);
 			path = PageCoreData;
 			sourceTree = "<group>";
@@ -144,6 +142,7 @@
 		B05B208C26F5374200E46467 /* AlbumCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C871CF9F26FA5677009D9038 /* Album+CoreDataClass.swift */,
 			);
 			path = AlbumCoreData;
 			sourceTree = "<group>";
@@ -153,6 +152,7 @@
 			children = (
 				C871CF8526F8FDC2009D9038 /* CoreDataAlbum.swift */,
 				C871CF8726F90232009D9038 /* CoreDataPage.swift */,
+				C871CFA026FA5677009D9038 /* Album+CoreDataProperties.swift */,
 			);
 			path = CoreDate;
 			sourceTree = "<group>";

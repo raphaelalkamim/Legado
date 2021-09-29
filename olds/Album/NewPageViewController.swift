@@ -9,47 +9,45 @@ import UIKit
 import AVFoundation
 
 
+
 protocol NewPageViewControllerDelegate: AnyObject {
     func didRegisterPage()
 }
 
 class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
-    
-    
+    weak var delegate: NewPageViewControllerDelegate?
     var album: Album!
     var dateInput: String = ""
     var date: Date?
     var pages: [Page] = []
     var imagePicker: ImagePicker!
     var imageURL: String?
-    
-    weak var delegate: NewPageViewControllerDelegate?
-    
+    var audioRecorder: AVAudioRecorder?
+    var audioPlayer: AVAudioPlayer?
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker?
     @IBOutlet weak var imgPhoto: UIImageView!
     @IBOutlet weak var newPhotoButton: UIButton!
     @IBOutlet weak var recordAudioButton: UIButton!
-    var audioRecorder: AVAudioRecorder?
-    var audioPlayer: AVAudioPlayer?
+    
     var audioURL: String!
     
+    
+    // MARK: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: IMAGE PICKER
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        
+        
+        // MARK: AUDIO RECORD
         checkMicrophoneAccess() // chama permissão pra usar o mic
-        
         //Set arquivo do audio para armazenar no coreData
-        
-//        let directoryURL = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in:
-//                                                        FileManager.SearchPathDomainMask.userDomainMask).first
         let audioFileName = UUID().uuidString + ".m4a"
         let audioFileURL = getDirectory().appendingPathComponent(audioFileName)
-        
-        //let audioFileURL = directoryURL!.appendingPathComponent(audioFileName)
         audioURL = audioFileName
         
         
@@ -61,7 +59,6 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         }
         
         // Define the recorder setting
-        
         let recorderSetting = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
         
         audioRecorder = try? AVAudioRecorder(url: audioFileURL, settings: recorderSetting)
@@ -69,16 +66,17 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         audioRecorder?.isMeteringEnabled = true
         audioRecorder?.prepareToRecord()
         
-        
-        
     }
     
     
+
+    
+    // MARK: SHOW IMAGE PICKER
     @IBAction func showImagePicker(_ sender: Any) {
         self.imagePicker.present(from: sender as! UIView)
     }
     
-    
+    // MARK: PAGE SAVE
     @IBAction func pageSave(_ sender: Any) {
         let page = try! CoreDataPage.createPage(album: album, date: Date(), photo: "", audio: "")
         
@@ -92,7 +90,6 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         
         if audioURL != nil {
             page.pageAudio = audioURL
-            //audioSettings()
         }
         
         pages.append(page)
@@ -100,32 +97,24 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         try? CoreDataPage.saveContext()
         print(page)
         
-        
-        if let didRegister = delegate {
-            didRegister.didRegisterPage()
-        }
-        
-        
-        
+        // mostra a collection de pages
         if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
             vc.changeAlbum(album: album)
-            
-            
             self.dismiss(animated: true, completion: nil)
+            delegate?.didRegisterPage()
         }
         
         
-        delegate?.didRegisterPage()
     }
     
-    
+    // MARK: GET DIRECTORY
     func getDirectory() -> URL{
-            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let documentDirectory = paths[0]
-            return documentDirectory
-        }
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = paths[0]
+        return documentDirectory
+    }
     
-    
+    // MARK: CONVERT DATE TO STRING
     func convertDate(date: Date) -> String {
         self.date = date
         let formatter = DateFormatter()
@@ -135,16 +124,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     }
     
     
-    
-    
-    @IBAction func newPhoto(_ sender: Any) {
-    }
-    
-    @IBAction func newAudio(_ sender: Any) {
-    }
-    
-    
-    
+    // MARK: DATE PICKER
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateStyle = DateFormatter.Style.full
@@ -155,19 +135,17 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         print(dateInput)
     }
     
-    
+    // MARK: CANCEL
     @IBAction func creationCancel(_ sender: Any) {
         let refreshAlert = UIAlertController(title: "Cancelar Página", message: "Todas suas mudanças serão perdidas.\nTem certeza que deseja cancelar?", preferredStyle: .alert)
-        
         refreshAlert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { [self] action in
             self.dismiss(animated: true, completion: nil)
         }))
-        
         refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
-        
         present(refreshAlert, animated: true, completion: nil)
-        
     }
+    
+    // MARK: RECORD AUDIO
     @IBAction func recordAction(_ sender: Any) {
         if let player = audioPlayer {
             if player.isPlaying {
@@ -199,9 +177,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 
             } else {
                 // Pausando a gravação
-                
                 recorder.pause()
-                
                 
                 recordAudioButton.setImage(UIImage(systemName: "pause.circle"), for: UIControl.State())
                 playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
@@ -215,7 +191,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         }
     }
     
-    
+    // MARK: STOP AUDIO
     @IBAction func stopAction(_ sender: Any) {
         
         recordAudioButton.setImage(UIImage(systemName: "mic.circle"), for: UIControl.State())
@@ -225,9 +201,9 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         recordAudioButton.isSelected = false
         playButton.isSelected = false
         
-                stopButton.isEnabled = false
-                playButton.isEnabled = true
-                recordAudioButton.isEnabled = true
+        stopButton.isEnabled = false
+        playButton.isEnabled = true
+        recordAudioButton.isEnabled = true
         
         if let recorder = audioRecorder {
             if recorder.isRecording {
@@ -246,11 +222,9 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 player.stop()
             }
         }
-         //salvando
-        //saveButoon.isEnabled = true
     }
     
-    
+    // MARK: PLAY AUDIO
     @IBAction func playReplayAction(_ sender: Any) {
         if let recorder = audioRecorder {
             if !recorder.isRecording {
@@ -259,20 +233,18 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 audioPlayer?.play()
                 playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
                 playButton.isSelected = true
-                                stopButton.isEnabled = true
+                stopButton.isEnabled = true
                 
                 
                 stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
                 recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State())
-                                recordAudioButton.isEnabled = false
-                
+                recordAudioButton.isEnabled = false
             }
         }
     }
     
     
-   
-    
+    // MARK: CHECK MIC
     func checkMicrophoneAccess() {
         switch AVAudioSession.sharedInstance().recordPermission {
         case AVAudioSession.RecordPermission.granted:
@@ -303,14 +275,15 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         
     }
     
- 
-    //MARK: HELPERS
+    
+    //MARK: convertFromAVAudioSessionCategory
     fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
         return input.rawValue
     }
     
 }
 
+//MARK: EXTENSION IMAGE PICKER
 extension NewPageViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
         self.imgPhoto.image = image

@@ -16,6 +16,11 @@ class PageViewCollectionViewCell: UICollectionViewCell {
     var audio: AVAudioPlayer?
     
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imgCell.image = nil
+    }
+    
     @IBAction func playButtonCellAction(_ sender: Any) {
         
         audio?.play()
