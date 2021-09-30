@@ -38,13 +38,17 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     // MARK: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkMicrophoneAccess() // chama permissão pra usar o mic
         
         // MARK: IMAGE PICKER
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        audioRecorderFunc()
         
         
-        // MARK: AUDIO RECORD
-        checkMicrophoneAccess() // chama permissão pra usar o mic
+    }
+    
+    // MARK: AUDIO RECORD
+    func audioRecorderFunc() {
         //Set arquivo do audio para armazenar no coreData
         let audioFileName = UUID().uuidString + ".m4a"
         let audioFileURL = getDirectory().appendingPathComponent(audioFileName)
@@ -54,7 +58,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         //sessão de audio
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playAndRecord)), mode: .default)
+            try audioSession.setCategory(AVAudioSession.Category(rawValue: AVAudioSession.Category.playAndRecord.rawValue), mode: .default)
         } catch _ {
         }
         
@@ -65,7 +69,6 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         audioRecorder?.delegate = self
         audioRecorder?.isMeteringEnabled = true
         audioRecorder?.prepareToRecord()
-        
     }
     
     
@@ -275,11 +278,6 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         
     }
     
-    
-    //MARK: convertFromAVAudioSessionCategory
-    fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
-        return input.rawValue
-    }
     
 }
 
