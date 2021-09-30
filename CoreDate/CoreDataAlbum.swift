@@ -55,7 +55,7 @@ class CoreDataAlbum {
             guard let x = page as? Page else {
                return
             }
-            try CoreDataPage.deletePage(page: x)
+            try? CoreDataPage.deletePage(page: x)
         }
         
         context.delete(album)

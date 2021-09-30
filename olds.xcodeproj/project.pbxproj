@@ -142,6 +142,7 @@
 		B05B208C26F5374200E46467 /* AlbumCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C871CFA026FA5677009D9038 /* Album+CoreDataProperties.swift */,
 				C871CF9F26FA5677009D9038 /* Album+CoreDataClass.swift */,
 			);
 			path = AlbumCoreData;
@@ -152,7 +153,6 @@
 			children = (
 				C871CF8526F8FDC2009D9038 /* CoreDataAlbum.swift */,
 				C871CF8726F90232009D9038 /* CoreDataPage.swift */,
-				C871CFA026FA5677009D9038 /* Album+CoreDataProperties.swift */,
 			);
 			path = CoreDate;
 			sourceTree = "<group>";

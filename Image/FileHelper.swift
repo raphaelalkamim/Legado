@@ -33,7 +33,7 @@ class FileHelper{
     static func deleteImage(path: String) -> Bool {
         let imagePath = getDocumentDirectory().appendingPathComponent(path)
         if FileManager.default.fileExists(atPath: imagePath.relativePath) {
-            try! FileManager.default.removeItem(at: imagePath)
+            try? FileManager.default.removeItem(at: imagePath)
             return true
         }
         return false

@@ -73,7 +73,7 @@ class CoreDataPage {
         if page.pageAudio != nil {
             let audioPath = getDirectory().appendingPathComponent(page.pageAudio!)
             if FileManager.default.fileExists(atPath: audioPath.relativePath){
-                try! FileManager.default.removeItem(at: audioPath)
+                try? FileManager.default.removeItem(at: audioPath)
             }
             
                
