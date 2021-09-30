@@ -64,35 +64,6 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
         self.albumCollection?.reloadData()
     }
     
-//    @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
-//
-//            if sender.state == .began {
-//                let touchPoint = sender.location(in: albumCollection)
-//                if let indexPath = albumCollection.indexPathForItem(at: touchPoint) {
-//                    let ac = UIAlertController(title: "Do you really wanna delete this day?", message: nil, preferredStyle: .actionSheet)
-//                    ac.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: {
-//                        [weak self] action in
-//
-//                        var albumData = try! CoreDataAlbum.getAlbum()
-//                        albumData.reverse()
-//
-//                        try! CoreDataAlbum.deleteAlbum(album: album[indexPath.row])
-//
-//                        self?.albumCollection.reloadData()
-//
-//
-//
-//                    }))
-//                    ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-//                    present(ac, animated: true)
-//
-//
-//                }
-//
-//            }
-//
-//        }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

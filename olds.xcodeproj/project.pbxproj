@@ -29,7 +29,6 @@
 		C871CFA526FA5677009D9038 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CFA126FA5677009D9038 /* Page+CoreDataClass.swift */; };
 		C871CFA626FA5677009D9038 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CFA226FA5677009D9038 /* Page+CoreDataProperties.swift */; };
 		C871CFA726FA65AF009D9038 /* olds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8F26F25CEC0088608E /* olds.xcdatamodeld */; };
-		C871CFB22704DC41009D9038 /* FileHelperAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CFB12704DC41009D9038 /* FileHelperAudio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +56,6 @@
 		C871CFA026FA5677009D9038 /* Album+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C871CFA126FA5677009D9038 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C871CFA226FA5677009D9038 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C871CFB12704DC41009D9038 /* FileHelperAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelperAudio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +74,6 @@
 			children = (
 				B02F9B8F26F25CEC0088608E /* olds.xcdatamodeld */,
 				C871CF8926F903A0009D9038 /* Image */,
-				C871CFB02704DC27009D9038 /* Audio */,
 				C871CF8426F8FD87009D9038 /* CoreDate */,
 				B05B208C26F5374200E46467 /* AlbumCoreData */,
 				B05B208B26F5373400E46467 /* PageCoreData */,
@@ -166,14 +163,6 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
-		C871CFB02704DC27009D9038 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				C871CFB12704DC41009D9038 /* FileHelperAudio.swift */,
-			);
-			path = Audio;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,7 +247,6 @@
 				B05B207B26F3BB8000E46467 /* TimelineViewController.swift in Sources */,
 				C871CFA626FA5677009D9038 /* Page+CoreDataProperties.swift in Sources */,
 				C871CF8626F8FDC2009D9038 /* CoreDataAlbum.swift in Sources */,
-				C871CFB22704DC41009D9038 /* FileHelperAudio.swift in Sources */,
 				B05B208026F3BC6000E46467 /* PageViewController.swift in Sources */,
 				B02F9B8926F25CEC0088608E /* SceneDelegate.swift in Sources */,
 				C871CF8826F90232009D9038 /* CoreDataPage.swift in Sources */,
