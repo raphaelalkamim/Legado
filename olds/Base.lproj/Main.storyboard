@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fdD-tr-Eb6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fdD-tr-Eb6">
     <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6hT-Ju-Jln">
-                                <rect key="frame" x="32" y="118" width="756" height="32"/>
+                                <rect key="frame" x="32" y="142" width="756" height="32"/>
                                 <segments>
                                     <segment title="Todos"/>
                                     <segment title="Pessoas"/>
@@ -34,7 +35,7 @@
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-pI-1ts">
-                                <rect key="frame" x="20" y="165" width="780" height="950"/>
+                                <rect key="frame" x="20" y="189" width="780" height="926"/>
                                 <color key="backgroundColor" name="BackgroundColorPaper"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="SUm-Ly-gCN">
                                     <size key="itemSize" width="248" height="350"/>
@@ -122,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira o título do álbum" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-sq-0C7">
-                                <rect key="frame" x="140" y="134" width="540" height="50"/>
+                                <rect key="frame" x="140" y="158" width="540" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="540" id="LRB-Y2-uNb"/>
                                     <constraint firstAttribute="height" constant="50" id="UFS-5v-9DG"/>
@@ -131,7 +132,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sP7-iD-6Ko">
-                                <rect key="frame" x="140" y="216" width="540" height="704"/>
+                                <rect key="frame" x="140" y="240" width="540" height="704"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upr-Ga-fMi">
                                         <rect key="frame" x="28" y="28" width="223" height="284"/>
@@ -300,7 +301,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-XS-jH4">
-                                <rect key="frame" x="139.5" y="138" width="541" height="685.5"/>
+                                <rect key="frame" x="139.5" y="162" width="541" height="685.5"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -309,20 +310,9 @@
                                     <constraint firstAttribute="height" constant="685.5" id="9pI-RN-bcM"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-1c-OrD">
-                                <rect key="frame" x="340" y="911.5" width="140" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <color key="tintColor" name="ActionColorButton"/>
-                                <state key="normal" title=" Nova Página">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                    <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large" renderingMode="template"/>
-                                </state>
-                                <connections>
-                                    <segue destination="0eS-qe-iFi" kind="presentation" id="gAo-3t-y2t"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfD-i4-KTr">
-                                <rect key="frame" x="730.5" y="549.5" width="39.5" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfD-i4-KTr">
+                                <rect key="frame" x="349" y="946" width="39.5" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal">
@@ -333,11 +323,9 @@
                                     <segue destination="wDx-Zd-ydE" kind="show" id="gj1-aW-yPc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próxima Página" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-ST-dSt">
-                                <rect key="frame" x="712.5" y="581.5" width="76.5" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="qid-PE-M4p"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entrar no Álbum" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-ST-dSt">
+                                <rect key="frame" x="300" y="966" width="136" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -346,17 +334,8 @@
                         <viewLayoutGuide key="safeArea" id="ekH-Fu-oRx"/>
                         <color key="backgroundColor" name="BackgroundColorPaper"/>
                         <constraints>
-                            <constraint firstItem="ekH-Fu-oRx" firstAttribute="trailing" secondItem="qfD-i4-KTr" secondAttribute="trailing" constant="50" id="5JL-id-fgB"/>
-                            <constraint firstItem="ekH-Fu-oRx" firstAttribute="trailing" secondItem="Hpf-ST-dSt" secondAttribute="trailing" constant="31" id="NHM-aW-R1W"/>
-                            <constraint firstItem="Lf8-1c-OrD" firstAttribute="leading" secondItem="ekH-Fu-oRx" secondAttribute="leading" constant="340" id="Ou6-Pf-3Zp"/>
-                            <constraint firstItem="qfD-i4-KTr" firstAttribute="centerY" secondItem="ekH-Fu-oRx" secondAttribute="centerY" constant="-43.5" id="Stg-Q6-qhS"/>
-                            <constraint firstItem="Lf8-1c-OrD" firstAttribute="top" secondItem="nlH-XS-jH4" secondAttribute="bottom" constant="88" id="TDW-lC-1NG"/>
-                            <constraint firstItem="Hpf-ST-dSt" firstAttribute="leading" secondItem="nlH-XS-jH4" secondAttribute="trailing" constant="32" id="ari-7S-WDg"/>
                             <constraint firstItem="nlH-XS-jH4" firstAttribute="centerX" secondItem="ekH-Fu-oRx" secondAttribute="centerX" id="bwV-5f-yvf"/>
                             <constraint firstItem="nlH-XS-jH4" firstAttribute="top" secondItem="ekH-Fu-oRx" secondAttribute="top" constant="88" id="gpp-sc-RJ1"/>
-                            <constraint firstItem="Hpf-ST-dSt" firstAttribute="top" secondItem="qfD-i4-KTr" secondAttribute="bottom" constant="8" id="pFX-0U-R0Z"/>
-                            <constraint firstItem="qfD-i4-KTr" firstAttribute="leading" secondItem="nlH-XS-jH4" secondAttribute="trailing" constant="50" id="pkZ-7G-0Hs"/>
-                            <constraint firstItem="ekH-Fu-oRx" firstAttribute="trailing" secondItem="Lf8-1c-OrD" secondAttribute="trailing" constant="340" id="pyW-Mf-pEu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nome Álbum" largeTitleDisplayMode="always" id="GYZ-yG-30A">
@@ -384,7 +363,6 @@
                         <outlet property="albunsButton" destination="K59-VE-lyO" id="Lye-ZG-FGp"/>
                         <outlet property="backToAlbumsButton" destination="K59-VE-lyO" id="saG-0m-OfJ"/>
                         <outlet property="editButton" destination="6o5-hB-3Wt" id="yk5-Uy-cgj"/>
-                        <outlet property="newPageButton" destination="Lf8-1c-OrD" id="wj4-e3-BKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5M-7k-d7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -542,7 +520,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sf7-dw-rUn">
-                                <rect key="frame" x="0.0" y="50" width="820" height="1110"/>
+                                <rect key="frame" x="0.0" y="74" width="820" height="1086"/>
                                 <color key="backgroundColor" name="BackgroundColorPaper"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IXH-bG-mEN">
                                     <size key="itemSize" width="809" height="1038"/>
@@ -553,7 +531,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pageCell" id="vJj-tR-QlP" customClass="PageViewCollectionViewCell" customModule="olds" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55" width="800" height="1000"/>
+                                        <rect key="frame" x="0.0" y="43" width="800" height="1000"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NkO-BC-7hb">
                                             <rect key="frame" x="0.0" y="0.0" width="800" height="1000"/>
@@ -670,7 +648,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wVc-yj-s73">
-                        <rect key="frame" x="0.0" y="0.0" width="820" height="102"/>
+                        <rect key="frame" x="0.0" y="24" width="820" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -692,7 +670,7 @@
                         <imageReference key="selectedImage" image="clock.arrow.circlepath" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="tng-Fr-Zsv">
-                        <rect key="frame" x="0.0" y="0.0" width="820" height="102"/>
+                        <rect key="frame" x="0.0" y="24" width="820" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -712,7 +690,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hYT-3k-a6O">
-                                <rect key="frame" x="20" y="113" width="780" height="1002"/>
+                                <rect key="frame" x="20" y="137" width="780" height="978"/>
                                 <color key="backgroundColor" name="BackgroundColorPaper"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bOu-8a-shZ">
                                     <size key="itemSize" width="700" height="411"/>
@@ -751,7 +729,7 @@
                                 </cells>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="obu-Ju-9YZ">
-                                <rect key="frame" x="32" y="66" width="756" height="32"/>
+                                <rect key="frame" x="32" y="90" width="756" height="32"/>
                                 <segments>
                                     <segment title="Todos"/>
                                     <segment title="Pessoas"/>
@@ -785,15 +763,12 @@
             <point key="canvasLocation" x="1699" y="847"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="NqB-Jm-hG0"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="blueAlbum" width="1445" height="1829"/>
         <image name="blueAlbumNotSel" width="363" height="459"/>
         <image name="bluePhoto" width="1048" height="1448"/>
-        <image name="book" catalog="system" width="128" height="102"/>
+        <image name="book" catalog="system" width="128" height="99"/>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="brownAlbum" width="1445" height="1830"/>
         <image name="brownAlbumNotSel" width="362" height="460"/>

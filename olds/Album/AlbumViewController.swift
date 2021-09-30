@@ -14,6 +14,8 @@ protocol AlbumViewControllerDelegate: AnyObject { // protocolo para atualizar a 
 
 
 class AlbumViewController: UIViewController {
+    
+    //MARK: Outlets e variáveis
     var album: Album?
     var page: Page?
     weak var delegate: NewAlbumViewControllerDelegate?
@@ -22,14 +24,7 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var albumCover: UIImageView!
     @IBOutlet weak var newPageButton: UIButton!
-    
-    
-    //    @IBAction func goToNextPage(_ sender: Any) {
-    //        if let vc = storyboard?.instantiateViewController(identifier: "pageView") as? PageViewController {
-    //            vc.album = album // manda o album pra outra pagina
-    //            navigationController?.pushViewController(vc, animated: true)
-    //    }
-    //    }
+    @IBOutlet weak var backToAlbumsButton: UIBarButtonItem!
     
     func changeAlbum(album: Album?) {
         self.album = album
@@ -37,8 +32,6 @@ class AlbumViewController: UIViewController {
     
     
     
-    
-    @IBOutlet weak var backToAlbumsButton: UIBarButtonItem!
     
     
     @IBAction func goBackToAlbums(_ sender: UIBarButtonItem) {

@@ -7,7 +7,7 @@
 
 import UIKit
 import AVFoundation
-
+import Photos
 
 
 protocol NewPageViewControllerDelegate: AnyObject {
@@ -39,7 +39,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     override func viewDidLoad() {
         super.viewDidLoad()
         checkMicrophoneAccess() // chama permissão pra usar o mic
-        
+        checkPermissions()
         // MARK: IMAGE PICKER
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         audioRecorderFunc()
@@ -278,6 +278,27 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         
     }
     
+
+    //MARK: Check Album permission
+    func checkPermissions() {
+        if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized {
+            PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) -> Void in ()
+            })
+        }
+        
+        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized {
+        } else {
+            PHPhotoLibrary.requestAuthorization(requestAuthorizationHandler)
+        }
+    }
+    func requestAuthorizationHandler(status: PHAuthorizationStatus) {
+        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized {
+            print("Access granted to use Photo Library")
+        } else {
+            print("We don't have access to yout Photos")
+        }
+    }
+    
     
 }
 
@@ -285,9 +306,13 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
 extension NewPageViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
         self.imgPhoto.image = image
-        let newImage: UIImage = imgPhoto.image!
+        guard let newImage: UIImage = imgPhoto.image else {
+            return
+        }
         imageURL = FileHelper.saveToFiles(image: newImage)
     }
+    
+    
 }
 
 
