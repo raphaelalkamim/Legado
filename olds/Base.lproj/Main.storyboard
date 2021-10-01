@@ -419,7 +419,8 @@
                         <outlet property="albunsButton" destination="K59-VE-lyO" id="Lye-ZG-FGp"/>
                         <outlet property="backToAlbumsButton" destination="K59-VE-lyO" id="saG-0m-OfJ"/>
                         <outlet property="editButton" destination="6o5-hB-3Wt" id="yk5-Uy-cgj"/>
-
+                        <outlet property="openBookButton" destination="qfD-i4-KTr" id="PJE-vq-Qd9"/>
+                        <outlet property="openBookLabel" destination="Hpf-ST-dSt" id="ip3-qC-mVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5M-7k-d7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
