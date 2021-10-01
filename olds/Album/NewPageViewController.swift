@@ -32,6 +32,10 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     @IBOutlet weak var newPhotoButton: UIButton!
     @IBOutlet weak var recordAudioButton: UIButton!
     
+    @IBOutlet weak var recordAudioLabel: UIView!
+    @IBOutlet weak var playAudioLabel: UILabel!
+    @IBOutlet weak var stopAudioLabel: UIView!
+    
     var audioURL: String!
     
     

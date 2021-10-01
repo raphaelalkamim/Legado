@@ -11,6 +11,7 @@ import AVFoundation
 class PageViewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleCell: UILabel!
+    @IBOutlet weak var playLabel: UIView!
     @IBOutlet weak var imgCell: UIImageView!
     @IBOutlet weak var playButtonCell: UIButton!
     var audio: AVAudioPlayer?

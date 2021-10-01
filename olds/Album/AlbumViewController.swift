@@ -15,6 +15,9 @@ protocol AlbumViewControllerDelegate: AnyObject { // protocolo para atualizar a 
 
 class AlbumViewController: UIViewController {
     
+    @IBOutlet weak var openBookButton: UIView!
+    @IBOutlet weak var openBookLabel: UIView!
+    
     //MARK: Outlets e variáveis
     var album: Album?
     var page: Page?

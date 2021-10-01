@@ -24,6 +24,7 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         pageCollection.delegate = self
         pageCollection.dataSource = self
+        title = album?.albumTitle
     }
     
     // MARK: VIEW WILL APPEAR
