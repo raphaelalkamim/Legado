@@ -254,7 +254,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancelar">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" name="destructiveButtonColor"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelCreation:" destination="Ry4-HM-bip" eventType="touchUpInside" id="CAy-5N-I2i"/>
@@ -638,7 +638,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="pageCollection" destination="Sf7-dw-rUn" id="EHB-fM-PYH"/>
                     </connections>

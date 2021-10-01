@@ -25,6 +25,7 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
         pageCollection.delegate = self
         pageCollection.dataSource = self
         title = album?.albumTitle
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "ActionColorButton")
     }
     
     // MARK: VIEW WILL APPEAR
