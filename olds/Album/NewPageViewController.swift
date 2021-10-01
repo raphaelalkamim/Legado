@@ -32,6 +32,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     @IBOutlet weak var newPhotoButton: UIButton!
     @IBOutlet weak var recordAudioButton: UIButton!
     
+    @IBOutlet weak var stopLabel: UILabel!
     
     var audioURL: String!
     
@@ -190,6 +191,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State.selected)
                 stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
                 playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
+                stopLabel.text = "Parar de Gravar"
                 
                 recordAudioButton.isSelected = true
                 stopButton.isEnabled = true
@@ -202,6 +204,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 recordAudioButton.setImage(UIImage(systemName: "pause.circle"), for: UIControl.State())
                 playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
                 stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
+                
                 
                 stopButton.isEnabled = false
                 playButton.isEnabled = false
@@ -259,6 +262,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
                 recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State())
                 recordAudioButton.isEnabled = false
+                stopLabel.text = "Parar de Reproduzir"
             }
         }
     }
