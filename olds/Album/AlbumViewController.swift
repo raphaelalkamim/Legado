@@ -51,6 +51,17 @@ class AlbumViewController: UIViewController {
         albumCover.contentMode = .scaleAspectFit
         changeCover()
         
+        //Determinando os elementos como de acessibilidade
+        editButton.isAccessibilityElement = true
+        albumCover.isAccessibilityElement = true
+//        newPageButton.isAccessibilityElement = true
+        backToAlbumsButton.isAccessibilityElement = true
+        albunsButton.isAccessibilityElement = true
+        
+        //O que o voice over fala
+        editButton.accessibilityLabel = "Editar álbum"
+        albumCover.accessibilityLabel = "Álbum"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,15 +75,19 @@ class AlbumViewController: UIViewController {
         let coverName: String? = String?((album?.albumType)!)
         if (coverName == "person") {
             albumCover.image = UIImage(named: "blueAlbum")
+            albumCover.accessibilityValue = "Pessoas"
         }
         else if (coverName == "travel") {
             albumCover.image = UIImage(named: "brownAlbum")
+            albumCover.accessibilityValue = "Viagens"
         }
         else if (coverName == "event") {
             albumCover.image = UIImage(named: "greenAlbum")
+            albumCover.accessibilityValue = "Eventos"
         }
         else {
             albumCover.image = UIImage(named: "redAlbum")
+            albumCover.accessibilityValue = "Outros"
         }
     }
     
