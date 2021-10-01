@@ -45,6 +45,22 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         audioRecorderFunc()
         
+        //Determinando elementos como de acessibilidade
+//        playButton.isAccessibilityElement = true
+//        stopButton.isAccessibilityElement = true
+//        datePicker?.isAccessibilityElement = true
+//        imgPhoto.isAccessibilityElement = true
+//        newPhotoButton.isAccessibilityElement = true
+//        recordAudioButton.isAccessibilityElement = true
+//        recordAudioLabel.isAccessibilityElement = true
+//        playAudioLabel.isAccessibilityElement = true
+//        stopAudioLabel.isAccessibilityElement = true
+        
+        
+        //o que o voice over fala
+        playButton.accessibilityLabel = "Reproduzir audio"
+        stopButton.accessibilityLabel = "Parar Gravação"
+        recordAudioButton.accessibilityLabel = "Gravar audio"
         
     }
     
