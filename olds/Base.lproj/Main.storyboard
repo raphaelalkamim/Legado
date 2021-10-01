@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fdD-tr-Eb6">
-    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -34,8 +34,9 @@
                                     <action selector="segmented:" destination="BYZ-38-t0r" eventType="valueChanged" id="MWu-fM-3ZT"/>
                                 </connections>
                             </segmentedControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-pI-1ts">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hpv-pI-1ts">
                                 <rect key="frame" x="20" y="189" width="780" height="926"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="BackgroundColorPaper"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="SUm-Ly-gCN">
                                     <size key="itemSize" width="248" height="350"/>
@@ -84,12 +85,8 @@
                         <color key="backgroundColor" name="BackgroundColorPaper"/>
                         <constraints>
                             <constraint firstItem="6hT-Ju-Jln" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="3FM-Q7-z9c"/>
-                            <constraint firstItem="hpv-pI-1ts" firstAttribute="top" secondItem="6hT-Ju-Jln" secondAttribute="bottom" constant="16" id="4XC-de-Nuz"/>
-                            <constraint firstItem="hpv-pI-1ts" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="DWK-b3-d11"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6hT-Ju-Jln" secondAttribute="trailing" constant="32" id="G04-pL-c5R"/>
                             <constraint firstItem="6hT-Ju-Jln" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="bNw-th-cXA"/>
-                            <constraint firstItem="hpv-pI-1ts" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eOO-Q5-hEm"/>
-                            <constraint firstItem="hpv-pI-1ts" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="uNu-me-ElW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Álbuns" id="1hS-S3-OHH">
@@ -370,8 +367,6 @@
                         <outlet property="albunsButton" destination="K59-VE-lyO" id="Lye-ZG-FGp"/>
                         <outlet property="backToAlbumsButton" destination="K59-VE-lyO" id="saG-0m-OfJ"/>
                         <outlet property="editButton" destination="6o5-hB-3Wt" id="yk5-Uy-cgj"/>
-                        <outlet property="openBookButton" destination="eoF-sy-hTJ" id="pys-XU-3JV"/>
-                        <outlet property="openBookLabel" destination="eoF-sy-hTJ" id="v7c-S8-cYT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5M-7k-d7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
