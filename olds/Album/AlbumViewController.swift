@@ -17,7 +17,7 @@ class AlbumViewController: UIViewController {
     
     @IBOutlet weak var openBookLabel: UILabel!
     @IBOutlet weak var openBookButton: UIButton!
-    
+    var elements = [UIAccessibilityElement]()
     
     //MARK: Outlets e variáveis
     var album: Album?
@@ -58,11 +58,22 @@ class AlbumViewController: UIViewController {
 //        newPageButton.isAccessibilityElement = true
         backToAlbumsButton.isAccessibilityElement = true
         albunsButton.isAccessibilityElement = true
+        openBookLabel.isAccessibilityElement = true
+        openBookButton.isAccessibilityElement = true
         
         //O que o voice over fala
         editButton.accessibilityLabel = "Editar álbum"
         albumCover.accessibilityLabel = "Álbum"
+        openBookLabel.accessibilityLabel = " "
+        openBookButton.accessibilityLabel = "Abrir Album"
         
+        
+        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+        groupedElement.accessibilityLabel = "\(openBookButton.self!), \(openBookLabel.text!)"
+        groupedElement.accessibilityFrameInContainerSpace = openBookButton.frame.union(openBookLabel.frame)
+        elements.append(groupedElement)
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

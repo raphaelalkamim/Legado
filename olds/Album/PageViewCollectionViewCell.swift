@@ -16,7 +16,21 @@ class PageViewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var playButtonCell: UIButton!
     var audio: AVAudioPlayer?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
     
+    //Determinando elementos como de acessibilidade
+//        titleCell.isAccessibilityElement = true
+//        playLabel.isAccessibilityElement = true
+//        imgCell.isAccessibilityElement = true
+//        playButtonCell.isAccessibilityElement = true
+        
+        //o que o voice over fala
+        playButtonCell.accessibilityLabel = "Reproduzir áudio"
+        imgCell.accessibilityLabel = "Foto"
+        
+
+    }
     override func prepareForReuse() {
         super.prepareForReuse()
         imgCell.image = nil
