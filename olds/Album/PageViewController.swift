@@ -47,7 +47,8 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
     func convertDate(date: Date) -> String {
         self.date = date
         let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.full
+        formatter.dateStyle = DateFormatter.Style.long
+        formatter.locale = Locale(identifier: "pt_BR")
         let stringDate = formatter.string(from: date)
         return stringDate
     }

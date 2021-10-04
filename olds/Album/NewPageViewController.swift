@@ -149,6 +149,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateStyle = DateFormatter.Style.full
+        formatter.locale = Locale(identifier: "pt_BR")
         let stringDate = formatter.string(from: datePicker!.date)
         date = datePicker!.date
         dateInput = stringDate
