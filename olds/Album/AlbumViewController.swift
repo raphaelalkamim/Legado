@@ -7,45 +7,30 @@
 
 import UIKit
 
+// MARK: DID REGISTER - PROTOCOLO
 protocol AlbumViewControllerDelegate: AnyObject { // protocolo para atualizar a pagina se houver edições
     func didRegister()
 }
 
-
-
 class AlbumViewController: UIViewController {
     
+    //MARK: Outlets e variáveis
     @IBOutlet weak var openBookLabel: UILabel!
     @IBOutlet weak var openBookButton: UIButton!
     var elements = [UIAccessibilityElement]()
-    
-    //MARK: Outlets e variáveis
     var album: Album?
     var page: Page?
     weak var delegate: NewAlbumViewControllerDelegate?
     @IBOutlet weak var albunsButton: UIBarButtonItem!
-    
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var albumCover: UIImageView!
-    @IBOutlet weak var newPageButton: UIButton!
     @IBOutlet weak var backToAlbumsButton: UIBarButtonItem!
     
-    func changeAlbum(album: Album?) {
-        self.album = album
-    }
     
     
-    
-    
-    
-    @IBAction func goBackToAlbums(_ sender: UIBarButtonItem) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    
+    //MARK: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         title = album?.albumTitle //settando titulo do album
         albumCover.contentMode = .scaleAspectFit
@@ -71,17 +56,35 @@ class AlbumViewController: UIViewController {
         groupedElement.accessibilityLabel = "\(openBookButton.self!), \(openBookLabel.text!)"
         groupedElement.accessibilityFrameInContainerSpace = openBookButton.frame.union(openBookLabel.frame)
         elements.append(groupedElement)
-        
-
     }
     
+    //MARK: VIEW WILL APPEAR
     override func viewWillAppear(_ animated: Bool) {
         title = album?.albumTitle
         albumCover.contentMode = .scaleAspectFit
         changeCover()
     }
     
+    //MARK: BAR BUTTON ITEM - BACK TO ALBUMS
+    @IBAction func goBackToAlbums(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
+    //MARK: BAR BUTTON ITEM - EDIT
+    @IBAction func edit(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "EditView") as? NewAlbumViewController {
+            vc.changeAlbum(album: album)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    //MARK: CHANGE ALBUM
+    func changeAlbum(album: Album?) {
+        self.album = album
+    }
+    
+    
+    //MARK: CHANGE COVER
     func changeCover() {
         let coverName: String? = String?((album?.albumType)!)
         if (coverName == "person") {
@@ -103,25 +106,12 @@ class AlbumViewController: UIViewController {
     }
     
     
-    
-    @IBAction func edit(_ sender: Any) {
-        if let vc = storyboard?.instantiateViewController(identifier: "EditView") as? NewAlbumViewController {
-            vc.changeAlbum(album: album)
-            navigationController?.pushViewController(vc, animated: true)
-            
-        }
-    }
-    
-    
-    
+    //MARK: PREPARE FOR SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is NewPageViewController {
-            let vc = segue.destination as? NewPageViewController
-            vc?.album = album
-        }
-        else if segue.destination is PageViewController {
+        if segue.destination is PageViewController {
             let vc = segue.destination as? PageViewController
             vc?.album = album
         }
     }
+    
 }

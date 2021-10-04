@@ -153,8 +153,6 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         let stringDate = formatter.string(from: datePicker!.date)
         date = datePicker!.date
         dateInput = stringDate
-        print(date)
-        print(dateInput)
     }
     
     // MARK: CANCEL

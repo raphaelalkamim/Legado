@@ -8,8 +8,9 @@
 import UIKit
 
 class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
-    var album: Album?
     
+    // MARK: OUTLETS & VARIÁVEIS
+    var album: Album?
     @IBOutlet weak var helperButton: UIBarButtonItem!
     @IBOutlet weak var createAlbumButton: UIBarButtonItem!
     @IBOutlet weak var albumCollection: UICollectionView!
@@ -18,53 +19,41 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
     var albumsToDisplay: [Album]?
     var elements = [UIAccessibilityElement]()
     
+    // MARK: SEGMENTED
     @IBAction func segmented(_ sender: Any) {
         let index = self.segmented.selectedSegmentIndex
         
         if index == 0 {
-            
             albumsToDisplay = albumData?.reversed()
-            //albumsToDisplay!.reverse()
-            
         }
         
         else if index == 1{
             albumsToDisplay = albumData?.filter({
                 $0.albumType == "person"
             }).reversed()
-            //albumsToDisplay!.reverse()
-            
         }
         
         else if index == 2 {
-            
             albumsToDisplay = albumData?.filter({
                 $0.albumType == "travel"
             }).reversed()
-            //albumsToDisplay!.reverse()
-            
         }
         
         else if index == 3 {
             albumsToDisplay = albumData?.filter({
                 $0.albumType == "event"
             }).reversed()
-            //albumsToDisplay!.reverse()
-            
         }
         
         else {
             albumsToDisplay = albumData?.filter({
                 $0.albumType == "other"
             }).reversed()
-            //albumsToDisplay!.reverse()
-            
         }
-        
         self.albumCollection?.reloadData()
     }
     
-    
+    // MARK: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,55 +61,33 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
         albumCollection.delegate = self
         
         albumData = try! CoreDataAlbum.getAlbum()
-        
         albumsToDisplay = albumData
         albumsToDisplay!.reverse()
         
         //Determinando elementos como de acessibilidade
         helperButton.isAccessibilityElement = true
         createAlbumButton.isAccessibilityElement = true
-
     }
     
     
-    
+    // MARK: VIEW WILL APPEAR
     override func viewWillAppear(_ animated: Bool) {
         didRegister()
     }
-    
-    
-    
+  
     
 }
 
 extension AlbumGridViewController: UICollectionViewDataSource {
-    
+    // MARK: COLLECTION
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return albumsToDisplay!.count
-        
-        //        var qtd: Int = 0
-        //        if let albumData = try? CoreDataAlbum.getAlbum() {
-        //            if albumData == nil {
-        //                qtd = 0
-        //
-        //            }
-        //            else {
-        //                qtd = albumData.count
-        //            }
-        //
-        //        }
-        //        print(qtd)
-        //        return qtd
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let albumDataCell: AlbumCollectionViewCell = albumCollection?.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath as IndexPath) as! AlbumCollectionViewCell
-        
-        //albumsToDisplay!.reverse()
-        
         albumDataCell.albumTitle.text = albumsToDisplay![indexPath.row].albumTitle
+        // colocando as capas dos álbuns
         if let img = albumsToDisplay?[indexPath.row].albumType {
             let coverImage: String =  String(img)
             
@@ -150,17 +117,11 @@ extension AlbumGridViewController: UICollectionViewDataSource {
         groupedElement.accessibilityFrameInContainerSpace = albumDataCell.albumCover.frame.union(albumDataCell.albumTitle.frame)
         elements.append(groupedElement)
 
-        
         return albumDataCell
-        
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier: "CoverView") as? AlbumViewController {
-            //var albumData = try! CoreDataAlbum.getAlbum()
-            //albumsToDisplay!.reverse()
             vc.album = albumsToDisplay![indexPath.item]
             navigationController?.pushViewController(vc, animated: true)
             
@@ -168,11 +129,12 @@ extension AlbumGridViewController: UICollectionViewDataSource {
         self.albumCollection?.reloadData()
     }
     
+    // MARK: CHANGE ALBUM
     func changeAlbum(album: Album?) {
         self.album = album
     }
     
-    // context
+    // MARK: CONTEXT MENU
     func configureContextMenu(index: Int) -> UIContextMenuConfiguration{
         let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
@@ -199,9 +161,6 @@ extension AlbumGridViewController: UICollectionViewDataSource {
                 ac.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
                 
                 self.present(ac, animated: true, completion: nil)
-                
-                
-                
             }
             
             return UIMenu(title: "Opções", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [edit,delete])
@@ -212,20 +171,20 @@ extension AlbumGridViewController: UICollectionViewDataSource {
     
 }
 
-extension AlbumGridViewController: NewAlbumViewControllerDelegate {
-    func didRegister() {
-        albumData = try! CoreDataAlbum.getAlbum()
-        
-        albumsToDisplay = albumData
-        albumsToDisplay!.reverse()
-        
-        albumCollection.reloadData() // atualiza informações
-    }
-}
-
-// context menu
 extension AlbumGridViewController {
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         configureContextMenu(index: indexPath.row)
     }
 }
+
+// MARK: DID REGISTER
+extension AlbumGridViewController: NewAlbumViewControllerDelegate {
+    func didRegister() {
+        albumData = try! CoreDataAlbum.getAlbum()
+        albumsToDisplay = albumData
+        albumsToDisplay!.reverse()
+        albumCollection.reloadData() // atualiza informações
+    }
+}
+
+

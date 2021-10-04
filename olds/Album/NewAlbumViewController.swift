@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 protocol NewAlbumViewControllerDelegate: AnyObject { // protocolo para atualizar a pagina se houver edições
     func didRegister()
 }

@@ -87,9 +87,7 @@ extension PageViewController: UICollectionViewDataSource {
         
         pageDataCell.playAudio(url: audioPath)
         
-        
         return pageDataCell
-        
     }
     
     // MARK: GET DIRECTORY
@@ -98,7 +96,6 @@ extension PageViewController: UICollectionViewDataSource {
         let documentDirectory = paths[0]
         return documentDirectory
     }
-    
     
     
     // MARK: CONTEXT MENU
@@ -145,9 +142,3 @@ extension PageViewController: NewPageViewControllerDelegate {
         pageCollection.reloadData()
     }
 }
-
-
-
-
-
-
