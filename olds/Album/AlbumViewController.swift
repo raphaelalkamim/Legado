@@ -45,8 +45,7 @@ class AlbumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editButton.setTitle("Editar Álbum", for: .normal)
-        editButton.setTitleColor(.darkGray, for: .normal)
+        
         
         title = album?.albumTitle //settando titulo do album
         albumCover.contentMode = .scaleAspectFit
