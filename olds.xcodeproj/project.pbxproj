@@ -29,6 +29,7 @@
 		C871CFA526FA5677009D9038 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CFA126FA5677009D9038 /* Page+CoreDataClass.swift */; };
 		C871CFA626FA5677009D9038 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CFA226FA5677009D9038 /* Page+CoreDataProperties.swift */; };
 		C871CFA726FA65AF009D9038 /* olds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B02F9B8F26F25CEC0088608E /* olds.xcdatamodeld */; };
+		C8F78C94270CBC4E009934D7 /* TimelineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F78C93270CBC4E009934D7 /* TimelineCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		C871CFA026FA5677009D9038 /* Album+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C871CFA126FA5677009D9038 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C871CFA226FA5677009D9038 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C8F78C93270CBC4E009934D7 /* TimelineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				B05B207A26F3BB8000E46467 /* TimelineViewController.swift */,
+				C8F78C93270CBC4E009934D7 /* TimelineCollectionViewCell.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				B02F9B8926F25CEC0088608E /* SceneDelegate.swift in Sources */,
 				C871CF8826F90232009D9038 /* CoreDataPage.swift in Sources */,
 				B004DB2527022E1400989EF0 /* PageViewCollectionViewCell.swift in Sources */,
+				C8F78C94270CBC4E009934D7 /* TimelineCollectionViewCell.swift in Sources */,
 				C871CF8B26F903AF009D9038 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
