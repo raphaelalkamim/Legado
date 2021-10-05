@@ -20,6 +20,8 @@
 		B05B207E26F3BC4800E46467 /* NewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B207D26F3BC4800E46467 /* NewPageViewController.swift */; };
 		B05B208026F3BC6000E46467 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B207F26F3BC6000E46467 /* PageViewController.swift */; };
 		B05B208226F3BCDA00E46467 /* AlbumGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B208126F3BCDA00E46467 /* AlbumGridViewController.swift */; };
+		B0B8F74F270CCFAD005F3722 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8F74E270CCFAD005F3722 /* HelpViewController.swift */; };
+		B0B8F757270CE287005F3722 /* view.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B8F756270CE287005F3722 /* view.swift */; };
 		C871CF8626F8FDC2009D9038 /* CoreDataAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CF8526F8FDC2009D9038 /* CoreDataAlbum.swift */; };
 		C871CF8826F90232009D9038 /* CoreDataPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CF8726F90232009D9038 /* CoreDataPage.swift */; };
 		C871CF8B26F903AF009D9038 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C871CF8A26F903AF009D9038 /* FileHelper.swift */; };
@@ -49,6 +51,8 @@
 		B05B207D26F3BC4800E46467 /* NewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPageViewController.swift; sourceTree = "<group>"; };
 		B05B207F26F3BC6000E46467 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B05B208126F3BCDA00E46467 /* AlbumGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumGridViewController.swift; sourceTree = "<group>"; };
+		B0B8F74E270CCFAD005F3722 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		B0B8F756270CE287005F3722 /* view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = view.swift; sourceTree = "<group>"; };
 		C871CF8526F8FDC2009D9038 /* CoreDataAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAlbum.swift; sourceTree = "<group>"; };
 		C871CF8726F90232009D9038 /* CoreDataPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPage.swift; sourceTree = "<group>"; };
 		C871CF8A26F903AF009D9038 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			children = (
 				B05B207C26F3BBAB00E46467 /* Album */,
 				B05B207926F3BB5E00E46467 /* Timeline */,
+				B0B8F74D270CCF90005F3722 /* Help */,
 				B02F9B8626F25CEC0088608E /* AppDelegate.swift */,
 				B02F9B8826F25CEC0088608E /* SceneDelegate.swift */,
 				B02F9B8C26F25CEC0088608E /* Main.storyboard */,
@@ -146,6 +151,15 @@
 				C871CF9F26FA5677009D9038 /* Album+CoreDataClass.swift */,
 			);
 			path = AlbumCoreData;
+			sourceTree = "<group>";
+		};
+		B0B8F74D270CCF90005F3722 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				B0B8F74E270CCFAD005F3722 /* HelpViewController.swift */,
+				B0B8F756270CE287005F3722 /* view.swift */,
+			);
+			path = Help;
 			sourceTree = "<group>";
 		};
 		C871CF8426F8FD87009D9038 /* CoreDate */ = {
@@ -243,12 +257,14 @@
 				C871CFA526FA5677009D9038 /* Page+CoreDataClass.swift in Sources */,
 				B02F9B8726F25CEC0088608E /* AppDelegate.swift in Sources */,
 				C871CFA726FA65AF009D9038 /* olds.xcdatamodeld in Sources */,
+				B0B8F74F270CCFAD005F3722 /* HelpViewController.swift in Sources */,
 				B04B12332703A26E00E69836 /* ImagePicker.swift in Sources */,
 				C871CFA326FA5677009D9038 /* Album+CoreDataClass.swift in Sources */,
 				B05B207426F3AB3000E46467 /* NewAlbumViewController.swift in Sources */,
 				B05B207E26F3BC4800E46467 /* NewPageViewController.swift in Sources */,
 				B05B207B26F3BB8000E46467 /* TimelineViewController.swift in Sources */,
 				C871CFA626FA5677009D9038 /* Page+CoreDataProperties.swift in Sources */,
+				B0B8F757270CE287005F3722 /* view.swift in Sources */,
 				C871CF8626F8FDC2009D9038 /* CoreDataAlbum.swift in Sources */,
 				B05B208026F3BC6000E46467 /* PageViewController.swift in Sources */,
 				B02F9B8926F25CEC0088608E /* SceneDelegate.swift in Sources */,
