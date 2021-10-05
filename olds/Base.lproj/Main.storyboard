@@ -107,6 +107,9 @@
                     <navigationItem key="navigationItem" title="Álbuns" id="1hS-S3-OHH">
                         <barButtonItem key="leftBarButtonItem" title="Ajuda" style="plain" id="xb7-P2-i1p">
                             <color key="tintColor" name="ActionColorButton"/>
+                            <connections>
+                                <segue destination="XE6-qc-35H" kind="presentation" id="DAf-Ng-NvM"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Novo Álbum" style="plain" id="fEZ-PI-TQx">
                             <color key="tintColor" name="ActionColorButton"/>
@@ -779,6 +782,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipl-qu-55k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19.756097560975608" y="93.559322033898312"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="zai-Mw-3zK">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="XE6-qc-35H" customClass="HelpViewController" customModule="olds" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LJF-wt-gZb">
+                        <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojv-b5-bq5">
+                                <rect key="frame" x="730" y="20" width="70" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3C7-LS-CCo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Fechar">
+                                    <color key="titleColor" name="ActionColorButton"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitAction:" destination="XE6-qc-35H" eventType="touchUpInside" id="5MI-Ct-xoI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bjD-wr-Uug"/>
+                        <color key="backgroundColor" name="BackgroundColorPaper"/>
+                        <constraints>
+                            <constraint firstItem="bjD-wr-Uug" firstAttribute="trailing" secondItem="Ojv-b5-bq5" secondAttribute="trailing" constant="20" id="Ci5-Np-lEO"/>
+                            <constraint firstItem="Ojv-b5-bq5" firstAttribute="top" secondItem="bjD-wr-Uug" secondAttribute="top" constant="20" id="dgK-4c-a1f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exitButton" destination="Ojv-b5-bq5" id="6Vq-aj-tqU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KWs-LL-Lpo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533" y="-573"/>
         </scene>
         <!--Álbuns-->
         <scene sceneID="6Xw-p5-8s5">
