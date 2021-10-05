@@ -22,6 +22,18 @@ class TimelineCollectionViewCell: UICollectionViewCell {
         audio?.play()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        //Determinando elementos como de acessibilidade
+        imgCell.isAccessibilityElement = true
+        playLabel.isAccessibilityElement = false
+        
+        
+        //O que o voice over fala
+        imgCell.accessibilityLabel = "Foto"
+        playButtonCell.accessibilityLabel = "Reproduzir áudio"
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
