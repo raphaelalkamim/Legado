@@ -21,8 +21,8 @@ class PageViewCollectionViewCell: UICollectionViewCell {
     
     //Determinando elementos como de acessibilidade
 //        titleCell.isAccessibilityElement = true
-//        playLabel.isAccessibilityElement = true
-//        imgCell.isAccessibilityElement = true
+        playLabel.isAccessibilityElement = false
+        imgCell.isAccessibilityElement = true
 //        playButtonCell.isAccessibilityElement = true
         
         //o que o voice over fala
