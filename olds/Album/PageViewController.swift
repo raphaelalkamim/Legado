@@ -142,3 +142,11 @@ extension PageViewController: NewPageViewControllerDelegate {
         pageCollection.reloadData()
     }
 }
+
+extension PageViewController: UICollectionViewDelegateFlowLayout{
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = collectionView.frame.height
+        let width  = collectionView.frame.width
+        return CGSize(width: width, height: height)
+}
+}

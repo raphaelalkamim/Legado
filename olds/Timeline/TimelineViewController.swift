@@ -85,3 +85,11 @@ class TimelineViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 
 }
+extension TimelineViewController: UICollectionViewDelegateFlowLayout{
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = collectionView.frame.height
+        let width  = collectionView.frame.width
+        return CGSize(width: width, height: height)
+}
+}
+
