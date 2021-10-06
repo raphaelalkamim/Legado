@@ -237,9 +237,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 audioPlayer?.play()
                 playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
                 playButton.isSelected = true
-                
-                recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State())
-                //recordAudioButton.isEnabled = false
+
             }
         }
     }
