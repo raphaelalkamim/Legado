@@ -216,7 +216,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                     }
                 }
                 
-                //Parando de gravar
+                // Parando de gravar
                 if let player = audioPlayer {
                     if player.isPlaying {
                         player.stop()
@@ -235,25 +235,11 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 audioPlayer = try? AVAudioPlayer(contentsOf: recorder.url)
                 audioPlayer?.delegate = self
                 audioPlayer?.play()
-                playButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State.selected)
+                playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
                 playButton.isSelected = true
                 
                 recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State())
                 //recordAudioButton.isEnabled = false
-            }
-            
-            if let player = audioPlayer {
-                if player.isPlaying {
-                    player.stop()
-                    playLabel.text = "Parar"
-                    playButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State.selected)
-                } else {
-                    recordAudioButton.isEnabled = true
-                    
-                }
-                
-                
-                
             }
         }
     }
