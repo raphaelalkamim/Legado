@@ -24,7 +24,7 @@ class HelpViewController: UIViewController {
        lazy var view1:ViewOnboarding =  {
            let view = ViewOnboarding()
            view.setup(titulo: "Criando um Álbum",
-                      text: "A tela inicial é o local onde ficam todos os seus álbuns, podendo visualizados separados por seus temas ou todos de uma vez. Lá você também conseguirá criar novos albuns clicando em 'Criar Álbum'. /n/n No formulário de criação de álbum você deverá inserir um título e o tema do seu álbum",
+                      text: "A tela inicial é o local onde ficam todos os seus álbuns, podendo visualizados separados por seus temas ou todos de uma vez. Lá você também conseguirá criar novos albuns clicando em 'Criar Álbum'. \n\n No formulário de criação de álbum você deverá inserir um título e o tema do seu álbum",
                       imageName: "greenAlbum", imageDescription: "")
            return view
        }()
