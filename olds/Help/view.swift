@@ -21,14 +21,14 @@ class ViewOnboarding:UIView{
         
         labelTitulo.text=titulo
         labelTitulo.textAlignment = .center
-        labelTitulo.font = UIFont .boldSystemFont(ofSize:  40.0)
+        labelTitulo.font = UIFont .boldSystemFont(ofSize:  45.0)
         labelTitulo.textColor = .label
         self.addSubview(labelTitulo)
         
         label.text = text
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont .boldSystemFont(ofSize: 20.0)
+        label.font = UIFont .boldSystemFont(ofSize: 25.0)
         self.addSubview(label)
         label.textColor = .label
         self.imageDescription = imageDescription
@@ -66,8 +66,8 @@ class ViewOnboarding:UIView{
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let imgConstrainsts:[NSLayoutConstraint] = [
-            imageView.widthAnchor.constraint(equalToConstant: 250),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.widthAnchor.constraint(equalToConstant: 400),
+            imageView.heightAnchor.constraint(equalToConstant: 300),
             imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             imageView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 100)
         ]
