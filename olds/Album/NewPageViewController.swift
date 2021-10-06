@@ -216,6 +216,13 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                     }
                 }
                 
+                //Parando de gravar
+                if let player = audioPlayer {
+                    if player.isPlaying {
+                        player.stop()
+                    }
+                }
+                
             }
         }
     }
@@ -230,21 +237,23 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 audioPlayer?.play()
                 playButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State.selected)
                 playButton.isSelected = true
-                //stopButton.isEnabled = true
                 
-                
-                // stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
                 recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State())
-                recordAudioButton.isEnabled = false
-                //stopLabel.text = "Parar de Reproduzir"
+                //recordAudioButton.isEnabled = false
             }
             
             if let player = audioPlayer {
                 if player.isPlaying {
                     player.stop()
-                    playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
-                    playButton.isSelected = false
+                    playLabel.text = "Parar"
+                    playButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State.selected)
+                } else {
+                    recordAudioButton.isEnabled = true
+                    
                 }
+                
+                
+                
             }
         }
     }
