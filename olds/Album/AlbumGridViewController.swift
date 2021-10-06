@@ -19,6 +19,16 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
     var albumsToDisplay: [Album]?
     var elements = [UIAccessibilityElement]()
     
+    @IBOutlet weak var imageEmpty: UIImageView!
+    
+    //    lazy var imageEmpty: UIImageView = {
+    //        let imageView = UIImageView(frame: .zero)
+    //        imageView.backgroundColor = .red
+    //        imageView.translatesAutoresizingMaskIntoConstraints = false
+    //        return imageView
+    //    }()
+    
+
     // MARK: SEGMENTED
     @IBAction func segmented(_ sender: Any) {
         let index = self.segmented.selectedSegmentIndex
@@ -67,13 +77,45 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
         //Determinando elementos como de acessibilidade
         helperButton.isAccessibilityElement = true
         createAlbumButton.isAccessibilityElement = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(newAlbum))
+        imageEmpty.addGestureRecognizer(tapGesture)
     }
     
+    @objc
+    func newAlbum() {
+        if let vc = self.storyboard?.instantiateViewController(identifier: "EditView") as? NewAlbumViewController {
+            vc.changeAlbum(album: self.album)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     // MARK: VIEW WILL APPEAR
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         didRegister()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //emptyStateImageSetup()
+    }
+    
+    //    func emptyStateImageSetup() {
+    //        guard let backgroundView = self.albumCollection.backgroundView else {
+    //            print("socorro")
+    //            return }
+    //        backgroundView.addSubview(imageEmpty)
+    //        let imageEmptyConstraints: [NSLayoutConstraint] = [
+    //            imageEmpty.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+    //            imageEmpty.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+    //            imageEmpty.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
+    //            imageEmpty.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor)
+    //        ]
+    //
+    //        //função estática
+    //        NSLayoutConstraint.activate(imageEmptyConstraints)
+    //    }
     
     
 }
@@ -81,7 +123,14 @@ class AlbumGridViewController: UIViewController, UICollectionViewDelegate {
 extension AlbumGridViewController: UICollectionViewDataSource {
     // MARK: COLLECTION
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albumsToDisplay!.count
+        guard let quant = self.albumsToDisplay?.count else { return 0 }
+        if quant ==  0 {
+            imageEmpty.isHidden = false
+        } else {
+            imageEmpty.isHidden = true
+        }
+        
+        return quant
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -186,5 +235,4 @@ extension AlbumGridViewController: NewAlbumViewControllerDelegate {
         albumCollection.reloadData() // atualiza informações
     }
 }
-
 

@@ -16,6 +16,7 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
     var pageData: [Page]?
     var audio: AVAudioPlayer?
    
+    @IBOutlet weak var emptyImage: UIImageView!
     @IBOutlet weak var pageCollection: UICollectionView!
     
     
@@ -25,7 +26,22 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
         pageCollection.delegate = self
         pageCollection.dataSource = self
         title = album?.albumTitle
+        
         self.navigationController?.navigationBar.tintColor = UIColor(named: "ActionColorButton")
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(newPage))
+        emptyImage.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    func newPage() {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ModalNewPage") as? NewPageViewController {
+            vc.album = album
+            //self.navigationController?.pushViewController(vc, animated: true)
+            vc.delegate = self
+            present(vc, animated: true, completion: nil)
+        }
     }
     
     // MARK: VIEW WILL APPEAR
@@ -65,7 +81,13 @@ class PageViewController: UIViewController, UICollectionViewDelegate {
 extension PageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.pageData!.count
+        guard let quant = self.pageData?.count else { return 0 }
+        if quant ==  0 {
+            emptyImage.isHidden = false
+        } else {
+            emptyImage.isHidden = true
+        }
+        return quant
     }
     
     // MARK: CONSTRUTOR DAS CELULAS

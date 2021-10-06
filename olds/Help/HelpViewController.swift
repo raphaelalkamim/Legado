@@ -17,7 +17,7 @@ class HelpViewController: UIViewController {
            let view = ViewOnboarding()
            view.setup(titulo: "Legado",
                       text: "Esse é o App Legado! \n\n Aqui você pode registar todas as suas memórias favoritas através de fotos e áudios. \n\n Seja bem-vindo.",
-                      imageName: "blueAlbum", imageDescription: "")
+                      imageName: "help1", imageDescription: "")
            return view
        }()
        
@@ -25,15 +25,15 @@ class HelpViewController: UIViewController {
            let view = ViewOnboarding()
            view.setup(titulo: "Criando um Álbum",
                       text: "A tela inicial é o local onde ficam todos os seus álbuns, podendo visualizados separados por seus temas ou todos de uma vez. Lá você também conseguirá criar novos albuns clicando em 'Criar Álbum'. \n\n No formulário de criação de álbum você deverá inserir um título e o tema do seu álbum",
-                      imageName: "greenAlbum", imageDescription: "")
+                      imageName: "help2", imageDescription: "")
            return view
        }()
        
        lazy var view2:ViewOnboarding =  {
            let view = ViewOnboarding()
            view.setup(titulo: "Criando uma Página",
-                      text: "Depois de criar o Álbum, para adicionar uma página, você clicará em 'Abrir Álbum' e em seguida em Adicionar página. Você poderá Adicionar quantas páginas quiser. \n\n No formulário de crianção da página, você deverá inserir a data de sua memória, além de uma foto e gravar um áudio contando sua memória. \n\n Nessa página solicitaremos a permissão de uso de microfone, cámera e biblioteca de imagens para poder armazenar seu legado em nosso App.",
-                      imageName: "redAlbum", imageDescription: "")
+                      text: "Depois de criar o Álbum, para adicionar uma página, você clicará em 'Abrir Álbum' e em seguida em 'Adicionar Página'. Você poderá Adicionar quantas páginas quiser. \n\n No formulário de criação da página, você deverá inserir a data de sua memória, além de uma foto e gravar um áudio contando sua história. \n\n Nessa página solicitaremos a permissão de uso de microfone, câmera e biblioteca de imagens para poder armazenar seu legado em nosso App.",
+                      imageName: "help3", imageDescription: "")
            return view
        }()
        
@@ -41,7 +41,7 @@ class HelpViewController: UIViewController {
            let view = ViewOnboarding()
            view.setup(titulo: "Apagando Álbuns e Páginas",
                       text: "Para apagar tanto seus Álbuns quanto suas Páginas basta pressionar e segurar o album ou página que então irá surgir um botão com a opção 'Apagar'. \n\n Lembre-se, ao confirmar a exclusão de seus Álbuns ou Páginas, eles não poderão ser recuperados.",
-                      imageName: "blueAlbum", imageDescription: "")
+                      imageName: "help4", imageDescription: "")
            return view
        }()
        
@@ -49,7 +49,7 @@ class HelpViewController: UIViewController {
            let view = ViewOnboarding()
            view.setup(titulo: "Linha do Tempo",
                       text: "Sua Linha do tempo é mais uma forma de acessar suas memórias. Com ela você pode visualiza-las em ordem cronológica.",
-                      imageName: "greenAlbum", imageDescription: "")
+                      imageName: "help5", imageDescription: "")
            return view
        }()
        
@@ -78,6 +78,7 @@ class HelpViewController: UIViewController {
         pageControl.numberOfPages = arrayViews.count
         pageControl.currentPage = 0
         pageControl.currentPageIndicatorTintColor = UIColor(named: "ActionColorButton")
+        pageControl.pageIndicatorTintColor = UIColor (named: "destructiveButtonColor")
         pageControl.isEnabled = true
         pageControl.addTarget(self, action: #selector(pageControlTapHandler(sender:)), for: .valueChanged)
         return pageControl
