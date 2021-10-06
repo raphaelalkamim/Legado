@@ -26,13 +26,13 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     var audioRecorder: AVAudioRecorder?
     var audioPlayer: AVAudioPlayer?
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker?
     @IBOutlet weak var imgPhoto: UIImageView!
     @IBOutlet weak var newPhotoButton: UIButton!
     @IBOutlet weak var recordAudioButton: UIButton!
     
-    @IBOutlet weak var stopLabel: UILabel!
+    @IBOutlet weak var recordLabel: UILabel!
+    @IBOutlet weak var playLabel: UILabel!
     
     var audioURL: String!
     
@@ -47,20 +47,19 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         audioRecorderFunc()
         
         //Determinando elementos como de acessibilidade
-//        playButton.isAccessibilityElement = true
-//        stopButton.isAccessibilityElement = true
-//        datePicker?.isAccessibilityElement = true
-//        imgPhoto.isAccessibilityElement = true
-//        newPhotoButton.isAccessibilityElement = true
-//        recordAudioButton.isAccessibilityElement = true
-//        recordAudioLabel.isAccessibilityElement = true
-//        playAudioLabel.isAccessibilityElement = true
-//        stopAudioLabel.isAccessibilityElement = true
+        //        playButton.isAccessibilityElement = true
+        //        stopButton.isAccessibilityElement = true
+        //        datePicker?.isAccessibilityElement = true
+        //        imgPhoto.isAccessibilityElement = true
+        //        newPhotoButton.isAccessibilityElement = true
+        //        recordAudioButton.isAccessibilityElement = true
+        //        recordAudioLabel.isAccessibilityElement = true
+        //        playAudioLabel.isAccessibilityElement = true
+        //        stopAudioLabel.isAccessibilityElement = true
         
         
         //o que o voice over fala
         playButton.accessibilityLabel = "Reproduzir audio"
-        stopButton.accessibilityLabel = "Parar Gravação"
         recordAudioButton.accessibilityLabel = "Gravar audio"
         
     }
@@ -90,7 +89,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
     }
     
     
-
+    
     
     // MARK: SHOW IMAGE PICKER
     @IBAction func showImagePicker(_ sender: Any) {
@@ -188,63 +187,39 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 recorder.record()
                 print("To gravando")
                 recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State.selected)
-                stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
                 playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
-                stopLabel.text = "Parar de Gravar"
+                recordLabel.text = "Parar de Gravar"
                 
                 recordAudioButton.isSelected = true
-                stopButton.isEnabled = true
                 playButton.isEnabled = false
                 
             } else {
-                // Pausando a gravação
-                recorder.pause()
                 
-                recordAudioButton.setImage(UIImage(systemName: "pause.circle"), for: UIControl.State())
-                playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
-                stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
+                recordAudioButton.setImage(UIImage(systemName: "mic.circle"), for: UIControl.State())
+                playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
+                recordLabel.text = "Regravar Áudio"
                 
-                
-                stopButton.isEnabled = false
-                playButton.isEnabled = false
                 recordAudioButton.isSelected = false
+                playButton.isSelected = false
+                
+                playButton.isEnabled = true
+                recordAudioButton.isEnabled = true
+                
+                if let recorder = audioRecorder {
+                    if recorder.isRecording {
+                        audioRecorder?.stop()
+                        let audioSession = AVAudioSession.sharedInstance()
+                        do {
+                            try audioSession.setActive(false)
+                        } catch _ {
+                        }
+                    }
+                }
                 
             }
         }
     }
     
-    // MARK: STOP AUDIO
-    @IBAction func stopAction(_ sender: Any) {
-        
-        recordAudioButton.setImage(UIImage(systemName: "mic.circle"), for: UIControl.State())
-        playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
-        stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
-        
-        recordAudioButton.isSelected = false
-        playButton.isSelected = false
-        
-        stopButton.isEnabled = false
-        playButton.isEnabled = true
-        recordAudioButton.isEnabled = true
-        
-        if let recorder = audioRecorder {
-            if recorder.isRecording {
-                audioRecorder?.stop()
-                let audioSession = AVAudioSession.sharedInstance()
-                do {
-                    try audioSession.setActive(false)
-                } catch _ {
-                }
-            }
-        }
-        
-        // Parando de gravar
-        if let player = audioPlayer {
-            if player.isPlaying {
-                player.stop()
-            }
-        }
-    }
     
     // MARK: PLAY AUDIO
     @IBAction func playReplayAction(_ sender: Any) {
@@ -253,15 +228,23 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
                 audioPlayer = try? AVAudioPlayer(contentsOf: recorder.url)
                 audioPlayer?.delegate = self
                 audioPlayer?.play()
-                playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State.selected)
+                playButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State.selected)
                 playButton.isSelected = true
-                stopButton.isEnabled = true
+                //stopButton.isEnabled = true
                 
                 
-                stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
+                // stopButton.setImage(UIImage(systemName: "stop.circle"), for: UIControl.State())
                 recordAudioButton.setImage(UIImage(systemName: "record.circle"), for: UIControl.State())
                 recordAudioButton.isEnabled = false
-                stopLabel.text = "Parar de Reproduzir"
+                //stopLabel.text = "Parar de Reproduzir"
+            }
+            
+            if let player = audioPlayer {
+                if player.isPlaying {
+                    player.stop()
+                    playButton.setImage(UIImage(systemName: "play.circle"), for: UIControl.State())
+                    playButton.isSelected = false
+                }
             }
         }
     }
@@ -298,7 +281,7 @@ class NewPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRec
         
     }
     
-
+    
     //MARK: Check Album permission
     func checkPermissions() {
         if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized {

@@ -462,12 +462,9 @@
                                     <action selector="datePickerChanged:" destination="0eS-qe-iFi" eventType="valueChanged" id="g38-Qu-2Hg"/>
                                 </connections>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-aE-WCz">
-                                <rect key="frame" x="136" y="831" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="M6b-fa-L5x"/>
-                                    <constraint firstAttribute="height" constant="60" id="ht8-B4-M4A"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-aE-WCz">
+                                <rect key="frame" x="136" y="831" width="60" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal">
@@ -477,23 +474,6 @@
                                 </state>
                                 <connections>
                                     <action selector="recordAction:" destination="0eS-qe-iFi" eventType="touchUpInside" id="5oc-Oj-e9q"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ub0-Ok-mO2">
-                                <rect key="frame" x="342" y="831" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="gC1-fT-ic4"/>
-                                    <constraint firstAttribute="height" constant="60" id="uDA-6k-f9Q"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
-                                <color key="tintColor" name="ActionColorButton"/>
-                                <state key="normal">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                    <imageReference key="image" image="stop.circle" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopAction:" destination="0eS-qe-iFi" eventType="touchUpInside" id="6x4-F8-igX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.84999999999999998" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-yp-mhh">
@@ -513,28 +493,13 @@
                                     <action selector="showImagePicker:" destination="0eS-qe-iFi" eventType="touchUpInside" id="Dgk-ng-udN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gravar Áudio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-qv-L3w">
-                                <rect key="frame" x="89" y="899" width="155" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gravar Áudio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdt-qv-L3w">
+                                <rect key="frame" x="88.5" y="895" width="155" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="155" id="EAe-Nx-a8H"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parar Áudio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TJ-Hw-e1X">
-                                <rect key="frame" x="288" y="899" width="168" height="21"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="168" id="pog-Qk-aG7"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -568,8 +533,9 @@
                                     <action selector="pageSave:" destination="0eS-qe-iFi" eventType="touchUpInside" id="atc-BU-Sz5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reproduzir Áudio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5z-th-NTT">
-                                <rect key="frame" x="513" y="899" width="151" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reproduzir Áudio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5z-th-NTT">
+                                <rect key="frame" x="533" y="888.5" width="131" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -578,12 +544,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-yV-X2c">
-                                <rect key="frame" x="548" y="831" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Dk6-nH-1oG"/>
-                                    <constraint firstAttribute="height" constant="60" id="qBi-56-HE7"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-yV-X2c">
+                                <rect key="frame" x="568" y="831" width="60" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="tintColor" name="ActionColorButton"/>
                                 <state key="normal">
@@ -601,31 +564,16 @@
                         <constraints>
                             <constraint firstItem="AwY-en-o5y" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="0t3-Ws-f7o"/>
                             <constraint firstItem="AwY-en-o5y" firstAttribute="top" secondItem="h9d-fs-4En" secondAttribute="top" constant="76" id="2gP-nr-EOn"/>
-                            <constraint firstItem="1TJ-Hw-e1X" firstAttribute="top" secondItem="ub0-Ok-mO2" secondAttribute="bottom" constant="8" symbolic="YES" id="45H-7b-N7h"/>
-                            <constraint firstItem="S5z-th-NTT" firstAttribute="baseline" secondItem="1TJ-Hw-e1X" secondAttribute="baseline" id="5p9-6O-WVE"/>
                             <constraint firstItem="fKz-pL-5TP" firstAttribute="top" secondItem="AwY-en-o5y" secondAttribute="bottom" constant="8" symbolic="YES" id="8eB-ht-01T"/>
                             <constraint firstItem="rFD-Q1-YCd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qx5-P0-ONE" secondAttribute="trailing" constant="8" symbolic="YES" id="8nf-1k-8p3"/>
-                            <constraint firstItem="Wdt-qv-L3w" firstAttribute="top" secondItem="ehx-aE-WCz" secondAttribute="bottom" constant="8" symbolic="YES" id="DVM-TG-5XY"/>
-                            <constraint firstItem="ehx-aE-WCz" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="8" id="GWP-Bi-U4N"/>
-                            <constraint firstItem="BoP-yV-X2c" firstAttribute="leading" secondItem="ub0-Ok-mO2" secondAttribute="trailing" constant="146" id="JNf-Iz-Nko"/>
-                            <constraint firstItem="S5z-th-NTT" firstAttribute="leading" secondItem="BoP-yV-X2c" secondAttribute="trailing" constant="-95" id="KuH-Zh-K4j"/>
-                            <constraint firstItem="BoP-yV-X2c" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="8" id="MLN-RI-7v8"/>
                             <constraint firstItem="yeA-43-W0s" firstAttribute="top" secondItem="fKz-pL-5TP" secondAttribute="bottom" constant="1" id="NZP-y7-mZu"/>
                             <constraint firstItem="h9d-fs-4En" firstAttribute="trailing" secondItem="rFD-Q1-YCd" secondAttribute="trailing" constant="20" id="OjT-0C-Jm2"/>
                             <constraint firstItem="yeA-43-W0s" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="RIJ-Hx-lUx"/>
-                            <constraint firstItem="Wdt-qv-L3w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h9d-fs-4En" secondAttribute="leading" symbolic="YES" id="UeN-hZ-zLJ"/>
-                            <constraint firstItem="ub0-Ok-mO2" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="8" symbolic="YES" id="Vze-c7-3im"/>
                             <constraint firstItem="fKz-pL-5TP" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="bJt-K1-ZM0"/>
-                            <constraint firstItem="ub0-Ok-mO2" firstAttribute="leading" secondItem="ehx-aE-WCz" secondAttribute="trailing" constant="146" id="bRu-TF-tfe"/>
                             <constraint firstItem="Qx5-P0-ONE" firstAttribute="top" secondItem="h9d-fs-4En" secondAttribute="top" constant="20" id="bSo-gC-X6f"/>
                             <constraint firstItem="gEf-yp-mhh" firstAttribute="top" secondItem="yeA-43-W0s" secondAttribute="bottom" constant="-66" id="cji-nI-xRG"/>
-                            <constraint firstItem="S5z-th-NTT" firstAttribute="baseline" secondItem="Wdt-qv-L3w" secondAttribute="baseline" constant="-6" id="cpJ-ja-lKz"/>
-                            <constraint firstItem="h9d-fs-4En" firstAttribute="trailing" secondItem="S5z-th-NTT" secondAttribute="trailing" constant="80" id="f83-p9-23S"/>
                             <constraint firstItem="gEf-yp-mhh" firstAttribute="centerX" secondItem="yeA-43-W0s" secondAttribute="centerX" id="fJW-YJ-egV"/>
-                            <constraint firstItem="S5z-th-NTT" firstAttribute="leading" secondItem="1TJ-Hw-e1X" secondAttribute="trailing" constant="57" id="fqS-iu-kyD"/>
-                            <constraint firstItem="1TJ-Hw-e1X" firstAttribute="leading" secondItem="Wdt-qv-L3w" secondAttribute="trailing" constant="44" id="naF-n5-PEv"/>
                             <constraint firstItem="rFD-Q1-YCd" firstAttribute="top" secondItem="h9d-fs-4En" secondAttribute="top" constant="20" id="p0n-hq-kfi"/>
-                            <constraint firstItem="ub0-Ok-mO2" firstAttribute="centerX" secondItem="h9d-fs-4En" secondAttribute="centerX" id="p82-xs-cd2"/>
                             <constraint firstItem="Qx5-P0-ONE" firstAttribute="leading" secondItem="h9d-fs-4En" secondAttribute="leading" constant="20" id="vf2-jJ-gW6"/>
                         </constraints>
                     </view>
@@ -642,9 +590,9 @@
                         <outlet property="imgPhoto" destination="yeA-43-W0s" id="sz3-de-EkC"/>
                         <outlet property="newPhotoButton" destination="gEf-yp-mhh" id="BuE-Ni-uPr"/>
                         <outlet property="playButton" destination="BoP-yV-X2c" id="qh6-Yh-KAO"/>
+                        <outlet property="playLabel" destination="S5z-th-NTT" id="kfP-bE-tC3"/>
                         <outlet property="recordAudioButton" destination="ehx-aE-WCz" id="1LS-Jp-niS"/>
-                        <outlet property="stopButton" destination="ub0-Ok-mO2" id="j4C-dd-cMn"/>
-                        <outlet property="stopLabel" destination="1TJ-Hw-e1X" id="NDg-iN-hjX"/>
+                        <outlet property="recordLabel" destination="Wdt-qv-L3w" id="HKe-Xp-L5r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INs-eC-CpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -991,7 +939,6 @@
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="redAlbum" width="1446" height="1830"/>
         <image name="redAlbumNotSel" width="362" height="459"/>
-        <image name="stop.circle" catalog="system" width="128" height="121"/>
         <namedColor name="ActionColorButton">
             <color red="0.39215686274509803" green="0.0" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
