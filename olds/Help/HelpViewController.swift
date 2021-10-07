@@ -24,7 +24,7 @@ class HelpViewController: UIViewController {
        lazy var view1:ViewOnboarding =  {
            let view = ViewOnboarding()
            view.setup(titulo: "Criando um Álbum",
-                      text: "A tela inicial é o local onde ficam todos os seus álbuns, podendo visualizados separados por seus temas ou todos de uma vez. Lá você também conseguirá criar novos albuns clicando em 'Criar Álbum'. \n\n No formulário de criação de álbum você deverá inserir um título e o tema do seu álbum",
+                      text: "A tela inicial é o local onde ficam todos os seus álbuns, podendo visualizados separados por seus temas ou todos de uma vez. Lá você também conseguirá criar novos álbuns clicando em 'Criar Álbum'. \n\n No formulário de criação de álbum você deverá inserir um título e o tema do seu álbum",
                       imageName: "help2", imageDescription: "")
            return view
        }()
@@ -48,7 +48,7 @@ class HelpViewController: UIViewController {
        lazy var view4:ViewOnboarding =  {
            let view = ViewOnboarding()
            view.setup(titulo: "Linha do Tempo",
-                      text: "Sua Linha do tempo é mais uma forma de acessar suas memórias. Com ela você pode visualiza-las em ordem cronológica.",
+                      text: "Sua Linha do tempo é mais uma forma de acessar suas memórias. Com ela você pode visualizá-las em ordem cronológica.",
                       imageName: "help5", imageDescription: "")
            return view
        }()
